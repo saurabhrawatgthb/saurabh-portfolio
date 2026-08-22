@@ -12,7 +12,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<SVGTextElement>(null);
-  const strokeTextRef = useRef<SVGTextElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -34,7 +33,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
     const container = containerRef.current;
     const pin = pinRef.current;
     const text = textRef.current;
-    const strokeText = strokeTextRef.current;
     const indicator = scrollIndicatorRef.current;
     const overlay = overlayRef.current;
 
@@ -85,11 +83,9 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
         },
       });
 
-      // Dramatic exponential scaling of both the SVG masked text cutout and the crisp stroke outline
-      const scaleTargets = strokeText ? [text, strokeText] : text;
-
+      // Dramatic exponential scaling of the bold SVG masked text cutout
       tl.fromTo(
-        scaleTargets,
+        text,
         {
           scale: 1,
           transformOrigin: "50% 50%",
@@ -101,19 +97,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
           duration: 1,
         }
       );
-
-      // Smoothly fade out the crisp stroke border as letters become large portals
-      if (strokeText) {
-        tl.to(
-          strokeText,
-          {
-            opacity: 0,
-            duration: 0.35,
-            ease: "power1.out",
-          },
-          0.32
-        );
-      }
 
       // Fade out the black overlay cleanly at the very end
       if (overlay) {
@@ -145,7 +128,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
         ref={pinRef}
         className="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center select-none"
       >
-        {/* Fullscreen SVG with Masked Cutout and Refined Bright Outline */}
+        {/* Fullscreen SVG with Bold Masked Cutout (No white border) */}
         <div
           ref={overlayRef}
           className="absolute inset-0 w-full h-full pointer-events-none will-change-opacity"
@@ -157,7 +140,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              {/* Mask: White preserves solid black overlay, Black text cuts transparent aperture */}
+              {/* Mask: White preserves solid black overlay, Ultra-Bold Black text cuts transparent aperture */}
               <mask id="saurabh-title-mask">
                 <rect width="1920" height="1080" fill="white" />
                 <text
@@ -167,12 +150,17 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fill="black"
+                  stroke="black"
+                  strokeWidth={isMobile ? "12" : "10"}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
                   className="font-pricedown uppercase"
                   style={{
-                    fontFamily: "Pricedown, Impact, sans-serif",
-                    fontSize: isMobile ? "145px" : "110px",
+                    fontFamily: "Pricedown, 'Bebas Neue', Impact, 'Arial Black', sans-serif",
+                    fontSize: isMobile ? "160px" : "130px",
                     fontWeight: 900,
                     letterSpacing: isMobile ? "2px" : "4px",
+                    paintOrder: "stroke fill",
                   }}
                 >
                   {isMobile ? (
@@ -189,11 +177,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
                   )}
                 </text>
               </mask>
-
-              {/* Refined Sharp Glowing Border Filter */}
-              <filter id="bright-glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="0" stdDeviation="2.5" floodColor="#ffffff" floodOpacity="0.85" />
-              </filter>
             </defs>
 
             {/* Black overlay cutout by the mask directly looking through to PersistentBackground */}
@@ -203,41 +186,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
               fill="#000000"
               mask="url(#saurabh-title-mask)"
             />
-
-            {/* Crisp, Thin, Sleek Bright Border Outline around SAURABH RAWAT */}
-            <text
-              ref={strokeTextRef}
-              x="960"
-              y={isMobile ? "480" : "550"}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth={isMobile ? "2.5" : "2"}
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              filter="url(#bright-glow)"
-              className="font-pricedown uppercase pointer-events-none"
-              style={{
-                fontFamily: "Pricedown, Impact, sans-serif",
-                fontSize: isMobile ? "145px" : "110px",
-                fontWeight: 900,
-                letterSpacing: isMobile ? "2px" : "4px",
-              }}
-            >
-              {isMobile ? (
-                <>
-                  <tspan x="960" dy="-0.55em">
-                    SAURABH
-                  </tspan>
-                  <tspan x="960" dy="1.15em">
-                    RAWAT
-                  </tspan>
-                </>
-              ) : (
-                "SAURABH RAWAT"
-              )}
-            </text>
           </svg>
         </div>
 

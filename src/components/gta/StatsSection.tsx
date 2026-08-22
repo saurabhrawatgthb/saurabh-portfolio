@@ -58,12 +58,12 @@ export function StatsSection() {
               PLAYER STATS
             </h2>
           </div>
-          <div className="bg-gta-cyan text-black px-4 py-2 rounded-xl font-pricedown text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-cyan text-black px-4 py-2 rounded-2xl font-pricedown text-lg tracking-widest shadow-hard">
             4 ACTIVE TELEMETRY STREAMS
           </div>
         </div>
 
-        {/* Profile Channels Grid in Glass */}
+        {/* Profile Channels Grid in Crystal Glass */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {statsChannels.map((item, idx) => {
             const Icon = item.icon;
@@ -73,11 +73,11 @@ export function StatsSection() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] ${item.hoverBg} transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden`}
+                className={`rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 ${item.hoverBg} transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`p-3 rounded-2xl bg-black/70 border ${item.color}`}>
+                    <div className={`p-3 rounded-2xl bg-black/60 border ${item.color}`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <span className="font-pricedown text-xs text-white/50 group-hover:text-white transition-colors">
@@ -94,7 +94,7 @@ export function StatsSection() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-white/10 text-xs font-mono text-white/60">
+                <div className="mt-6 pt-3 border-t border-white/15 text-xs font-mono text-white/70">
                   {item.tag}
                 </div>
               </a>

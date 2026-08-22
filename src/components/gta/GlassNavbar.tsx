@@ -47,9 +47,9 @@ export function GlassNavbar({ isVisible }: GlassNavbarProps) {
           : "opacity-0 -translate-y-12 pointer-events-none"
       }`}
     >
-      <div className="flex items-center justify-between px-5 py-3 rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] relative overflow-hidden">
-        {/* Subtle internal gradient highlight */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#c66bff]/10 via-[#ff5fa8]/10 to-[#ff9840]/10 pointer-events-none" />
+      <div className="ios-crystal-glass crystal-sheen-sweep flex items-center justify-between px-5 py-3 rounded-2xl">
+        {/* Prismatic liquid sheen ambient overlay */}
+        <div className="absolute inset-0 liquid-mirror-bg opacity-30 pointer-events-none" />
 
         {/* Brand Name in Pricedown */}
         <a
@@ -60,17 +60,17 @@ export function GlassNavbar({ isVisible }: GlassNavbarProps) {
           SAURABH RAWAT
         </a>
 
-        {/* Desktop Game Menu Links with Expanding Hover Pill */}
+        {/* Desktop Game Menu Links with Expanding Crystal Pill */}
         <nav className="hidden xl:flex items-center gap-1.5 relative z-10">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="relative px-3 py-1 rounded-lg font-pricedown text-sm tracking-wider text-white/80 transition-all duration-200 group overflow-hidden"
+              className="relative px-3.5 py-1.5 rounded-xl font-pricedown text-sm tracking-wider text-white/85 transition-all duration-250 group overflow-hidden"
             >
-              {/* Expanding White Highlight on Hover */}
-              <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-200 ease-out -z-10" />
+              {/* Expanding Liquid Specular Highlight on Hover */}
+              <span className="absolute inset-0 bg-white/95 translate-y-full group-hover:translate-y-0 transition-transform duration-250 ease-out -z-10 shadow-[0_0_15px_rgba(255,255,255,0.6)]" />
               <span className="relative z-10 transition-colors duration-200 group-hover:text-black font-bold">
                 {item.label}
               </span>
@@ -101,9 +101,9 @@ export function GlassNavbar({ isVisible }: GlassNavbarProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Crystal Glass */}
       {isMobileOpen && (
-        <div className="xl:hidden mt-2 p-4 rounded-2xl bg-black/90 backdrop-blur-2xl border border-white/20 flex flex-col gap-2 shadow-2xl">
+        <div className="xl:hidden mt-2 p-4 rounded-2xl ios-crystal-glass flex flex-col gap-2 shadow-2xl">
           {navItems.map((item) => (
             <a
               key={item.label}

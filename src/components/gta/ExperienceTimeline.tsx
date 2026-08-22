@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2, ChevronRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { experienceLog } from "@/data/experience";
 
 export function ExperienceTimeline() {
@@ -18,22 +18,22 @@ export function ExperienceTimeline() {
               EXPERIENCE
             </h2>
           </div>
-          <div className="bg-gta-pink px-4 py-2 rounded-xl text-white font-pricedown text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-pink px-4 py-2 rounded-2xl text-white font-pricedown text-lg tracking-widest shadow-hard">
             {experienceLog.length} CHAPTERS LOGGED
           </div>
         </div>
 
-        {/* Timeline Stack in Glass */}
+        {/* Timeline Stack in Crystal Glass */}
         <div className="space-y-6">
           {experienceLog.map((item) => (
             <div
               key={item.id}
-              className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-gta-yellow transition-all duration-300 relative group overflow-hidden"
+              className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 md:p-8 hover:border-gta-yellow transition-all duration-300 relative group"
             >
-              <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/10 pb-4 mb-4">
+              <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/15 pb-4 mb-4">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="bg-gta-yellow text-black rounded font-pricedown text-xs px-2.5 py-0.5 tracking-wider font-bold">
+                    <span className="bg-gta-yellow text-black rounded-lg font-pricedown text-xs px-2.5 py-0.5 tracking-wider font-bold">
                       {item.year}
                     </span>
                     <span className="font-pricedown text-xs text-gta-cyan tracking-widest uppercase">
@@ -56,12 +56,12 @@ export function ExperienceTimeline() {
                 </div>
               </div>
 
-              <div className="text-xs text-white/70 font-sans mb-4">
+              <div className="text-xs text-white/75 font-sans mb-4">
                 <strong>SCOPE:</strong> {item.scope}
               </div>
 
               {/* Impact Bullet Points */}
-              <div className="space-y-2 border-t border-white/10 pt-4">
+              <div className="space-y-2 border-t border-white/15 pt-4">
                 {item.impact.map((point, pIdx) => (
                   <div key={pIdx} className="flex items-start gap-2 text-sm text-white/90 font-medium">
                     <span className="text-gta-yellow font-bold mt-0.5">▶</span>
@@ -75,7 +75,7 @@ export function ExperienceTimeline() {
                 {item.skillsApplied.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="bg-black/60 rounded-lg border border-white/20 px-2.5 py-1 font-pricedown text-xs tracking-wider text-white/80"
+                    className="bg-black/50 rounded-xl border border-white/20 px-3 py-1 font-pricedown text-xs tracking-wider text-white/85"
                   >
                     #{skill}
                   </span>

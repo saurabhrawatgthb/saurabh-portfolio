@@ -18,14 +18,14 @@ export function ResearchSection() {
               RESEARCH
             </h2>
           </div>
-          <div className="bg-gta-yellow text-black font-pricedown px-4 py-2 rounded-xl text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-yellow text-black font-pricedown px-4 py-2 rounded-2xl text-lg tracking-widest shadow-hard">
             #{researchData.paperCode}
           </div>
         </div>
 
-        {/* Research Paper Glass Card */}
-        <div className="rounded-3xl bg-black/45 backdrop-blur-xl border-2 border-gta-yellow/80 p-6 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)]">
-          <div className="border-b border-white/10 pb-6 mb-6">
+        {/* Research Paper Crystal Glass Card */}
+        <div className="rounded-3xl ios-crystal-glass crystal-sheen-sweep border-2 border-gta-yellow/80 p-6 md:p-10">
+          <div className="border-b border-white/15 pb-6 mb-6">
             <div className="flex items-center gap-2 font-pricedown text-xs text-gta-cyan tracking-widest uppercase">
               <span>DOMAIN: {researchData.domain}</span>
               <span>•</span>
@@ -37,17 +37,17 @@ export function ResearchSection() {
             </h3>
 
             <div className="mt-3 flex flex-wrap gap-2">
-              <div className="inline-block bg-gta-yellow text-black rounded font-pricedown text-xs px-3 py-1 tracking-wider font-bold">
+              <div className="inline-block bg-gta-yellow text-black rounded-xl font-pricedown text-xs px-3 py-1 tracking-wider font-bold">
                 STATUS: {researchData.status}
               </div>
-              <div className="inline-block bg-gta-cyan/20 border border-gta-cyan text-gta-cyan rounded font-pricedown text-xs px-3 py-1 tracking-wider">
+              <div className="inline-block bg-gta-cyan/20 border border-gta-cyan text-gta-cyan rounded-xl font-pricedown text-xs px-3 py-1 tracking-wider">
                 PATENT CONCEPT: UNICARD SMART HARDWARE
               </div>
             </div>
           </div>
 
           {/* Abstract */}
-          <div className="bg-black/60 rounded-2xl border-l-4 border-gta-pink p-5 mb-8">
+          <div className="bg-black/50 rounded-2xl border-l-4 border-gta-pink p-5 mb-8">
             <div className="font-pricedown text-base text-gta-pink tracking-widest mb-2 uppercase">
               [ SCIENTIFIC ABSTRACT ]
             </div>
@@ -59,18 +59,18 @@ export function ResearchSection() {
           {/* Metrics Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
             {researchData.systemMetrics.map((metric, idx) => (
-              <div key={idx} className="bg-black/60 rounded-2xl border border-white/20 p-4 text-center">
+              <div key={idx} className="bg-black/50 rounded-2xl border border-white/20 p-4 text-center">
                 <div className="font-pricedown text-3xl sm:text-4xl text-gta-yellow">
                   {metric.value}
                 </div>
                 <div className="font-pricedown text-xs text-gta-cyan tracking-wider">{metric.unit}</div>
-                <div className="text-[10px] text-white/60 font-mono mt-1 uppercase">{metric.label}</div>
+                <div className="text-[10px] text-white/70 font-mono mt-1 uppercase">{metric.label}</div>
               </div>
             ))}
           </div>
 
           {/* Methodology Breakdown */}
-          <div className="bg-black/60 rounded-2xl border border-white/20 p-6">
+          <div className="bg-black/50 rounded-2xl border border-white/20 p-6">
             <div className="font-pricedown text-lg text-gta-cyan tracking-wider mb-4 uppercase">
               EXPERIMENTAL METHODOLOGY & PIPELINE PHASES
             </div>
@@ -78,7 +78,7 @@ export function ResearchSection() {
               {researchData.methodology.map((m, idx) => (
                 <div key={idx} className="border-l-2 border-gta-cyan pl-4">
                   <div className="font-pricedown text-base text-white tracking-wider">{m.phase}</div>
-                  <p className="text-xs sm:text-sm text-white/70 font-sans mt-0.5">{m.description}</p>
+                  <p className="text-xs sm:text-sm text-white/80 font-sans mt-0.5">{m.description}</p>
                 </div>
               ))}
             </div>

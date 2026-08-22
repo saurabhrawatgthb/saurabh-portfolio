@@ -26,29 +26,26 @@ export function SkillsSection() {
               SKILLS
             </h2>
           </div>
-          <div className="bg-gta-cyan px-4 py-2 rounded-xl text-black font-pricedown text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-cyan px-4 py-2 rounded-2xl text-black font-pricedown text-lg tracking-widest shadow-hard">
             5 ARSENAL MODULES LOADED
           </div>
         </div>
 
-        {/* Arsenal Grid Layout in Glass */}
+        {/* Arsenal Grid Layout in Crystal Glass */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillModules.map((module, idx) => {
             const colorClass = slotColors[idx % slotColors.length];
             return (
               <div
                 key={module.id}
-                className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-white/50 transition-all duration-300 transform hover:-translate-y-1.5 relative group overflow-hidden"
+                className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 sm:p-8 hover:scale-[1.02] transition-all duration-300 transform relative group"
               >
-                {/* Subtle gradient glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
-
                 {/* Slot Tag */}
-                <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                  <span className="font-pricedown text-xs tracking-widest text-white/50">
+                <div className="flex items-center justify-between border-b border-white/15 pb-3 mb-4">
+                  <span className="font-pricedown text-xs tracking-widest text-white/60">
                     SLOT 0{idx + 1} // [{module.code}]
                   </span>
-                  <span className="bg-white/10 text-gta-yellow font-pricedown text-[10px] px-2 py-0.5 rounded tracking-wider">
+                  <span className="bg-white/10 text-gta-yellow font-pricedown text-[10px] px-2 py-0.5 rounded-lg tracking-wider">
                     {module.status}
                   </span>
                 </div>
@@ -58,16 +55,16 @@ export function SkillsSection() {
                   {module.name}
                 </h3>
 
-                <p className="text-xs text-white/70 font-sans mb-6 line-clamp-2">
+                <p className="text-xs text-white/75 font-sans mb-6 line-clamp-2">
                   {module.description}
                 </p>
 
                 {/* Skill Items */}
-                <div className="space-y-2 border-t border-white/10 pt-4">
+                <div className="space-y-2 border-t border-white/15 pt-4">
                   {module.skills.map((skill, sIdx) => (
                     <div
                       key={sIdx}
-                      className="bg-black/60 rounded-xl border border-white/10 p-2.5 flex items-center justify-between hover:border-white/40 transition-colors"
+                      className="bg-black/50 rounded-xl border border-white/15 p-2.5 flex items-center justify-between hover:border-white/40 transition-colors"
                     >
                       <div className="flex items-center gap-2">
                         <span className="text-gta-yellow font-bold text-xs">★</span>
@@ -75,7 +72,7 @@ export function SkillsSection() {
                           {skill.name}
                         </span>
                       </div>
-                      <span className="font-mono text-[9px] text-white/60 bg-black/80 px-2 py-0.5 rounded">
+                      <span className="font-mono text-[9px] text-white/60 bg-black/80 px-2 py-0.5 rounded-md">
                         {skill.tag}
                       </span>
                     </div>

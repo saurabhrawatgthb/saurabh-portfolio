@@ -27,27 +27,27 @@ export function AchievementSection() {
               ACHIEVEMENTS
             </h2>
           </div>
-          <div className="bg-gta-pink text-white font-pricedown px-4 py-2 rounded-xl text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-pink text-white font-pricedown px-4 py-2 rounded-2xl text-lg tracking-widest shadow-hard">
             {achievementsData.length} VERIFIED STAMPS
           </div>
         </div>
 
-        {/* Evidence Collage Grid in Glass */}
+        {/* Evidence Collage Grid in Crystal Glass */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievementsData.map((item, idx) => {
             const colorClass = badgeColors[idx % badgeColors.length];
             return (
               <div
                 key={item.id}
-                className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-gta-yellow transition-all duration-300 transform hover:-translate-y-1.5 relative flex flex-col justify-between group overflow-hidden"
+                className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 sm:p-8 hover:border-gta-yellow transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group"
               >
                 <div>
                   {/* Top Badge */}
-                  <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                    <span className="font-pricedown text-xs text-white/50 tracking-widest">
+                  <div className="flex items-center justify-between border-b border-white/15 pb-3 mb-4">
+                    <span className="font-pricedown text-xs text-white/60 tracking-widest">
                       [{item.code}]
                     </span>
-                    <span className={`border ${colorClass} rounded font-pricedown text-[10px] px-2 py-0.5 tracking-wider font-bold`}>
+                    <span className={`border ${colorClass} rounded-lg font-pricedown text-[10px] px-2.5 py-0.5 tracking-wider font-bold`}>
                       {item.badge}
                     </span>
                   </div>
@@ -60,12 +60,12 @@ export function AchievementSection() {
                     {item.organization}
                   </div>
 
-                  <p className="text-xs sm:text-sm text-white/80 font-sans leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-white/85 font-sans leading-relaxed mb-4">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="border-t border-white/10 pt-3 flex items-center justify-between text-xs font-mono text-white/60">
+                <div className="border-t border-white/15 pt-3 flex items-center justify-between text-xs font-mono text-white/70">
                   <span>{item.date}</span>
                   <span className="text-gta-cyan font-bold flex items-center gap-1">
                     <CheckCircle2 className="h-3.5 w-3.5" />

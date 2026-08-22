@@ -26,7 +26,7 @@ export function PlayerSection() {
               PLAYER
             </h2>
           </div>
-          <div className="bg-gta-yellow px-4 py-2 text-black font-pricedown text-lg tracking-widest shadow-hard rounded-lg">
+          <div className="bg-gta-yellow px-4 py-2 text-black font-pricedown text-lg tracking-widest shadow-hard rounded-xl">
             NODE: DEHRADUN // CLEARANCE: ROOT
           </div>
         </div>
@@ -35,9 +35,9 @@ export function PlayerSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Academic Credentials & Philosophy */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Academic Glass Card */}
-            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-gta-pink px-4 py-1 font-pricedown text-white text-xs tracking-widest rounded-bl-xl">
+            {/* Academic Crystal Card */}
+            <div className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 sm:p-8 relative">
+              <div className="absolute top-0 right-0 bg-gta-pink px-4 py-1 font-pricedown text-white text-xs tracking-widest rounded-bl-2xl shadow-sm">
                 ACADEMICS
               </div>
 
@@ -57,14 +57,14 @@ export function PlayerSection() {
                 {profileData.education.institution}
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono text-white/70">
+              <div className="flex items-center justify-between pt-4 border-t border-white/15 text-xs font-mono text-white/80">
                 <span>TIMELINE: {profileData.education.period}</span>
                 <span className="text-gta-cyan font-bold">{profileData.education.status}</span>
               </div>
             </div>
 
-            {/* Builder Philosophy Glass Card */}
-            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)]">
+            {/* Builder Philosophy Crystal Card */}
+            <div className="rounded-3xl ios-crystal-glass p-6 sm:p-8">
               <div className="font-pricedown text-xl sm:text-2xl text-gta-cyan tracking-wider mb-2">
                 MISSION DOCTRINE & PHILOSOPHY
               </div>
@@ -73,8 +73,8 @@ export function PlayerSection() {
               </p>
             </div>
 
-            {/* Focus Badges Glass Panel */}
-            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6">
+            {/* Focus Badges Crystal Panel */}
+            <div className="rounded-3xl ios-crystal-glass p-6">
               <div className="font-pricedown text-sm text-gta-yellow tracking-widest mb-3 uppercase">
                 PRIMARY COMBAT FOCUS & RESEARCH DOMAINS
               </div>
@@ -82,7 +82,7 @@ export function PlayerSection() {
                 {profileData.focusAreas.map((area, idx) => (
                   <span
                     key={idx}
-                    className="bg-black/60 border border-white/30 px-3.5 py-1.5 rounded-lg font-pricedown text-xs tracking-widest text-white hover:border-gta-yellow hover:text-gta-yellow transition-colors"
+                    className="bg-black/50 border border-white/30 px-3.5 py-1.5 rounded-xl font-pricedown text-xs tracking-widest text-white hover:border-gta-yellow hover:text-gta-yellow transition-colors"
                   >
                     ★ {area}
                   </span>
@@ -93,9 +93,9 @@ export function PlayerSection() {
 
           {/* Right Column: Attribute Sliders & Spec Table */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Attribute Skill Sliders in Glass */}
-            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)]">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            {/* Attribute Skill Sliders in Crystal Glass */}
+            <div className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 sm:p-8">
+              <div className="flex items-center justify-between border-b border-white/15 pb-4 mb-6">
                 <span className="font-pricedown text-2xl text-gta-yellow tracking-wider">
                   WEAPONIZED ATTRIBUTES
                 </span>
@@ -109,7 +109,7 @@ export function PlayerSection() {
                       <span className="text-white">{stat.label}</span>
                       <span className="text-gta-yellow">{stat.level}</span>
                     </div>
-                    <div className="h-3 w-full bg-black/80 rounded-full border border-white/20 overflow-hidden p-0.5">
+                    <div className="h-3 w-full bg-black/80 rounded-full border border-white/20 overflow-hidden p-0.5 shadow-inner">
                       <div
                         className={`h-full rounded-full ${stat.color} transition-all duration-1000 shadow-sm`}
                         style={{ width: `${stat.bar}%` }}
@@ -120,11 +120,11 @@ export function PlayerSection() {
               </div>
             </div>
 
-            {/* Spec Table Glass Card */}
-            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 divide-y divide-white/10">
+            {/* Spec Table Crystal Card */}
+            <div className="rounded-3xl ios-crystal-glass p-6 divide-y divide-white/15">
               {profileData.specs.map((spec, idx) => (
                 <div key={idx} className="py-3 flex items-center justify-between text-xs sm:text-sm">
-                  <span className="font-pricedown tracking-widest text-white/60">
+                  <span className="font-pricedown tracking-widest text-white/70">
                     {spec.label}
                   </span>
                   <span className="font-bold font-mono text-white text-right">

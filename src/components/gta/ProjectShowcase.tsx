@@ -45,7 +45,7 @@ export function ProjectShowcase() {
               PROJECTS
             </h2>
           </div>
-          <div className="bg-gta-hotPink px-4 py-2 rounded-xl text-white font-pricedown text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-hotPink px-4 py-2 rounded-2xl text-white font-pricedown text-lg tracking-widest shadow-hard">
             {projectsData.length} ACTIVE CASE FILES
           </div>
         </div>
@@ -59,10 +59,10 @@ export function ProjectShowcase() {
               <button
                 key={project.id}
                 onClick={() => handleSelectMission(project.id)}
-                className={`flex-shrink-0 px-5 py-3 rounded-xl border transition-all font-pricedown tracking-wider text-left backdrop-blur-xl ${
+                className={`flex-shrink-0 px-5 py-3 rounded-2xl border transition-all font-pricedown tracking-wider text-left ${
                   isSelected
-                    ? `${theme.border} bg-black/75 ${theme.text} scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.5)]`
-                    : "border-white/20 bg-black/40 text-white/70 hover:border-white hover:text-white"
+                    ? `${theme.border} bg-white/10 ${theme.text} scale-105 shadow-[0_8px_32px_rgba(0,0,0,0.6)] backdrop-blur-2xl`
+                    : "border-white/20 bg-black/40 text-white/70 hover:border-white/50 hover:text-white"
                 }`}
               >
                 <div className="text-xs opacity-70">MISSION 0{idx + 1}</div>
@@ -72,10 +72,10 @@ export function ProjectShowcase() {
           })}
         </div>
 
-        {/* Active Mission Glass Dossier */}
-        <div className={`mt-6 rounded-3xl bg-black/50 backdrop-blur-2xl border-2 ${colorTheme.border} p-6 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] relative overflow-hidden`}>
-          {/* Internal gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+        {/* Active Mission Crystal Dossier */}
+        <div className={`mt-6 rounded-3xl ios-crystal-glass crystal-sheen-sweep border-2 ${colorTheme.border} p-6 sm:p-8 md:p-10 relative overflow-hidden`}>
+          {/* Prismatic liquid ambient sheen */}
+          <div className="absolute inset-0 liquid-mirror-bg opacity-20 pointer-events-none" />
 
           {/* Mission Top Header */}
           <div className="flex flex-wrap items-start justify-between gap-4 border-b border-white/20 pb-6 mb-6 relative z-10">
@@ -102,7 +102,7 @@ export function ProjectShowcase() {
                   sounds.playFileOpen();
                   setActiveModalProject(currentProject);
                 }}
-                className={`flex items-center gap-2 border ${colorTheme.border} bg-black/60 rounded-xl px-5 py-2.5 font-pricedown text-sm tracking-widest ${colorTheme.text} hover:bg-white hover:text-black transition-all shadow-hard`}
+                className={`flex items-center gap-2 border ${colorTheme.border} bg-black/50 rounded-2xl px-5 py-2.5 font-pricedown text-sm tracking-widest ${colorTheme.text} hover:bg-white hover:text-black transition-all shadow-hard`}
               >
                 <Eye className="h-4 w-4" />
                 <span>MISSION BRIEFING</span>
@@ -113,7 +113,7 @@ export function ProjectShowcase() {
                   href={currentProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-white text-black border border-white rounded-xl px-4 py-2.5 font-pricedown text-sm tracking-widest hover:bg-gta-yellow transition-all shadow-hard"
+                  className="flex items-center gap-2 bg-white text-black border border-white rounded-2xl px-4 py-2.5 font-pricedown text-sm tracking-widest hover:bg-gta-yellow transition-all shadow-hard"
                 >
                   <GithubIcon className="h-4 w-4" />
                   <span>SRC REPO</span>
@@ -134,23 +134,23 @@ export function ProjectShowcase() {
             {currentProject.simulatorType === "pothole" && <PotholeSimulator />}
             {currentProject.simulatorType === "quiz" && <QuizSimulator />}
             {currentProject.simulatorType === "generic" && (
-              <div className="bg-black/60 rounded-2xl border border-white/20 p-6 text-center space-y-3">
+              <div className="rounded-3xl ios-crystal-glass p-6 text-center space-y-3">
                 <div className="font-pricedown text-xl text-gta-yellow tracking-wider">
                   {currentProject.title} // ENTERPRISE DATA PIPELINE
                 </div>
                 <p className="text-sm text-white/80 max-w-2xl mx-auto font-sans">
                   {currentProject.brief}
                 </p>
-                <div className="bg-black/80 rounded-xl border border-white/10 p-3 max-w-2xl mx-auto text-left text-xs font-mono text-gta-cyan">
+                <div className="bg-black/70 rounded-2xl border border-white/15 p-3 max-w-2xl mx-auto text-left text-xs font-mono text-gta-cyan">
                   FLOW: {currentProject.architecture.flowSummary}
                 </div>
               </div>
             )}
           </div>
 
-          {/* Problem & Solution Glass Boxes */}
+          {/* Problem & Solution Crystal Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
-            <div className="rounded-2xl bg-black/60 border border-gta-red/60 p-5 shadow-hard">
+            <div className="rounded-3xl ios-crystal-glass border border-gta-red/60 p-5 shadow-hard">
               <div className="font-pricedown text-lg text-gta-red tracking-widest mb-2 uppercase">
                 [ THE THREAT / PROBLEM ]
               </div>
@@ -159,7 +159,7 @@ export function ProjectShowcase() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-black/60 border border-gta-cyan/60 p-5 shadow-hard">
+            <div className="rounded-3xl ios-crystal-glass border border-gta-cyan/60 p-5 shadow-hard">
               <div className="font-pricedown text-lg text-gta-cyan tracking-widest mb-2 uppercase">
                 [ THE COUNTER-MEASURE / SOLUTION ]
               </div>
@@ -177,7 +177,7 @@ export function ProjectShowcase() {
             {currentProject.technologies.map((tech, idx) => (
               <span
                 key={idx}
-                className="bg-black/70 border border-white/30 px-3 py-1 rounded-lg font-pricedown text-xs tracking-wider text-white hover:border-gta-yellow hover:text-gta-yellow transition-colors"
+                className="bg-black/60 border border-white/30 px-3 py-1 rounded-xl font-pricedown text-xs tracking-wider text-white hover:border-gta-yellow hover:text-gta-yellow transition-colors"
               >
                 {tech}
               </span>
@@ -188,8 +188,8 @@ export function ProjectShowcase() {
 
       {/* Mission Detail Modal Dossier */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl">
-          <div className="relative max-h-[90vh] w-full max-w-4xl rounded-3xl bg-black/85 border-4 border-gta-yellow p-6 md:p-8 shadow-[0_16px_50px_rgba(0,0,0,0.8)] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-2xl">
+          <div className="relative max-h-[90vh] w-full max-w-4xl rounded-3xl ios-crystal-glass border-4 border-gta-yellow p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-white/20 pb-4 mb-6">
               <div>
                 <span className="font-pricedown text-xs text-gta-yellow tracking-widest uppercase">
@@ -201,21 +201,21 @@ export function ProjectShowcase() {
               </div>
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="border border-white/40 rounded-xl bg-gta-red text-white px-4 py-2 font-pricedown hover:bg-white hover:text-black transition-colors"
+                className="border border-white/40 rounded-2xl bg-gta-red text-white px-4 py-2 font-pricedown hover:bg-white hover:text-black transition-colors"
               >
                 ✕ CLOSE
               </button>
             </div>
 
             <div className="space-y-6">
-              <div className="rounded-2xl bg-black/70 border border-white/20 p-5">
+              <div className="rounded-2xl ios-crystal-glass p-5">
                 <div className="font-pricedown text-lg text-gta-cyan tracking-wider mb-3">
                   SYSTEM ARCHITECTURE BREAKDOWN
                 </div>
                 <div className="space-y-3">
                   {activeModalProject.architecture.steps.map((step, idx) => (
                     <div key={idx} className="flex items-start gap-3">
-                      <span className="bg-gta-cyan text-black rounded font-pricedown px-2 py-0.5 text-xs font-bold">
+                      <span className="bg-gta-cyan text-black rounded-lg font-pricedown px-2 py-0.5 text-xs font-bold">
                         0{idx + 1}
                       </span>
                       <div>
@@ -229,7 +229,7 @@ export function ProjectShowcase() {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-black/70 border border-white/20 p-5">
+              <div className="rounded-2xl ios-crystal-glass p-5">
                 <div className="font-pricedown text-lg text-gta-yellow tracking-wider mb-3">
                   VERIFIED MISSION HIGHLIGHTS
                 </div>
@@ -244,7 +244,7 @@ export function ProjectShowcase() {
             <div className="mt-6 pt-4 border-t border-white/10 flex justify-end">
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="bg-gta-yellow text-black rounded-xl font-pricedown px-6 py-2.5 text-base tracking-widest hover:bg-white transition-all shadow-hard"
+                className="bg-gta-yellow text-black rounded-2xl font-pricedown px-6 py-2.5 text-base tracking-widest hover:bg-white transition-all shadow-hard"
               >
                 DISMISS BRIEFING
               </button>

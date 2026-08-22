@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { sounds } from "@/components/sound/SoundEngine";
 
 interface FAQItem {
@@ -63,23 +63,23 @@ export function FAQSection() {
               FAQ
             </h2>
           </div>
-          <div className="bg-gta-yellow text-black px-4 py-2 rounded-xl font-pricedown text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-yellow text-black px-4 py-2 rounded-2xl font-pricedown text-lg tracking-widest shadow-hard">
             {faqs.length} QUERIES ANSWERED
           </div>
         </div>
 
-        {/* Accordion Stack in Glass */}
+        {/* Accordion Stack in Crystal Glass */}
         <div className="space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-200"
+                className="rounded-3xl ios-crystal-glass overflow-hidden transition-all duration-300"
               >
                 <button
                   onClick={() => handleToggle(idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-white/5 transition-colors group"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-white/10 transition-colors group"
                 >
                   <span className="font-pricedown text-xl sm:text-2xl text-white group-hover:text-gta-yellow transition-colors tracking-wide">
                     {faq.question}
@@ -92,7 +92,7 @@ export function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 border-t border-white/10 text-sm sm:text-base text-white/90 font-sans leading-relaxed font-medium animate-fadeIn">
+                  <div className="px-6 pb-6 pt-2 border-t border-white/15 text-sm sm:text-base text-white/90 font-sans leading-relaxed font-medium animate-fadeIn">
                     {faq.answer}
                   </div>
                 )}

@@ -43,15 +43,15 @@ export function ContactSection() {
               CONTACT
             </h2>
           </div>
-          <div className="bg-gta-cyan text-black px-4 py-2 rounded-xl font-pricedown text-lg tracking-widest shadow-hard">
+          <div className="bg-gta-cyan text-black px-4 py-2 rounded-2xl font-pricedown text-lg tracking-widest shadow-hard">
             DIRECT PIPE OPEN
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column: Social Coordinates in Glass */}
+          {/* Left Column: Social Coordinates in Crystal Glass */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)]">
+            <div className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 md:p-8">
               <div className="font-pricedown text-sm text-gta-cyan tracking-widest mb-2 uppercase">
                 VERIFIED TARGET CHANNELS
               </div>
@@ -67,7 +67,7 @@ export function ContactSection() {
                   href={profileData.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-black/60 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-gta-yellow hover:text-gta-yellow transition-all shadow-hard"
+                  className="flex items-center justify-between bg-black/50 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-gta-yellow hover:text-gta-yellow transition-all shadow-hard"
                 >
                   <div className="flex items-center gap-3">
                     <GithubIcon className="h-5 w-5 text-gta-yellow" />
@@ -80,7 +80,7 @@ export function ContactSection() {
                   href={profileData.socials.leetcode}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-black/60 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-gta-pink hover:text-gta-pink transition-all shadow-hard"
+                  className="flex items-center justify-between bg-black/50 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-gta-pink hover:text-gta-pink transition-all shadow-hard"
                 >
                   <div className="flex items-center gap-3">
                     <LeetCodeIcon className="h-5 w-5 text-gta-pink" />
@@ -93,7 +93,7 @@ export function ContactSection() {
                   href={profileData.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-black/60 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-gta-cyan hover:text-gta-cyan transition-all shadow-hard"
+                  className="flex items-center justify-between bg-black/50 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-gta-cyan hover:text-gta-cyan transition-all shadow-hard"
                 >
                   <div className="flex items-center gap-3">
                     <LinkedinIcon className="h-5 w-5 text-gta-cyan" />
@@ -106,7 +106,7 @@ export function ContactSection() {
                   href={profileData.socials.x}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-black/60 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-white hover:text-white transition-all shadow-hard"
+                  className="flex items-center justify-between bg-black/50 rounded-2xl border border-white/20 p-4 font-pricedown text-base tracking-wider hover:border-white hover:text-white transition-all shadow-hard"
                 >
                   <div className="flex items-center gap-3">
                     <XIcon className="h-5 w-5 text-white" />
@@ -117,7 +117,7 @@ export function ContactSection() {
 
                 <a
                   href={`mailto:${profileData.socials.email}`}
-                  className="flex items-center justify-between bg-black/60 rounded-2xl border border-gta-red/60 p-4 font-pricedown text-base tracking-wider text-gta-red hover:bg-gta-red hover:text-white transition-all shadow-hard"
+                  className="flex items-center justify-between bg-black/50 rounded-2xl border border-gta-red/60 p-4 font-pricedown text-base tracking-wider text-gta-red hover:bg-gta-red hover:text-white transition-all shadow-hard"
                 >
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5" />
@@ -129,10 +129,10 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Mission Dispatch Form in Glass */}
+          {/* Right Column: Mission Dispatch Form in Crystal Glass */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)]">
-              <div className="border-b border-white/10 pb-4 mb-6">
+            <div className="rounded-3xl ios-crystal-glass p-6 md:p-8">
+              <div className="border-b border-white/15 pb-4 mb-6">
                 <div className="font-pricedown text-xs text-gta-pink tracking-widest uppercase">
                   DIRECT MISSION TRANSMITTER
                 </div>
@@ -142,7 +142,7 @@ export function ContactSection() {
               </div>
 
               {isSent ? (
-                <div className="bg-black/60 rounded-2xl border-2 border-gta-yellow p-8 text-center space-y-4 my-8 shadow-hard">
+                <div className="rounded-2xl ios-crystal-glass border-2 border-gta-yellow p-8 text-center space-y-4 my-8 shadow-hard">
                   <CheckCircle2 className="mx-auto h-12 w-12 text-gta-yellow animate-bounce" />
                   <div className="font-pricedown text-2xl text-gta-yellow tracking-wider">
                     TRANSMISSION DISPATCHED TO SAURABH
@@ -169,7 +169,7 @@ export function ContactSection() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. Lead Engineer / Recruiter"
-                      className="w-full bg-black/60 rounded-xl border border-white/20 p-3.5 text-sm text-white font-sans focus:border-gta-pink outline-none"
+                      className="w-full bg-black/60 rounded-2xl border border-white/20 p-3.5 text-sm text-white font-sans focus:border-gta-pink outline-none"
                     />
                   </div>
 
@@ -182,7 +182,7 @@ export function ContactSection() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your.email@organization.com"
-                      className="w-full bg-black/60 rounded-xl border border-white/20 p-3.5 text-sm text-white font-sans focus:border-gta-pink outline-none"
+                      className="w-full bg-black/60 rounded-2xl border border-white/20 p-3.5 text-sm text-white font-sans focus:border-gta-pink outline-none"
                     />
                   </div>
 
@@ -196,14 +196,14 @@ export function ContactSection() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Transmission regarding systems engineering, full-stack roles, or project collaborations..."
-                      className="w-full bg-black/60 rounded-xl border border-white/20 p-3.5 text-sm text-white font-sans focus:border-gta-pink outline-none"
+                      className="w-full bg-black/60 rounded-2xl border border-white/20 p-3.5 text-sm text-white font-sans focus:border-gta-pink outline-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSending}
-                    className="w-full bg-gta-hotPink hover:bg-white text-white hover:text-black py-4 rounded-xl font-pricedown text-lg tracking-widest transition-all shadow-hard-pink disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full bg-gta-hotPink hover:bg-white text-white hover:text-black py-4 rounded-2xl font-pricedown text-lg tracking-widest transition-all shadow-hard-pink disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {isSending ? (
                       <span>DISPATCHING TRANSMISSION...</span>

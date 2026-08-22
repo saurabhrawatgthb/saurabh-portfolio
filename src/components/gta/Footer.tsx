@@ -20,7 +20,7 @@ export function Footer({ onReplay }: FooterProps) {
     <footer className="relative min-h-[85vh] w-full flex flex-col items-center justify-center px-4 sm:px-8 py-24 text-white font-sans text-center select-none">
       <div className="max-w-4xl mx-auto relative z-10 space-y-8">
         {/* Slanted Comic Stamp */}
-        <div className="inline-block bg-gta-yellow text-black font-pricedown text-xl md:text-2xl px-6 py-2 rounded-xl tracking-widest -rotate-2 shadow-hard">
+        <div className="inline-block bg-gta-yellow text-black font-pricedown text-xl md:text-2xl px-6 py-2 rounded-2xl tracking-widest -rotate-2 shadow-hard">
           ★ 100% COMPLETION STATS ★
         </div>
 
@@ -37,13 +37,13 @@ export function Footer({ onReplay }: FooterProps) {
           THANKS FOR EXPLORING.
         </p>
 
-        {/* Social Links in Glass */}
+        {/* Social Links in Crystal Glass */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <a
             href={profileData.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-black/45 backdrop-blur-xl border border-white/20 hover:border-gta-yellow text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
+            className="flex items-center gap-2 rounded-2xl ios-crystal-glass hover:border-gta-yellow text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
           >
             <GithubIcon className="h-4 w-4 text-gta-yellow" />
             <span>GITHUB</span>
@@ -53,7 +53,7 @@ export function Footer({ onReplay }: FooterProps) {
             href={profileData.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-black/45 backdrop-blur-xl border border-white/20 hover:border-gta-cyan text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
+            className="flex items-center gap-2 rounded-2xl ios-crystal-glass hover:border-gta-cyan text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
           >
             <LinkedinIcon className="h-4 w-4 text-gta-cyan" />
             <span>LINKEDIN</span>
@@ -63,7 +63,7 @@ export function Footer({ onReplay }: FooterProps) {
             href={profileData.socials.leetcode}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-black/45 backdrop-blur-xl border border-white/20 hover:border-gta-pink text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
+            className="flex items-center gap-2 rounded-2xl ios-crystal-glass hover:border-gta-pink text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
           >
             <LeetCodeIcon className="h-4 w-4 text-gta-pink" />
             <span>LEETCODE</span>
@@ -73,7 +73,7 @@ export function Footer({ onReplay }: FooterProps) {
             href={profileData.socials.x}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-black/45 backdrop-blur-xl border border-white/20 hover:border-white text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
+            className="flex items-center gap-2 rounded-2xl ios-crystal-glass hover:border-white text-white px-5 py-2.5 font-pricedown text-sm tracking-widest shadow-hard transition-all"
           >
             <XIcon className="h-4 w-4" />
             <span>X (TWITTER)</span>
