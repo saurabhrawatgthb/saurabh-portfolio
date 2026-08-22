@@ -1,15 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { CRTOverlay } from "@/components/effects/CRTOverlay";
-import { CustomCursor } from "@/components/effects/CustomCursor";
 
 export const metadata: Metadata = {
-  title: "The Saurabh Files — Saurabh Rawat",
+  title: "SAURABH RAWAT — Cinematic Portfolio",
   description:
-    "Saurabh Rawat — Computer Science student, developer and builder working across AI, software systems, IoT and intelligent applications.",
+    "Saurabh Rawat — Computer Science student, builder, and software engineer working across AI, software systems, IoT and intelligent applications.",
   keywords: [
     "Saurabh Rawat",
-    "The Saurabh Files",
     "Computer Science Engineer",
     "AI Developer",
     "Computer Vision",
@@ -20,18 +17,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Saurabh Rawat", url: "https://github.com/saurabhrawatgthb" }],
   openGraph: {
-    title: "The Saurabh Files — Saurabh Rawat",
+    title: "SAURABH RAWAT — Cinematic Portfolio",
     description:
-      "Interactive personal archive, projects, and systems engineering portfolio of Saurabh Rawat.",
+      "Cinematic personal portfolio, mission case files, and engineering projects of Saurabh Rawat.",
     type: "website",
     locale: "en_US",
-    siteName: "The Saurabh Files",
+    siteName: "Saurabh Rawat",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Saurabh Files — Saurabh Rawat",
+    title: "SAURABH RAWAT — Cinematic Portfolio",
     description:
-      "Saurabh Rawat — Computer Science student, developer and builder working across AI, software systems, IoT and intelligent applications.",
+      "Saurabh Rawat — Computer Science student, builder, and software engineer working across AI, software systems, IoT and intelligent applications.",
     creator: "@SaurabhRawattt",
   },
   robots: {
@@ -41,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0e0b",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -53,11 +50,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-crt-darkest text-archive-text antialiased selection:bg-term-green selection:text-crt-black">
-        <CustomCursor />
-        <CRTOverlay />
-        <main className="relative min-h-screen">{children}</main>
+    <html lang="en" className="dark scroll-smooth">
+      <body className="bg-black text-white antialiased selection:bg-gta-pink selection:text-white">
+        {children}
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-# 🗄️ THE SAURABH FILES // 3D WORKSTATION & CLASSIFIED ARCHIVE [SR-001]
+# 🌴 SAURABH RAWAT — CINEMATIC GTA-INSPIRED PORTFOLIO
 
 ```
   ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ ██╗  ██╗    ███████╗██╗██╗     ███████╗███████╗
@@ -7,104 +7,93 @@
   ╚═══██╗ ██╔══██║██║   ██║██╔══██╗██╔══██║██╔══██╗██║  ██║    ██╔══╝  ██║██║     ██╔══╝  ╚════██║
  ██████╔╝ ██║  ██║╚██████╔╝██║  ██║██║  ██║██████╔╝██║  ██║    ██║     ██║███████╗███████╗███████║
  ╚═════╝  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝    ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
-                                    [ ARCHIVE ID: SR-001 // ROOT ACCESS ]
+                            [ PROTAGONIST PROFILE // DEHRADUN CHAPTER ]
 ```
 
-> **A cinematic 3D workstation environment & retro-terminal classified personal archive experience designed and engineered for Saurabh Rawat.**  
+> **An original, cinematic portfolio inspired by the visual language of GTA promotional artwork, loading screens, Pricedown typography, photographic collage, and high-impact game interfaces.**  
 > *"Building systems that turn ideas into working reality."*
 
 ---
 
-## ⚡ ARCHIVE TELEMETRY
+## ⚡ CHARACTER SUMMARY
 
-| SPECIFICATION | STATUS / RECORD |
+| ATTRIBUTE | SPECIFICATION |
 | :--- | :--- |
-| **OPERATOR / BUILDER** | **Saurabh Rawat** (`ARCHITECT_ALPHA`) |
-| **ACADEMIC NODE** | **B.Tech Computer Science & Engineering** // Graphic Era University |
-| **3D WORKSPACE ENGINE** | **Three.js WebGL with PBR Materials, Soft Shadows, Dynamic CRT Canvas Texture** |
+| **PROTAGONIST** | **Saurabh Rawat** |
+| **ACADEMIC BASE** | **B.Tech Computer Science & Engineering** // Graphic Era University |
 | **CORE CAPABILITIES** | **AI & Computer Vision // Distributed Systems // IoT Hardware // High-Throughput APIs** |
-| **KERNEL STACK** | **Next.js 15+ (App Router), TypeScript, Tailwind CSS, Web Audio API, Three.js** |
-| **SECURITY CLEARANCE** | **LEVEL-5 ROOT // ZERO LOG COMPROMISE** |
-| **LIVE DEPLOYMENT** | **Vercel Edge Ready** |
+| **CORE STACK** | **Next.js 15+ (App Router), TypeScript, Tailwind CSS, GSAP ScrollTrigger, Web Audio API** |
+| **TYPOGRAPHY** | **Pricedown Display, Bebas Neue, SF Mono** |
+| **ACCENT PALETTE** | **Hot Pink (`#ff007f`), Neon Cyan (`#00f0ff`), Warning Yellow (`#ffe600`), Crimson Red (`#ff2a2a`)** |
+| **DEPLOYMENT** | **Vercel Edge Ready** |
 
 ---
 
-## 🕹️ 3D WORKSTATION REVEAL JOURNEY
+## 🎬 01. THE OPENING REVEAL — SVG MASK ZOOM
 
-The website initially appears as a physical computer workstation sitting inside a dark, atmospheric room:
+The website opens on a pitch-black screen containing only:
 
 ```
-[00%] CAMERA CLOSE-UP    ➔ Focus on the CRT monitor glass displaying C:\SAURABH> _
-[30%] DOLLY OUT          ➔ Screen bezel, retro keyboard, mouse & cables revealed
-[60%] WORKSTATION EXPANS ➔ Warm desk lamp, wooden desk & moody atmospheric room revealed
-[75%] TERMINAL EXECUTION ➔ CRT screen types: C:\SAURABH> open archive -> ACCESS GRANTED
-[90%] CINEMATIC PLUNGE   ➔ Camera accelerates in a smooth dolly directly into the monitor glass
-[100%] SCREEN DIVE       ➔ Camera passes THROUGH the CRT phosphor flare into the digital CLI archive
+                          SAURABH RAWAT
+
+                              SCROLL
+                                ↓
+```
+
+As the visitor scrolls through the pinned opening scene:
+1. **0%**: The title `SAURABH RAWAT` appears crisp, centered, in white bold Pricedown typography.
+2. **15% - 50%**: The text dramatically magnifies, acting as a **transparent SVG mask window** through the black overlay.
+3. **60% - 85%**: Saturated cinematic photography glimpses through the expanding letterforms.
+4. **100%**: The typography expands beyond all viewport boundaries, removing the overlay and seamlessly plunging the visitor into the full cinematic portfolio world!
+
+---
+
+## 🧭 GAME-INSPIRED PORTFOLIO SECTIONS
+
+```
+[01] THE OPENING        ➔ Pinned SVG mask zoom reveal of SAURABH RAWAT
+[02] HERO KEYART        ➔ Fullscreen photographic frame with oversized Pricedown title & doctrine
+[03] PLAYER PROFILE     ➔ Character dossier: B.Tech CSE @ GEU, specs & attribute meters
+[04] MISSIONS           ➔ Project case files with simulators (Rakshak, UNICard, Pothole, Lending, Quiz)
+[05] ARSENAL            ➔ Weapon loadout inventory: Programming, Web/APIs, Databases, AI/CV, Tools
+[06] EXPERIENCE LOGS    ➔ Mission timeline: IEEE Student Branch, TechnIEEEks, Graph-e-thon 2.0, CISCT
+[07] RESEARCH DOSSIER   ➔ Edge Computer Vision & Geo-Spatial Hazard Mapping
+[08] EVIDENCE / MERIT   ➔ Verified stamps, hackathon achievements & LeetCode problem solving
+[09] SIGNAL / COMMS     ➔ High-voltage direct message dispatcher & broadcast coordinates
+[10] MISSION COMPLETE   ➔ 100% completion screen with restart experience trigger
 ```
 
 ---
 
-## 🧭 THE 10-CHAPTER CLI ARCHIVE EXPERIENCE
+## 🔬 MISSIONS & CASE FILES
 
-Once inside the monitor, the visitor enters the pure digital command-line archive:
+### 🚨 [MISSION 01] RAKSHAK — AI Camera Network (Flagship)
+* **Theme Accent:** *Crimson Red*
+* **Domain:** AI & Computer Vision // Multi-Node Surveillance Mesh
+* **Tech:** `Next.js`, `Python`, `FastAPI`, `OpenCV`, `Face Recognition`, `PostgreSQL`, `Graph Algorithms`
+* **Simulator:** 2D tactical CCTV grid with live face matching & Dijkstra trajectory forecasting + 3D WebGL Spatial Mesh.
 
-```
-[01] SYSTEM BOOT          ➔ 3D Workstation reveal & authentic BIOS sequence
-[02] THE SCREEN OPENS     ➔ Cinematic archive unlock, hero typography & core engineering philosophy
-[03] IDENTITY_FILE.exe    ➔ Classified engineering dossier, Academic specs (GEU) & core domains
-[04] SKILL_MATRIX.diag    ➔ Modular diagnostic subsystem check with real-time calibration progress
-[05] PROJECT_ARCHIVE.db   ➔ Interactive case-file database with live architectural simulators
-[06] EXPERIENCE_LOG.dat   ➔ Archival records (IEEE, Technieeeks, Graph-e-thon 2.0, CISCT Conference)
-[07] RESEARCH_DATABASE    ➔ Scientific paper dossier: Edge CV Asphalt Defect Detection & Geo-Mapping
-[08] ACHIEVEMENT_FILES    ➔ Verified evidence logs across Academics, Leadership, Hackathons & DSA
-[09] SIGNAL_TERMINAL      ➔ Direct transmission frequency & verified external coordinates
-[10] MISSION_COMPLETE     ➔ Telemetry shutdown summary, files accessed counter & standby prompt
-```
-
----
-
-## 🔬 INTERACTIVE PROJECT CASE FILES & SIMULATORS
-
-### 🚨 [PROJECT_001] RAKSHAK — Missing Child Finder (Flagship AI Mission)
-* **Domain:** AI & Computer Vision // Distributed Camera Mesh
-* **Stack:** `Next.js`, `Python`, `FastAPI`, `OpenCV`, `Face Recognition`, `PostgreSQL`, `Graph Algorithms`, `Three.js`
-* **Interactive Simulator:** Dual-mode visualization featuring a 2D tactical node map with live face match bounding box crops and an **interactive 3D WebGL Spatial Mesh** with orbit controls and node raycasting.
-
-### 💳 [PROJECT_002] UNICARD — Universal Identity & Financial Hardware
+### 💳 [MISSION 02] UNICARD — Universal Smart Card
+* **Theme Accent:** *Neon Cyan*
 * **Domain:** FinTech + IoT Hardware Architecture
-* **Stack:** `Microcontrollers`, `NFC/RFID Protocols`, `Node.js`, `PostgreSQL`, `Cryptography`
-* **Interactive Simulator:** 3D tilt chip card with applet schema mode-switching (`IDENTITY`, `ACCESS`, `PAYMENT`, `IOT`) and rolling cryptogram NFC handshake.
+* **Tech:** `Microcontrollers`, `NFC/RFID Protocols`, `Node.js`, `PostgreSQL`, `Cryptography`
+* **Simulator:** Interactive 3D smart card with multi-applet mode switching (`IDENTITY`, `ACCESS`, `PAYMENT`, `IOT`).
 
-### 🛣️ [PROJECT_003] POTHOLE DETECTION & ROAD TELEMETRY
+### 🛣️ [MISSION 03] POTHOLE DETECTION & ROAD TELEMETRY
+* **Theme Accent:** *Warning Yellow*
 * **Domain:** Edge Computer Vision & Smart Infrastructure
-* **Stack:** `Python`, `OpenCV`, `Machine Learning`, `IoT Sensors`, `GIS / Geo-Spatial`, `FastAPI`
-* **Interactive Simulator:** Dashcam road surface scanner with real-time contour bounding, depth anomaly estimation, and sub-meter GPS coordinate logging.
+* **Tech:** `Python`, `OpenCV`, `Machine Learning`, `IoT Sensors`, `GIS Mapping`, `FastAPI`
+* **Simulator:** Dashcam optical scanner with real-time contour bounding, depth anomaly estimation, and GPS logging.
 
-### 📚 [PROJECT_004] UNIVERSITY LENDING PLATFORM
-* **Domain:** Enterprise Software & Inventory State Machine
-* **Stack:** `Java`, `Spring / Core Java`, `PostgreSQL`, `Next.js`, `REST APIs`
-* **Architecture:** Deterministic asset state pipeline (`AVAILABLE` ➔ `RESERVED` ➔ `CHECKED_OUT` ➔ `RETURNED` ➔ `INSPECTED`) with ACID transaction guarantees.
+### 📚 [MISSION 04] UNIVERSITY LENDING PLATFORM
+* **Theme Accent:** *Vibrant Orange*
+* **Domain:** Enterprise Software & Request State Machine
+* **Tech:** `Java`, `Spring / Core Java`, `PostgreSQL`, `Next.js`, `REST APIs`
 
-### ⚡ [PROJECT_005] REAL-TIME QUIZ PLATFORM
-* **Domain:** Distributed Systems & Concurrency
-* **Stack:** `Node.js`, `WebSockets`, `React`, `PostgreSQL`, `TypeScript`
-* **Interactive Simulator:** Concurrent client matrix (100+ socket nodes) with millisecond-precision response scoring and live delta leaderboards.
-
----
-
-## 🛠️ ARCHITECTURAL HIGHLIGHTS
-
-* **Hyper-Realistic 3D Workstation (`WorkstationScene.tsx`):**  
-  Built with Three.js, PBR materials, ACESFilmic tone mapping, PCF soft shadows, warm incandescent spotlights, and an offscreen canvas rendering real-time blinking DOS prompts directly onto curved CRT geometry.
-
-* **Zero-Asset Web Audio Synthesizer (`SoundEngine.ts`):**  
-  Uses the browser's native `AudioContext` to synthesize CRT power-on whistles, mechanical typewriter clicks, radar sweeps, and access chimes without downloading external audio files. Includes a master `[SOUND OFF / ON]` toggle.
-
-* **Embedded CLI Console (`TerminalModal.tsx`):**  
-  An interactive retro command terminal accessible via `>_ CLI` or keyboard shortcuts. Supports commands like `help`, `about`, `projects`, `skills`, `experience`, `research`, `contact`, `matrix`, `status`, and `sudo access_saurabh`.
-
-* **Persistent System HUD (`SystemHUD.tsx`):**  
-  Live telemetry display including system timestamp, chapter tracker (`CHAPTER 01 / 10`), dynamic archive percentage progress bar, and Konami code Easter Egg detection (`↑ ↑ ↓ ↓ ← → ← →`).
+### ⚡ [MISSION 05] REAL-TIME QUIZ PLATFORM
+* **Theme Accent:** *Hot Pink*
+* **Domain:** Distributed Systems & WebSockets
+* **Tech:** `Node.js`, `WebSockets`, `React`, `PostgreSQL`, `TypeScript`
 
 ---
 
@@ -136,7 +125,7 @@ npm run start
 
 ---
 
-## 📡 VERIFIED SIGNAL CHANNELS
+## 📡 VERIFIED BROADCAST CHANNELS
 
 * **GitHub:** [github.com/saurabhrawatgthb](https://github.com/saurabhrawatgthb)
 * **LeetCode:** [leetcode.com/u/dugganboss/](https://leetcode.com/u/dugganboss/)
@@ -146,5 +135,5 @@ npm run start
 ---
 
 ```
-[ TRANSMISSION TERMINATED // ARCHIVE NODE SR-001 OPERATIONAL ]
+[ MISSION ACCOMPLISHED // SAURABH RAWAT 2026 ]
 ```
