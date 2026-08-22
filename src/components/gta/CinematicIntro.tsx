@@ -12,6 +12,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<SVGTextElement>(null);
+  const strokeTextRef = useRef<SVGTextElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -23,6 +24,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
     const container = containerRef.current;
     const pin = pinRef.current;
     const text = textRef.current;
+    const strokeText = strokeTextRef.current;
     const indicator = scrollIndicatorRef.current;
     const overlay = overlayRef.current;
 
@@ -73,10 +75,11 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
         },
       });
 
-      // Dramatic exponential scaling of the SVG masked text
-      // Scales from 1 to 45+ so letters act as a magnifying transparent window
+      // Dramatic exponential scaling of both the SVG masked text cutout and the bright stroke outline
+      const scaleTargets = strokeText ? [text, strokeText] : text;
+
       tl.fromTo(
-        text,
+        scaleTargets,
         {
           scale: 1,
           transformOrigin: "50% 50%",
@@ -89,7 +92,20 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
         }
       );
 
-      // Fade out the overlay cleanly at the very end
+      // Smoothly fade out the bright stroke border as letters become large portals
+      if (strokeText) {
+        tl.to(
+          strokeText,
+          {
+            opacity: 0,
+            duration: 0.35,
+            ease: "power1.out",
+          },
+          0.32
+        );
+      }
+
+      // Fade out the black overlay cleanly at the very end
       if (overlay) {
         tl.to(
           overlay,
@@ -119,7 +135,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
         ref={pinRef}
         className="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center select-none"
       >
-        {/* Fullscreen SVG with Masked Cutout */}
+        {/* Fullscreen SVG with Masked Cutout and Bright Outline */}
         <div
           ref={overlayRef}
           className="absolute inset-0 w-full h-full pointer-events-none will-change-opacity"
@@ -152,6 +168,12 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
                   SAURABH RAWAT
                 </text>
               </mask>
+
+              {/* Glowing Bright Border Filter */}
+              <filter id="bright-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="0" stdDeviation="5" floodColor="#ffffff" floodOpacity="0.9" />
+                <feDropShadow dx="0" dy="0" stdDeviation="10" floodColor="#ffffff" floodOpacity="0.4" />
+              </filter>
             </defs>
 
             {/* Black overlay cutout by the mask directly looking through to PersistentBackground */}
@@ -161,6 +183,30 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
               fill="#000000"
               mask="url(#saurabh-title-mask)"
             />
+
+            {/* Crisp Bright Border / Stroke Outline around SAURABH RAWAT */}
+            <text
+              ref={strokeTextRef}
+              x="960"
+              y="570"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth="4.5"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              filter="url(#bright-glow)"
+              className="font-pricedown uppercase pointer-events-none"
+              style={{
+                fontFamily: "Pricedown, Impact, sans-serif",
+                fontSize: "140px",
+                fontWeight: 900,
+                letterSpacing: "4px",
+              }}
+            >
+              SAURABH RAWAT
+            </text>
           </svg>
         </div>
 
