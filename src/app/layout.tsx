@@ -2,11 +2,12 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SAURABH RAWAT — Cinematic Portfolio",
+  title: "SAURABH",
   description:
     "Saurabh Rawat — Computer Science student, builder, and software engineer working across AI, software systems, IoT and intelligent applications.",
   keywords: [
     "Saurabh Rawat",
+    "Saurabh",
     "Computer Science Engineer",
     "AI Developer",
     "Computer Vision",
@@ -17,16 +18,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Saurabh Rawat", url: "https://github.com/saurabhrawatgthb" }],
   openGraph: {
-    title: "SAURABH RAWAT — Cinematic Portfolio",
+    title: "SAURABH",
     description:
       "Cinematic personal portfolio, mission case files, and engineering projects of Saurabh Rawat.",
     type: "website",
     locale: "en_US",
-    siteName: "Saurabh Rawat",
+    siteName: "SAURABH",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SAURABH RAWAT — Cinematic Portfolio",
+    title: "SAURABH",
     description:
       "Saurabh Rawat — Computer Science student, builder, and software engineer working across AI, software systems, IoT and intelligent applications.",
     creator: "@SaurabhRawattt",
