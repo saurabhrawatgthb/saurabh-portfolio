@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+:root {
+  --bg-crt-black: #070a08;
+  --term-green: #34d399;
+  --term-green-bright: #4ade80;
+  --term-green-glow: rgba(52, 211, 153, 0.35);
+  --term-amber: #fbbf24;
+  --term-amber-glow: rgba(251, 191, 36, 0.35);
+  --term-red: #ef4444;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-crt-black);
+  color: #d1d8cc;
+  font-family: var(--font-mono);
+}
+
+body {
+  background-color: var(--bg-crt-black);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  user-select: text;
+}
+
+/* Custom retro scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090e0b;
+  border-left: 1px solid #1a251e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #24352a;
+  border: 1px solid #34d399;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #34d399;
+}
+
+/* Scanlines overlay */
+.scanlines-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.3) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.02)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* CRT monitor screen vignette & curved border */
+.crt-vignette {
+  background: radial-gradient(
+    circle at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.65) 95%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* Phosphor Glow classes */
+.glow-green {
+  text-shadow: 0 0 6px rgba(52, 211, 153, 0.6), 0 0 14px rgba(52, 211, 153, 0.3);
+}
+
+.glow-green-sm {
+  text-shadow: 0 0 4px rgba(52, 211, 153, 0.5);
+}
+
+.glow-amber {
+  text-shadow: 0 0 6px rgba(251, 191, 36, 0.6), 0 0 14px rgba(251, 191, 36, 0.3);
+}
+
+.glow-red {
+  text-shadow: 0 0 6px rgba(239, 68, 68, 0.6), 0 0 14px rgba(239, 68, 68, 0.3);
+}
+
+.box-glow-green {
+  box-shadow: 0 0 15px -3px rgba(52, 211, 153, 0.25), inset 0 0 15px -5px rgba(52, 211, 153, 0.1);
+}
+
+.box-glow-amber {
+  box-shadow: 0 0 15px -3px rgba(251, 191, 36, 0.25), inset 0 0 15px -5px rgba(251, 191, 36, 0.1);
+}
+
+/* Subtle retro grid pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(32, 45, 36, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(32, 45, 36, 0.25) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Blinking cursor */
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Scanline sweep animation */
+@keyframes sweep-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-sweep {
+  animation: sweep-line 6s linear infinite;
+}
+
+/* Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
