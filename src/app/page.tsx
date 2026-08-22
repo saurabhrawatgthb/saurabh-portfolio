@@ -1,36 +1,49 @@
 "use client";
 
 import React, { useState } from "react";
+import { PersistentBackground } from "@/components/gta/PersistentBackground";
+import { CustomCursor } from "@/components/gta/CustomCursor";
+import { GlassNavbar } from "@/components/gta/GlassNavbar";
 import { CinematicIntro } from "@/components/gta/CinematicIntro";
-import { GameNav } from "@/components/gta/GameNav";
 import { HeroSection } from "@/components/gta/HeroSection";
 import { PlayerSection } from "@/components/gta/PlayerSection";
-import { MissionsSection } from "@/components/gta/MissionsSection";
-import { ArsenalSection } from "@/components/gta/ArsenalSection";
-import { ExperienceLogSection } from "@/components/gta/ExperienceLogSection";
+import { ProjectShowcase } from "@/components/gta/ProjectShowcase";
+import { SkillsSection } from "@/components/gta/SkillsSection";
+import { ExperienceTimeline } from "@/components/gta/ExperienceTimeline";
 import { ResearchSection } from "@/components/gta/ResearchSection";
-import { AchievementsSection } from "@/components/gta/AchievementsSection";
-import { SignalContactSection } from "@/components/gta/SignalContactSection";
-import { MissionCompleteSection } from "@/components/gta/MissionCompleteSection";
+import { AchievementSection } from "@/components/gta/AchievementSection";
+import { StatsSection } from "@/components/gta/StatsSection";
+import { FAQSection } from "@/components/gta/FAQSection";
+import { ContactSection } from "@/components/gta/ContactSection";
+import { Footer } from "@/components/gta/Footer";
 
 export default function Home() {
   const [isRevealed, setIsRevealed] = useState(false);
 
-  const handleRestart = () => {
+  const handleReplay = () => {
     setIsRevealed(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-gta-pink selection:text-white" id="top">
-      {/* GTA Fixed Navigation Bar (Appears after title reveal) */}
-      <GameNav isVisible={isRevealed} />
+    <div
+      className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-gta-pink selection:text-white"
+      id="top"
+    >
+      {/* Smooth Lerp Custom Cursor */}
+      <CustomCursor />
+
+      {/* Persistent Background Artwork */}
+      <PersistentBackground />
+
+      {/* Glass Fixed Navigation Bar (Fades in after opening title reveal) */}
+      <GlassNavbar isVisible={isRevealed} />
 
       {/* 01. Pinned Cinematic Opening Title & SVG Mask Reveal */}
       <CinematicIntro onRevealComplete={() => setIsRevealed(true)} />
 
       {/* 02. Revealed Cinematic Portfolio World */}
-      <main className="relative z-10 w-full bg-black">
+      <main className="relative z-10 w-full">
         {/* Hero Character Keyart Frame */}
         <HeroSection />
 
@@ -38,25 +51,31 @@ export default function Home() {
         <PlayerSection />
 
         {/* Missions & Project Files */}
-        <MissionsSection />
+        <ProjectShowcase />
 
         {/* Arsenal & Weapons Equipment */}
-        <ArsenalSection />
+        <SkillsSection />
 
         {/* Experience Mission Timeline */}
-        <ExperienceLogSection />
+        <ExperienceTimeline />
 
         {/* Research Dossier */}
         <ResearchSection />
 
         {/* Confirmed Evidence & Achievements */}
-        <AchievementsSection />
+        <AchievementSection />
+
+        {/* Player Live Stats Channels */}
+        <StatsSection />
+
+        {/* Interactive Accordion FAQ */}
+        <FAQSection />
 
         {/* Direct Signal Transmission */}
-        <SignalContactSection />
+        <ContactSection />
 
         {/* Mission Complete Final Screen */}
-        <MissionCompleteSection onRestart={handleRestart} />
+        <Footer onReplay={handleReplay} />
       </main>
     </div>
   );

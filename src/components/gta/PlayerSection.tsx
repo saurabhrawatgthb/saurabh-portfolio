@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Shield, GraduationCap, Zap, Activity, Award, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Activity, ShieldCheck, Zap, Layers } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export function PlayerSection() {
@@ -14,10 +14,7 @@ export function PlayerSection() {
   ];
 
   return (
-    <section id="player" className="relative min-h-screen w-full px-4 sm:px-8 md:px-16 py-24 bg-gta-dark text-white font-sans select-none">
-      {/* Background Halftone & Border Elements */}
-      <div className="absolute inset-0 bg-halftone opacity-15 pointer-events-none" />
-
+    <section id="player" className="relative min-h-screen w-full px-4 sm:px-8 md:px-16 py-24 text-white font-sans select-none">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-wrap items-end justify-between gap-4 border-b-4 border-white pb-4 mb-12">
@@ -26,66 +23,66 @@ export function PlayerSection() {
               CHARACTER DOSSIER // LEVEL 99 BUILDER
             </div>
             <h2 className="font-pricedown text-5xl sm:text-7xl md:text-8xl tracking-tight uppercase leading-none gta-text-outline">
-              PLAYER: SAURABH RAWAT
+              PLAYER
             </h2>
           </div>
-          <div className="bg-gta-yellow px-4 py-2 text-black font-pricedown text-lg tracking-widest shadow-hard">
-            CLEARANCE: ROOT OPERATOR
+          <div className="bg-gta-yellow px-4 py-2 text-black font-pricedown text-lg tracking-widest shadow-hard rounded-lg">
+            NODE: DEHRADUN // CLEARANCE: ROOT
           </div>
         </div>
 
-        {/* Player Collage Layout */}
+        {/* Player Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Academic Credentials & Philosophy */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Academic Card */}
-            <div className="bg-gta-cardDark border-2 border-white/20 p-6 shadow-hard-pink relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-gta-pink px-4 py-1 font-pricedown text-white text-xs tracking-widest">
+            {/* Academic Glass Card */}
+            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)] relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-gta-pink px-4 py-1 font-pricedown text-white text-xs tracking-widest rounded-bl-xl">
                 ACADEMICS
               </div>
 
-              <div className="flex items-center gap-3 mb-4 text-gta-pink">
-                <GraduationCap className="h-8 w-8" />
+              <div className="flex items-center gap-4 mb-4 text-gta-pink">
+                <GraduationCap className="h-9 w-9" />
                 <div>
-                  <h3 className="font-pricedown text-2xl text-white tracking-wider">
+                  <h3 className="font-pricedown text-2xl sm:text-3xl text-white tracking-wider">
                     {profileData.education.degree}
                   </h3>
-                  <div className="text-sm font-bold text-gta-yellow">
+                  <div className="text-sm sm:text-base font-bold text-gta-yellow font-pricedown tracking-wider">
                     {profileData.education.field}
                   </div>
                 </div>
               </div>
 
-              <div className="text-base text-white/90 font-semibold mb-3">
+              <div className="text-base sm:text-lg text-white font-semibold mb-3">
                 {profileData.education.institution}
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-mono text-white/70">
+              <div className="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono text-white/70">
                 <span>TIMELINE: {profileData.education.period}</span>
                 <span className="text-gta-cyan font-bold">{profileData.education.status}</span>
               </div>
             </div>
 
-            {/* Builder Philosophy Card */}
-            <div className="bg-gta-cardDark border-2 border-white/20 p-6 shadow-hard-cyan">
-              <div className="font-pricedown text-xl text-gta-cyan tracking-wider mb-2">
+            {/* Builder Philosophy Glass Card */}
+            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)]">
+              <div className="font-pricedown text-xl sm:text-2xl text-gta-cyan tracking-wider mb-2">
                 MISSION DOCTRINE & PHILOSOPHY
               </div>
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans font-medium">
-                Saurabh is a Computer Science builder who bridges complex theory with high-performance execution. From computer vision spatial trackers and micro-controller IoT sensor grids to resilient backend state-machines, every project is engineered to work reliably in real-world production.
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed font-sans font-medium">
+                Saurabh is a computer science student and software builder driven by making complex systems work seamlessly in production. His work spans edge computer vision pipelines, multi-camera movement tracking, hardware micro-controller cards, and high-concurrency event engines designed for real-world resilience.
               </p>
             </div>
 
-            {/* Core Focus Badges */}
-            <div className="bg-gta-panel border border-white/10 p-5">
+            {/* Focus Badges Glass Panel */}
+            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6">
               <div className="font-pricedown text-sm text-gta-yellow tracking-widest mb-3 uppercase">
-                PRIMARY COMBAT FOCUS & CAPABILITIES
+                PRIMARY COMBAT FOCUS & RESEARCH DOMAINS
               </div>
               <div className="flex flex-wrap gap-2">
                 {profileData.focusAreas.map((area, idx) => (
                   <span
                     key={idx}
-                    className="bg-black border border-white/30 px-3 py-1.5 font-pricedown text-xs tracking-widest text-white hover:border-gta-yellow hover:text-gta-yellow transition-colors"
+                    className="bg-black/60 border border-white/30 px-3.5 py-1.5 rounded-lg font-pricedown text-xs tracking-widest text-white hover:border-gta-yellow hover:text-gta-yellow transition-colors"
                   >
                     ★ {area}
                   </span>
@@ -94,11 +91,11 @@ export function PlayerSection() {
             </div>
           </div>
 
-          {/* Right Column: Character Attributes & Spec Table */}
+          {/* Right Column: Attribute Sliders & Spec Table */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Attribute Skill Sliders */}
-            <div className="bg-gta-cardDark border-2 border-white/20 p-6 shadow-hard-yellow">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-6">
+            {/* Attribute Skill Sliders in Glass */}
+            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.15)]">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
                 <span className="font-pricedown text-2xl text-gta-yellow tracking-wider">
                   WEAPONIZED ATTRIBUTES
                 </span>
@@ -112,9 +109,9 @@ export function PlayerSection() {
                       <span className="text-white">{stat.label}</span>
                       <span className="text-gta-yellow">{stat.level}</span>
                     </div>
-                    <div className="h-3 w-full bg-black border border-white/30 overflow-hidden p-0.5">
+                    <div className="h-3 w-full bg-black/80 rounded-full border border-white/20 overflow-hidden p-0.5">
                       <div
-                        className={`h-full ${stat.color} transition-all duration-1000 shadow-sm`}
+                        className={`h-full rounded-full ${stat.color} transition-all duration-1000 shadow-sm`}
                         style={{ width: `${stat.bar}%` }}
                       />
                     </div>
@@ -123,10 +120,10 @@ export function PlayerSection() {
               </div>
             </div>
 
-            {/* Specs Dossier Table */}
-            <div className="bg-gta-panel border-2 border-white/20 p-5 divide-y divide-white/10">
+            {/* Spec Table Glass Card */}
+            <div className="rounded-2xl bg-black/45 backdrop-blur-xl border border-white/20 p-6 divide-y divide-white/10">
               {profileData.specs.map((spec, idx) => (
-                <div key={idx} className="py-2.5 flex items-center justify-between text-xs sm:text-sm">
+                <div key={idx} className="py-3 flex items-center justify-between text-xs sm:text-sm">
                   <span className="font-pricedown tracking-widest text-white/60">
                     {spec.label}
                   </span>
