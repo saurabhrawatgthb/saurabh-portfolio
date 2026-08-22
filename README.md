@@ -1,4 +1,4 @@
-# 🗄️ THE SAURABH FILES // CLASSIFIED ARCHIVE NODE [SR-001]
+# 🗄️ THE SAURABH FILES // 3D WORKSTATION & CLASSIFIED ARCHIVE [SR-001]
 
 ```
   ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ ██╗  ██╗    ███████╗██╗██╗     ███████╗███████╗
@@ -10,30 +10,46 @@
                                     [ ARCHIVE ID: SR-001 // ROOT ACCESS ]
 ```
 
-> **A cinematic, retro-terminal & classified personal archive experience designed and engineered for Saurabh Rawat.**  
+> **A cinematic 3D workstation environment & retro-terminal classified personal archive experience designed and engineered for Saurabh Rawat.**  
 > *"Building systems that turn ideas into working reality."*
 
 ---
 
-## ⚡ ACCESS SUMMARY
+## ⚡ ARCHIVE TELEMETRY
 
-| SYSTEM TELEMETRY | SPECIFICATION RECORD |
+| SPECIFICATION | STATUS / RECORD |
 | :--- | :--- |
 | **OPERATOR / BUILDER** | **Saurabh Rawat** (`ARCHITECT_ALPHA`) |
 | **ACADEMIC NODE** | **B.Tech Computer Science & Engineering** // Graphic Era University |
+| **3D WORKSPACE ENGINE** | **Three.js WebGL with PBR Materials, Soft Shadows, Dynamic CRT Canvas Texture** |
 | **CORE CAPABILITIES** | **AI & Computer Vision // Distributed Systems // IoT Hardware // High-Throughput APIs** |
-| **KERNEL STACK** | **Next.js 15+ (App Router), TypeScript, Tailwind CSS, Web Audio API, Framer Motion** |
+| **KERNEL STACK** | **Next.js 15+ (App Router), TypeScript, Tailwind CSS, Web Audio API, Three.js** |
 | **SECURITY CLEARANCE** | **LEVEL-5 ROOT // ZERO LOG COMPROMISE** |
 | **LIVE DEPLOYMENT** | **Vercel Edge Ready** |
 
 ---
 
-## 🧭 THE 10-CHAPTER ARCHIVE EXPERIENCE
+## 🕹️ 3D WORKSTATION REVEAL JOURNEY
 
-Rather than a conventional developer portfolio, **The Saurabh Files** takes visitors on a single-player, 10-chapter classified investigation through hardware simulations, computer vision pipelines, and system architectures:
+The website initially appears as a physical computer workstation sitting inside a dark, atmospheric room:
 
 ```
-[01] SYSTEM BOOT          ➔ Authentic CRT monitor power-on, RAM memory check & BIOS stream
+[00%] CAMERA CLOSE-UP    ➔ Focus on the CRT monitor glass displaying C:\SAURABH> _
+[30%] DOLLY OUT          ➔ Screen bezel, retro keyboard, mouse & cables revealed
+[60%] WORKSTATION EXPANS ➔ Warm desk lamp, wooden desk & moody atmospheric room revealed
+[75%] TERMINAL EXECUTION ➔ CRT screen types: C:\SAURABH> open archive -> ACCESS GRANTED
+[90%] CINEMATIC PLUNGE   ➔ Camera accelerates in a smooth dolly directly into the monitor glass
+[100%] SCREEN DIVE       ➔ Camera passes THROUGH the CRT phosphor flare into the digital CLI archive
+```
+
+---
+
+## 🧭 THE 10-CHAPTER CLI ARCHIVE EXPERIENCE
+
+Once inside the monitor, the visitor enters the pure digital command-line archive:
+
+```
+[01] SYSTEM BOOT          ➔ 3D Workstation reveal & authentic BIOS sequence
 [02] THE SCREEN OPENS     ➔ Cinematic archive unlock, hero typography & core engineering philosophy
 [03] IDENTITY_FILE.exe    ➔ Classified engineering dossier, Academic specs (GEU) & core domains
 [04] SKILL_MATRIX.diag    ➔ Modular diagnostic subsystem check with real-time calibration progress
@@ -51,18 +67,18 @@ Rather than a conventional developer portfolio, **The Saurabh Files** takes visi
 
 ### 🚨 [PROJECT_001] RAKSHAK — Missing Child Finder (Flagship AI Mission)
 * **Domain:** AI & Computer Vision // Distributed Camera Mesh
-* **Stack:** `Next.js`, `Python`, `FastAPI`, `OpenCV`, `Face Recognition`, `PostgreSQL`, `Graph Algorithms`
-* **Interactive Simulator:** Live camera node map with facial vector matching crops and Dijkstra shortest-path trajectory escape forecasting.
+* **Stack:** `Next.js`, `Python`, `FastAPI`, `OpenCV`, `Face Recognition`, `PostgreSQL`, `Graph Algorithms`, `Three.js`
+* **Interactive Simulator:** Dual-mode visualization featuring a 2D tactical node map with live face match bounding box crops and an **interactive 3D WebGL Spatial Mesh** with orbit controls and node raycasting.
 
 ### 💳 [PROJECT_002] UNICARD — Universal Identity & Financial Hardware
 * **Domain:** FinTech + IoT Hardware Architecture
 * **Stack:** `Microcontrollers`, `NFC/RFID Protocols`, `Node.js`, `PostgreSQL`, `Cryptography`
-* **Interactive Simulator:** Interactive 3D chip card with applet schema mode-switching (`IDENTITY`, `ACCESS`, `PAYMENT`, `IOT`) and rolling cryptogram NFC handshake.
+* **Interactive Simulator:** 3D tilt chip card with applet schema mode-switching (`IDENTITY`, `ACCESS`, `PAYMENT`, `IOT`) and rolling cryptogram NFC handshake.
 
 ### 🛣️ [PROJECT_003] POTHOLE DETECTION & ROAD TELEMETRY
 * **Domain:** Edge Computer Vision & Smart Infrastructure
 * **Stack:** `Python`, `OpenCV`, `Machine Learning`, `IoT Sensors`, `GIS / Geo-Spatial`, `FastAPI`
-* **Interactive Simulator:** Dashboard camera scanner with real-time contour bounding, depth anomaly estimation, and sub-meter GPS coordinate logging.
+* **Interactive Simulator:** Dashcam road surface scanner with real-time contour bounding, depth anomaly estimation, and sub-meter GPS coordinate logging.
 
 ### 📚 [PROJECT_004] UNIVERSITY LENDING PLATFORM
 * **Domain:** Enterprise Software & Inventory State Machine
@@ -78,6 +94,9 @@ Rather than a conventional developer portfolio, **The Saurabh Files** takes visi
 
 ## 🛠️ ARCHITECTURAL HIGHLIGHTS
 
+* **Hyper-Realistic 3D Workstation (`WorkstationScene.tsx`):**  
+  Built with Three.js, PBR materials, ACESFilmic tone mapping, PCF soft shadows, warm incandescent spotlights, and an offscreen canvas rendering real-time blinking DOS prompts directly onto curved CRT geometry.
+
 * **Zero-Asset Web Audio Synthesizer (`SoundEngine.ts`):**  
   Uses the browser's native `AudioContext` to synthesize CRT power-on whistles, mechanical typewriter clicks, radar sweeps, and access chimes without downloading external audio files. Includes a master `[SOUND OFF / ON]` toggle.
 
@@ -86,9 +105,6 @@ Rather than a conventional developer portfolio, **The Saurabh Files** takes visi
 
 * **Persistent System HUD (`SystemHUD.tsx`):**  
   Live telemetry display including system timestamp, chapter tracker (`CHAPTER 01 / 10`), dynamic archive percentage progress bar, and Konami code Easter Egg detection (`↑ ↑ ↓ ↓ ← → ← →`).
-
-* **Retro CRT Shaders & Reticle Cursor:**  
-  Lightweight CSS scanlines, phosphor glow, screen curvature vignette, and contextual cursor labels (`[OPEN FILE]`, `[EXT_SIGNAL]`, `[EXECUTE]`).
 
 ---
 

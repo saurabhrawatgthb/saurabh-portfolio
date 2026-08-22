@@ -1,8 +1,7 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
-import { Camera, Scan, ShieldCheck, Cpu, Play, CheckCircle2 } from "lucide-react";
+import { Camera, Scan, ShieldCheck, Cpu, Play, CheckCircle2, Box } from "lucide-react";
 import { sounds } from "@/components/sound/SoundEngine";
+import { Rakshak3DGraph } from "@/components/three/Rakshak3DGraph";
 
 interface CameraNode {
   id: string;
@@ -18,6 +17,7 @@ export function RakshakSimulator() {
   const [isScanning, setIsScanning] = useState(false);
   const [activeNode, setActiveNode] = useState<string>("CAM_02");
   const [scanStep, setScanStep] = useState(0);
+  const [viewMode, setViewMode] = useState<"2D" | "3D">("2D");
 
   const cameraNodes: CameraNode[] = [
     { id: "CAM_01", name: "SECTOR A // NORTH JUNCTION", x: 18, y: 30, status: scanStep >= 1 ? "ONLINE" : "ONLINE", time: "14:22:04" },
@@ -66,19 +66,48 @@ export function RakshakSimulator() {
           </span>
         </div>
 
-        <button
-          onClick={runSimulation}
-          disabled={isScanning}
-          data-cursor="TRIGGER_SCAN"
-          className="flex items-center gap-1.5 border border-term-amber bg-term-amber/10 px-3 py-1 font-bold text-term-amber hover:bg-term-amber hover:text-crt-black transition-colors disabled:opacity-50"
-        >
-          {isScanning ? <Scan className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5" />}
-          <span>{isScanning ? "AI PIPELINE COMPUTING..." : "RUN TRAJECTORY SIMULATION"}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <div className="flex rounded border border-term-green/40 bg-crt-darkest p-0.5 text-[10px]">
+            <button
+              onClick={() => {
+                sounds.playKeyClick();
+                setViewMode("2D");
+              }}
+              className={`px-2 py-0.5 ${viewMode === "2D" ? "bg-term-green text-crt-black font-bold" : "text-archive-muted"}`}
+            >
+              2D GRID
+            </button>
+            <button
+              onClick={() => {
+                sounds.playKeyClick();
+                setViewMode("3D");
+              }}
+              className={`px-2 py-0.5 flex items-center gap-1 ${viewMode === "3D" ? "bg-term-green text-crt-black font-bold" : "text-archive-muted"}`}
+            >
+              <Box className="h-3 w-3" />
+              3D MESH
+            </button>
+          </div>
+
+          <button
+            onClick={runSimulation}
+            disabled={isScanning}
+            data-cursor="TRIGGER_SCAN"
+            className="flex items-center gap-1.5 border border-term-amber bg-term-amber/10 px-3 py-1 font-bold text-term-amber hover:bg-term-amber hover:text-crt-black transition-colors disabled:opacity-50"
+          >
+            {isScanning ? <Scan className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5" />}
+            <span>{isScanning ? "AI PIPELINE COMPUTING..." : "RUN TRAJECTORY SIMULATION"}</span>
+          </button>
+        </div>
       </div>
 
-      {/* Main Tactical Grid View */}
-      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-12">
+      {/* Conditional 3D / 2D Grid View */}
+      {viewMode === "3D" ? (
+        <div className="mt-4">
+          <Rakshak3DGraph />
+        </div>
+      ) : (
+        <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-12">
         {/* Left: Interactive Node Map */}
         <div className="relative h-64 lg:col-span-8 border border-term-green/20 bg-crt-darkest overflow-hidden">
           {/* Radar background grid */}
@@ -204,6 +233,7 @@ export function RakshakSimulator() {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }

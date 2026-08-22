@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { SystemHUD } from "@/components/hud/SystemHUD";
+import { WorkstationScene } from "@/components/three/WorkstationScene";
 import { Chapter01Boot } from "@/components/chapters/Chapter01Boot";
 import { Chapter02Hero } from "@/components/chapters/Chapter02Hero";
 import { Chapter03Identity } from "@/components/chapters/Chapter03Identity";
@@ -125,9 +126,9 @@ export default function Home() {
         />
       )}
 
-      {/* Main Chapter Flow */}
+      {/* Main 3D Workstation & Chapter Flow */}
       {!isBooted ? (
-        <Chapter01Boot onEnter={handleEnterArchive} isUnlocked={isBooted} />
+        <WorkstationScene onEnterArchive={handleEnterArchive} />
       ) : (
         <div className="pt-10 pb-12 transition-opacity duration-700 ease-in animate-fadeIn">
           {/* Chapter 02: Hero & Dossier Opening */}
