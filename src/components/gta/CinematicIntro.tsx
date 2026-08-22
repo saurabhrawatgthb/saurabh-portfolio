@@ -13,7 +13,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
   const pinRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<SVGTextElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-  const bgImageRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -25,7 +24,6 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
     const pin = pinRef.current;
     const text = textRef.current;
     const indicator = scrollIndicatorRef.current;
-    const bgImage = bgImageRef.current;
     const overlay = overlayRef.current;
 
     if (!container || !pin || !text) return;
@@ -60,27 +58,23 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
               });
             }
 
-            // Reveal background image gently through the mask
-            if (bgImage) {
-              gsap.to(bgImage, {
-                opacity: Math.min(1, progress * 1.6),
-                scale: 1 + progress * 0.12,
-                duration: 0.1,
-                overwrite: "auto",
-              });
-            }
-
-            // When progress reaches 98%+, unlock portfolio
-            if (progress >= 0.96 && !isUnlocked) {
-              setIsUnlocked(true);
-              onRevealComplete?.();
+            // Smooth reveal trigger for navigation & main portfolio
+            if (progress >= 0.92) {
+              if (!isUnlocked) {
+                setIsUnlocked(true);
+                onRevealComplete?.();
+              }
+            } else {
+              if (isUnlocked) {
+                setIsUnlocked(false);
+              }
             }
           },
         },
       });
 
       // Dramatic exponential scaling of the SVG masked text
-      // Scaling from 1 up to 45+ so the letters encompass the entire screen
+      // Scales from 1 to 45+ so letters act as a magnifying transparent window
       tl.fromTo(
         text,
         {
@@ -88,23 +82,23 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
           transformOrigin: "50% 50%",
         },
         {
-          scale: 42,
+          scale: 45,
           transformOrigin: "50% 50%",
           ease: "power2.inOut",
           duration: 1,
         }
       );
 
-      // Fade out the overlay at the very end
+      // Fade out the overlay cleanly at the very end
       if (overlay) {
         tl.to(
           overlay,
           {
             opacity: 0,
-            duration: 0.15,
+            duration: 0.18,
             ease: "power1.out",
           },
-          0.88
+          0.82
         );
       }
     }, container);
@@ -117,42 +111,18 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[260vh] bg-black z-40"
+      className="relative w-full h-[250vh] bg-transparent z-40"
       id="intro-container"
     >
       {/* Pinned Viewport Frame */}
       <div
         ref={pinRef}
-        className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center select-none"
+        className="relative w-full h-screen overflow-hidden bg-transparent flex items-center justify-center select-none"
       >
-        {/* Hidden Cinematic Artwork behind the mask */}
-        <div
-          ref={bgImageRef}
-          className="absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-transform will-change-transform"
-        >
-          {/* Desktop & Mobile Responsive Artwork */}
-          <picture className="w-full h-full block">
-            <source
-              media="(max-width: 768px)"
-              srcSet="https://praxis-25.vercel.app/images/Jason_and_Lucia_01_phone.jpg"
-            />
-            <img
-              src="https://praxis-25.vercel.app/images/Jason_and_Lucia_01_landscape.jpg"
-              alt="Saurabh Rawat Cinematic Background"
-              className="w-full h-full object-cover object-center filter contrast-125 saturate-120"
-            />
-          </picture>
-
-          {/* Vignette and high-contrast color grading */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80" />
-          <div className="absolute inset-0 bg-gta-hotPink/10 mix-blend-overlay" />
-        </div>
-
         {/* Fullscreen SVG with Masked Cutout */}
         <div
           ref={overlayRef}
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none will-change-opacity"
         >
           <svg
             className="w-full h-full"
@@ -161,7 +131,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              {/* Mask: White shows overlay, Black text cuts transparent hole */}
+              {/* Mask: White preserves solid black overlay, Black text cuts transparent aperture */}
               <mask id="saurabh-title-mask">
                 <rect width="1920" height="1080" fill="white" />
                 <text
@@ -174,7 +144,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
                   className="font-pricedown uppercase"
                   style={{
                     fontFamily: "Pricedown, Impact, sans-serif",
-                    fontSize: "135px",
+                    fontSize: "140px",
                     fontWeight: 900,
                     letterSpacing: "4px",
                   }}
@@ -184,7 +154,7 @@ export function CinematicIntro({ onRevealComplete }: CinematicIntroProps) {
               </mask>
             </defs>
 
-            {/* Black overlay cutout by the mask */}
+            {/* Black overlay cutout by the mask directly looking through to PersistentBackground */}
             <rect
               width="1920"
               height="1080"
