@@ -12,22 +12,50 @@ export function Chapter09Contact() {
   const [message, setMessage] = useState("");
   const [isTransmitting, setIsTransmitting] = useState(false);
   const [isTransmitted, setIsTransmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!senderName || !message) return;
+    if (!senderName.trim() || !message.trim()) return;
 
     sounds.playPowerOn();
     setIsTransmitting(true);
+    setErrorMessage(null);
 
-    setTimeout(() => {
-      sounds.playAccessGranted();
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${profileData.socials.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: senderName.trim(),
+          email: senderEmail.trim() || "No return email specified",
+          message: message.trim(),
+          _subject: `🚨 Portfolio Transmission from ${senderName.trim()}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+
+      if (response.ok) {
+        sounds.playAccessGranted();
+        setIsTransmitting(false);
+        setIsTransmitted(true);
+        setSenderName("");
+        setSenderEmail("");
+        setMessage("");
+      } else {
+        sounds.playGlitch();
+        setIsTransmitting(false);
+        setErrorMessage("TRANSMISSION ERROR: Payload delivery failed. Re-try or use direct mail protocol.");
+      }
+    } catch {
+      sounds.playGlitch();
       setIsTransmitting(false);
-      setIsTransmitted(true);
-      setSenderName("");
-      setSenderEmail("");
-      setMessage("");
-    }, 1200);
+      setErrorMessage("NETWORK ANOMALY: Check uplink connection or dispatch via direct mail.");
+    }
   };
 
   return (
@@ -198,6 +226,12 @@ export function Chapter09Contact() {
                       className="w-full border border-term-green/30 bg-crt-surface p-2.5 text-xs text-archive-paper outline-none focus:border-term-green focus:ring-1 focus:ring-term-green placeholder:text-archive-darkMuted font-sans"
                     />
                   </div>
+
+                  {errorMessage && (
+                    <div className="border border-term-red/60 bg-term-red/10 p-2.5 text-xs text-term-red">
+                      {errorMessage}
+                    </div>
+                  )}
 
                   <button
                     type="submit"

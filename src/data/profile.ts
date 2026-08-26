@@ -66,6 +66,6 @@ export const profileData: ProfileData = {
     leetcode: "https://leetcode.com/u/dugganboss/",
     linkedin: "https://www.linkedin.com/in/saurabh-rawat-3027a4338/",
     x: "https://x.com/SaurabhRawattt",
-    email: "rawatsaurabh.dev@gmail.com",
+    email: "saurabhrawat1405@gmail.com",
   },
 };

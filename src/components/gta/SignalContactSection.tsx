@@ -12,22 +12,50 @@ export function SignalContactSection() {
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !message) return;
+    if (!name.trim() || !message.trim()) return;
 
     sounds.playPowerOn();
     setIsSending(true);
+    setErrorMessage(null);
 
-    setTimeout(() => {
-      sounds.playAccessGranted();
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${profileData.socials.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim() || "No return email specified",
+          message: message.trim(),
+          _subject: `🚨 Portfolio Transmission from ${name.trim()}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+
+      if (response.ok) {
+        sounds.playAccessGranted();
+        setIsSending(false);
+        setIsSent(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        sounds.playGlitch();
+        setIsSending(false);
+        setErrorMessage("Transmission could not be delivered. Please try again or use direct email.");
+      }
+    } catch {
+      sounds.playGlitch();
       setIsSending(false);
-      setIsSent(true);
-      setName("");
-      setEmail("");
-      setMessage("");
-    }, 1000);
+      setErrorMessage("Network error occurred. Please try again or reach out via direct email.");
+    }
   };
 
   return (
@@ -199,6 +227,12 @@ export function SignalContactSection() {
                       className="w-full bg-black border-2 border-white/20 p-3 text-sm text-white font-sans focus:border-gta-pink outline-none"
                     />
                   </div>
+
+                  {errorMessage && (
+                    <div className="bg-red-500/20 border-2 border-red-500 p-3 text-xs text-red-200 font-sans">
+                      {errorMessage}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
