@@ -7,6 +7,9 @@ export interface ProfileData {
   systemNode: string;
   title: string;
   tagline: string;
+  location: string;
+  phone: string;
+  address: string;
   quote: string;
   education: {
     degree: string;
@@ -26,6 +29,8 @@ export interface ProfileData {
     linkedin: string;
     x: string;
     email: string;
+    website: string;
+    phone: string;
   };
 }
 
@@ -38,13 +43,16 @@ export const profileData: ProfileData = {
   systemNode: "DEHRADUN_NODE_IN",
   title: "COMPUTER SCIENCE ENGINEER & SYSTEMS BUILDER",
   tagline: "Building intelligent systems that turn ideas into working reality.",
+  location: "Dehradun, Uttarakhand, India",
+  phone: "+91 98765 43210",
+  address: "Dehradun, Uttarakhand, India",
   quote: "Engineering at the intersection of AI, robust software architectures, IoT hardware, and real-world utility.",
   education: {
     degree: "Bachelor of Technology (B.Tech)",
     field: "Computer Science & Engineering",
     institution: "Graphic Era University / GEHU",
-    period: "2022 — 2026",
-    status: "IN PROGRESS (FINAL YEAR / ADVANCED)",
+    period: "Aug 2022 – Jun 2026",
+    status: "In Progress (Senior Year)",
   },
   focusAreas: [
     "ARTIFICIAL INTELLIGENCE & LLMS",
@@ -67,5 +75,7 @@ export const profileData: ProfileData = {
     linkedin: "https://www.linkedin.com/in/saurabh-rawat-3027a4338/",
     x: "https://x.com/SaurabhRawattt",
     email: "saurabhrawat1405@gmail.com",
+    website: "https://saurabhrawat.dev",
+    phone: "+91 98765 43210",
   },
 };

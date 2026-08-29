@@ -67,13 +67,14 @@ export function getResumeData(): ResumeData {
     name: profileData.name,
     title: profileData.title,
     email: profileData.socials.email,
-    location: "Dehradun, India",
+    location: profileData.location || "Dehradun, Uttarakhand, India",
+    phone: profileData.phone || "+91 98765 43210",
     github: profileData.socials.github,
     linkedin: profileData.socials.linkedin,
     leetcode: profileData.socials.leetcode,
-    website: "https://saurabhrawat.dev",
+    website: profileData.socials.website || "https://saurabhrawat.dev",
     summary:
-      "Results-oriented Computer Science Engineer specializing in AI/Computer Vision systems, high-concurrency distributed backends, and IoT embedded hardware. Experienced in architecting end-to-end mission-critical software, optimizing database throughput, and developing resilient edge-to-cloud pipelines with proven track record in technical leadership and hackathon operations.",
+      "Computer Science Engineer and Systems Builder specializing in AI/Computer Vision systems, high-concurrency backends, and IoT hardware. Proven track record in architecting resilient distributed pipelines, optimizing database latency, and leading technical operations.",
     education: [
       {
         degree: `${profileData.education.degree} in ${profileData.education.field}`,
@@ -132,9 +133,18 @@ export function generateAtsPlainText(): string {
   const data = getResumeData();
 
   let text = `${data.name.toUpperCase()}\n`;
-  text += `${data.title}\n`;
-  text += `Email: ${data.email} | Location: ${data.location}\n`;
-  text += `GitHub: ${data.github} | LinkedIn: ${data.linkedin} | LeetCode: ${data.leetcode}\n\n`;
+  text += `${data.title}\n\n`;
+
+  text += `============================================================\n`;
+  text += `CONTACT INFORMATION\n`;
+  text += `============================================================\n`;
+  text += `Address / Location: ${data.location}\n`;
+  text += `Email: ${data.email}\n`;
+  text += `Phone: ${data.phone}\n`;
+  text += `LinkedIn: ${data.linkedin}\n`;
+  text += `GitHub: ${data.github}\n`;
+  text += `Website / Portfolio: ${data.website}\n`;
+  text += `LeetCode: ${data.leetcode}\n\n`;
 
   text += `============================================================\n`;
   text += `PROFESSIONAL SUMMARY\n`;

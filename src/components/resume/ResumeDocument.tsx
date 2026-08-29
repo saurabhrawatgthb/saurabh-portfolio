@@ -2,7 +2,7 @@
 
 import React from "react";
 import { getResumeData } from "@/data/resumeConfig";
-import { Mail, MapPin, Code, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Phone, Globe, Code, ExternalLink } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "@/components/icons/SocialIcons";
 
 interface ResumeDocumentProps {
@@ -44,9 +44,9 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
         }
       `}</style>
 
-      {/* HEADER */}
+      {/* HEADER & CONTACT INFORMATION (ATS VALIDATED) */}
       <header className="border-b-2 border-slate-900 pb-5 mb-6">
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 uppercase font-sans">
               {data.name}
@@ -62,33 +62,48 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
                 {data.email}
               </a>
             </div>
+            {data.phone && (
+              <div className="flex items-center sm:justify-end gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-slate-700 shrink-0" />
+                <span className="font-mono text-slate-900">{data.phone}</span>
+              </div>
+            )}
             <div className="flex items-center sm:justify-end gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-slate-700 shrink-0" />
               <span>{data.location}</span>
             </div>
-            <div className="flex items-center sm:justify-end gap-2.5 pt-1 text-slate-700 font-mono text-xs">
-              <a
-                href={data.github}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-black flex items-center gap-1 hover:underline"
-              >
-                <GithubIcon className="w-3.5 h-3.5" /> GitHub
-              </a>
-              <span>•</span>
+            <div className="flex items-center sm:justify-end gap-2.5 pt-1 text-slate-700 font-mono text-xs flex-wrap">
               <a
                 href={data.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="hover:text-black flex items-center gap-1 hover:underline"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" /> LinkedIn
               </a>
               <span>•</span>
               <a
+                href={data.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-black flex items-center gap-1 hover:underline"
+              >
+                <GithubIcon className="w-3.5 h-3.5" /> GitHub
+              </a>
+              <span>•</span>
+              <a
+                href={data.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-black flex items-center gap-1 hover:underline"
+              >
+                <Globe className="w-3.5 h-3.5" /> Portfolio
+              </a>
+              <span>•</span>
+              <a
                 href={data.leetcode}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="hover:text-black flex items-center gap-1 hover:underline"
               >
                 <LeetCodeIcon className="w-3.5 h-3.5" /> LeetCode
