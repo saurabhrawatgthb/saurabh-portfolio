@@ -19,6 +19,7 @@ export function GlassNavbar({ isVisible }: GlassNavbarProps) {
     { label: "EXPERIENCE", href: "#experience" },
     { label: "RESEARCH", href: "#research" },
     { label: "ACHIEVEMENTS", href: "#achievements" },
+    { label: "RESUME", href: "#resume" },
     { label: "STATS", href: "#stats" },
     { label: "FAQ", href: "#faq" },
     { label: "CONTACT", href: "#contact" },

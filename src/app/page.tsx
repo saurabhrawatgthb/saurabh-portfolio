@@ -12,6 +12,7 @@ import { SkillsSection } from "@/components/gta/SkillsSection";
 import { ExperienceTimeline } from "@/components/gta/ExperienceTimeline";
 import { ResearchSection } from "@/components/gta/ResearchSection";
 import { AchievementSection } from "@/components/gta/AchievementSection";
+import { ResumeSection } from "@/components/gta/ResumeSection";
 import { StatsSection } from "@/components/gta/StatsSection";
 import { FAQSection } from "@/components/gta/FAQSection";
 import { ContactSection } from "@/components/gta/ContactSection";
@@ -64,6 +65,9 @@ export default function Home() {
 
         {/* Confirmed Evidence & Achievements */}
         <AchievementSection />
+
+        {/* Real-Time Confidential Operative Resume Dossier */}
+        <ResumeSection />
 
         {/* Player Live Stats Channels */}
         <StatsSection />
