@@ -10,13 +10,43 @@ export function ContactSection() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState(""); // Anti-bot honeypot trap
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [lastSentTime, setLastSentTime] = useState<number>(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
+
+    // 1. Silent rejection for automated bot traps
+    if (honeypot.trim().length > 0) {
+      setIsSent(true);
+      return;
+    }
+
+    const cleanName = name.trim().slice(0, 100);
+    const cleanEmail = email.trim().slice(0, 120);
+    const cleanMessage = message.trim().slice(0, 2500);
+
+    if (!cleanName || !cleanMessage) {
+      setErrorMessage("Please complete all required fields.");
+      return;
+    }
+
+    // 2. Validate email format if provided
+    if (cleanEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      setErrorMessage("Please provide a valid return email address or leave it blank.");
+      return;
+    }
+
+    // 3. Client-side flood protection / cooldown (minimum 20 seconds between sends)
+    const now = Date.now();
+    if (now - lastSentTime < 20000) {
+      const waitSec = Math.ceil((20000 - (now - lastSentTime)) / 1000);
+      setErrorMessage(`Rate limit: Transmission pipeline cooling down. Please wait ${waitSec}s.`);
+      return;
+    }
 
     sounds.playPowerOn();
     setIsSending(true);
@@ -30,10 +60,10 @@ export function ContactSection() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim() || "No return email specified",
-          message: message.trim(),
-          _subject: `🚨 Portfolio Transmission from ${name.trim()}`,
+          name: cleanName,
+          email: cleanEmail || "No return email specified",
+          message: cleanMessage,
+          _subject: `🚨 Portfolio Transmission from ${cleanName}`,
           _template: "table",
           _captcha: "false",
         }),
@@ -43,6 +73,7 @@ export function ContactSection() {
         sounds.playAccessGranted();
         setIsSending(false);
         setIsSent(true);
+        setLastSentTime(Date.now());
         setName("");
         setEmail("");
         setMessage("");
@@ -187,6 +218,18 @@ export function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Anti-bot Honeypot field (hidden from human visitors) */}
+                  <div className="hidden" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="_security_trap"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
+
                   <div>
                     <label className="block font-pricedown text-xs tracking-widest text-white/70 mb-2 uppercase">
                       OPERATOR / YOUR IDENTITY:
@@ -194,6 +237,7 @@ export function ContactSection() {
                     <input
                       type="text"
                       required
+                      maxLength={100}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="e.g. Lead Engineer / Recruiter"
@@ -207,6 +251,7 @@ export function ContactSection() {
                     </label>
                     <input
                       type="email"
+                      maxLength={120}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your.email@organization.com"
@@ -221,6 +266,7 @@ export function ContactSection() {
                     <textarea
                       required
                       rows={4}
+                      maxLength={2500}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Transmission regarding systems engineering, full-stack roles, or project collaborations..."

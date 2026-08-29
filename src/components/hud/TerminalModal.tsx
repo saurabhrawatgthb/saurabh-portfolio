@@ -268,6 +268,7 @@ export function TerminalModal({ isOpen, onClose, onSoundToggle }: TerminalModalP
           <input
             ref={inputRef}
             type="text"
+            maxLength={120}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
