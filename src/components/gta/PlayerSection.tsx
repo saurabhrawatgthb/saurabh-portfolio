@@ -38,11 +38,11 @@ export function PlayerSection() {
             {/* Academic Crystal Card */}
             <div className="rounded-3xl ios-crystal-glass crystal-sheen-sweep p-6 sm:p-8 relative">
               <div className="absolute top-0 right-0 bg-gta-pink px-4 py-1 font-pricedown text-white text-xs tracking-widest rounded-bl-2xl shadow-sm">
-                ACADEMICS
+                ACADEMICS // MERIT
               </div>
 
               <div className="flex items-center gap-4 mb-4 text-gta-pink">
-                <GraduationCap className="h-9 w-9" />
+                <GraduationCap className="h-9 w-9 shrink-0" />
                 <div>
                   <h3 className="font-pricedown text-2xl sm:text-3xl text-white tracking-wider">
                     {profileData.education.degree}
@@ -53,23 +53,34 @@ export function PlayerSection() {
                 </div>
               </div>
 
-              <div className="text-base sm:text-lg text-white font-semibold mb-3">
+              <div className="text-base sm:text-lg text-white font-semibold mb-2">
                 {profileData.education.institution}
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-white/15 text-xs font-mono text-white/80">
-                <span>TIMELINE: {profileData.education.period}</span>
-                <span className="text-gta-cyan font-bold">{profileData.education.status}</span>
+              <div className="grid grid-cols-2 gap-2 my-4 bg-black/40 border border-white/15 rounded-2xl p-3 text-xs font-mono">
+                <div>
+                  <span className="text-white/60 block">COLLEGE RECORD:</span>
+                  <span className="text-gta-yellow font-bold text-sm">9+ CGPA (1st &amp; 2nd Yr)</span>
+                </div>
+                <div>
+                  <span className="text-white/60 block">BOARD EXAMS:</span>
+                  <span className="text-gta-cyan font-bold text-sm">94% ICSE • 89% ISC</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-3 border-t border-white/15 text-xs font-mono text-white/80">
+                <span>STATUS: {profileData.education.status.toUpperCase()}</span>
+                <span className="text-gta-cyan font-bold">UNDERGRADUATE</span>
               </div>
             </div>
 
             {/* Builder Philosophy Crystal Card */}
             <div className="rounded-3xl ios-crystal-glass p-6 sm:p-8">
               <div className="font-pricedown text-xl sm:text-2xl text-gta-cyan tracking-wider mb-2">
-                MISSION DOCTRINE & PHILOSOPHY
+                MISSION DOCTRINE &amp; PHILOSOPHY
               </div>
               <p className="text-sm sm:text-base text-white/90 leading-relaxed font-sans font-medium">
-                Saurabh is a computer science student and software builder driven by making complex systems work seamlessly in production. His work spans edge computer vision pipelines, multi-camera movement tracking, hardware micro-controller cards, and high-concurrency event engines designed for real-world resilience.
+                Saurabh Rawat is a Computer Science &amp; Engineering student at Graphic Era Hill University. Driven by practical engineering, he focuses on building systems, exploring AI, and turning ideas into working projects. His experience spans edge computer vision, backend APIs, IoT hardware, and active management contributions in national-level hackathons and technical communities.
               </p>
             </div>
 

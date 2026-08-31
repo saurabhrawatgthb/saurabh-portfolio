@@ -28,7 +28,7 @@ export function StatsSection() {
     {
       name: "LINKEDIN NETWORK",
       handle: "Saurabh Rawat",
-      tag: "PROFESSIONAL & INDUSTRY NETWORK",
+      tag: "PEER & TECHNICAL NETWORK",
       url: profileData.socials.linkedin,
       icon: LinkedinIcon,
       color: "border-gta-cyan text-gta-cyan",

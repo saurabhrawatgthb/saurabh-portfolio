@@ -205,7 +205,7 @@ export function ResumeSection() {
                 {data.education[0]?.institution}
               </p>
               <div className="text-xs font-mono text-gta-cyan font-semibold">
-                {data.education[0]?.period} • {data.education[0]?.status}
+                {data.education[0]?.details[0]} • {data.education[0]?.status}
               </div>
             </div>
 

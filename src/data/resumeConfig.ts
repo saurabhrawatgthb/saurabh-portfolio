@@ -8,20 +8,43 @@ import { researchData } from "./research";
 export interface ResumeData {
   name: string;
   title: string;
+  institution: string;
   email: string;
   location: string;
-  phone?: string;
+  phone: string;
   github: string;
   linkedin: string;
   leetcode: string;
+  x: string;
   website: string;
   summary: string;
   education: {
-    degree: string;
     institution: string;
-    period: string;
+    degree: string;
     status: string;
-    score?: string;
+    details: string[];
+  }[];
+  organisations: {
+    name: string;
+    institution: string;
+    role: string;
+  }[];
+  leadership: {
+    event: string;
+    role: string;
+    type: string;
+    organisation: string;
+  }[];
+  volunteering: {
+    event: string;
+    role: string;
+    type: string;
+    organisation: string;
+  }[];
+  hackathons: {
+    title: string;
+    status?: string;
+    organisation: string;
   }[];
   skillsByCategory: {
     category: string;
@@ -44,12 +67,6 @@ export interface ResumeData {
     bullets: string[];
     skillsApplied: string[];
   }[];
-  achievements: {
-    title: string;
-    organization: string;
-    date: string;
-    description: string;
-  }[];
   research: {
     title: string;
     domain: string;
@@ -65,28 +82,156 @@ export interface ResumeData {
 export function getResumeData(): ResumeData {
   return {
     name: profileData.name,
-    title: profileData.title,
+    title: "Computer Science & Engineering Student",
+    institution: "Graphic Era Hill University",
     email: profileData.socials.email,
     location: profileData.location || "Dehradun, Uttarakhand, India",
-    phone: profileData.phone || "+91 98765 43210",
+    phone: profileData.phone || "+91 6395982464",
     github: profileData.socials.github,
     linkedin: profileData.socials.linkedin,
     leetcode: profileData.socials.leetcode,
+    x: profileData.socials.x,
     website: profileData.socials.website || "https://saurabhrawat.dev",
     summary:
-      "Computer Science Engineer and Systems Builder specializing in AI/Computer Vision systems, high-concurrency backends, and IoT hardware. Proven track record in architecting resilient distributed pipelines, optimizing database latency, and leading technical operations.",
+      "Undergraduate Computer Science & Engineering student at Graphic Era Hill University. Builder exploring AI, computer vision systems, backend APIs, and IoT hardware with strong academic performance (9+ CGPA) and active hackathon and technical community involvement.",
     education: [
       {
-        degree: `${profileData.education.degree} in ${profileData.education.field}`,
-        institution: profileData.education.institution,
-        period: profileData.education.period,
-        status: profileData.education.status,
+        institution: "Graphic Era Hill University",
+        degree: "B.Tech — Computer Science & Engineering",
+        status: "Currently Pursuing",
+        details: [
+          "Academic Record: 9+ CGPA in 1st Year & 9+ CGPA in 2nd Year",
+        ],
+      },
+      {
+        institution: "ICSE Board",
+        degree: "High School (Class X)",
+        status: "Completed",
+        details: ["Academic Achievement: 94%"],
+      },
+      {
+        institution: "ISC Board",
+        degree: "Intermediate (Class XII)",
+        status: "Completed",
+        details: ["Academic Achievement: 89%"],
       },
     ],
-    skillsByCategory: skillModules.map((mod) => ({
-      category: mod.name,
-      skills: mod.skills.map((s) => s.name),
-    })),
+    organisations: [
+      {
+        name: "IEEE Student Branch",
+        institution: "Graphic Era Hill University",
+        role: "Member",
+      },
+      {
+        name: "TBI (Technology Business Incubator)",
+        institution: "Graphic Era University",
+        role: "Member",
+      },
+      {
+        name: "TDH (The Designnovation Hub)",
+        institution: "Graphic Era University",
+        role: "Member",
+      },
+    ],
+    leadership: [
+      {
+        event: "SAARTHI'25",
+        role: "Organising & Management Committee",
+        type: "National-Level 24-Hour Hackathon",
+        organisation: "IEEE Student Branch, Graphic Era Hill University",
+      },
+      {
+        event: "GRAPH-E-THON 2.0",
+        role: "Management Committee",
+        type: "48-Hour National-Level Hackathon",
+        organisation: "Technology Business Incubator, Graphic Era University",
+      },
+      {
+        event: "GRAPH-E-THON 3.0",
+        role: "Management Committee",
+        type: "72-Hour National-Level Hackathon",
+        organisation: "Technology Business Incubator, Graphic Era University",
+      },
+    ],
+    volunteering: [
+      {
+        event: "TECHNIEEEKS'25",
+        role: "Active Contributor & Volunteer",
+        type: "Annual Research Paper Writing Workshop",
+        organisation: "IEEE Student Branch, Graphic Era Hill University",
+      },
+      {
+        event: "TECHNIEEEKS'26",
+        role: "Active Contributor & Volunteer",
+        type: "Annual Research Paper Writing Workshop",
+        organisation: "IEEE Student Branch, Graphic Era Hill University",
+      },
+      {
+        event: "CISCT International Conference",
+        role: "Volunteer",
+        type: "International Conference",
+        organisation: "IEEE",
+      },
+    ],
+    hackathons: [
+      {
+        title: "PRAXIS 2.0",
+        status: "FINALIST",
+        organisation: "Google Developer Groups",
+      },
+      {
+        title: "Economic Times X GenAI Hackathon",
+        status: "SEMIFINALIST",
+        organisation: "Economic Times",
+      },
+      {
+        title: "Neural Nexus AI/ML Challenge",
+        status: "FINALIST",
+        organisation: "Grafest 2026",
+      },
+      {
+        title: "Hack for Green Bharat Hackathon",
+        organisation: "National Initiative",
+      },
+      {
+        title: "Innovate by NSUT'26",
+        organisation: "NSUT",
+      },
+      {
+        title: "Hack The Winter — The Second Wave",
+        organisation: "Graphic Era University",
+      },
+      {
+        title: "Innovate4FinLit Hackathon",
+        organisation: "Fintech Initiative",
+      },
+    ],
+    skillsByCategory: [
+      {
+        category: "PROGRAMMING",
+        skills: ["C", "C++", "Java", "Python", "JavaScript"],
+      },
+      {
+        category: "WEB",
+        skills: ["HTML", "CSS", "React", "Next.js"],
+      },
+      {
+        category: "BACKEND",
+        skills: ["Node.js", "FastAPI"],
+      },
+      {
+        category: "DATABASE",
+        skills: ["PostgreSQL", "SQLite", "SQL"],
+      },
+      {
+        category: "AI / ML",
+        skills: ["Machine Learning", "Computer Vision", "LLMs", "Embeddings"],
+      },
+      {
+        category: "TOOLS",
+        skills: ["Git", "GitHub", "Docker", "Vercel"],
+      },
+    ],
     featuredProjects: projectsData.map((proj) => ({
       title: proj.title,
       tagline: proj.tagline,
@@ -108,12 +253,6 @@ export function getResumeData(): ResumeData {
       bullets: exp.impact,
       skillsApplied: exp.skillsApplied,
     })),
-    achievements: achievementsData.map((ach) => ({
-      title: ach.title,
-      organization: ach.organization,
-      date: ach.date,
-      description: ach.description,
-    })),
     research: [
       {
         title: researchData.title,
@@ -133,31 +272,71 @@ export function generateAtsPlainText(): string {
   const data = getResumeData();
 
   let text = `${data.name.toUpperCase()}\n`;
-  text += `${data.title}\n\n`;
+  text += `${data.title} — ${data.institution}\n\n`;
 
   text += `============================================================\n`;
   text += `CONTACT INFORMATION\n`;
   text += `============================================================\n`;
-  text += `Address / Location: ${data.location}\n`;
-  text += `Email: ${data.email}\n`;
   text += `Phone: ${data.phone}\n`;
-  text += `LinkedIn: ${data.linkedin}\n`;
+  text += `Email: ${data.email}\n`;
+  text += `Location: ${data.location}\n`;
   text += `GitHub: ${data.github}\n`;
-  text += `Website / Portfolio: ${data.website}\n`;
-  text += `LeetCode: ${data.leetcode}\n\n`;
-
-  text += `============================================================\n`;
-  text += `PROFESSIONAL SUMMARY\n`;
-  text += `============================================================\n`;
-  text += `${data.summary}\n\n`;
+  text += `LinkedIn: ${data.linkedin}\n`;
+  text += `LeetCode: ${data.leetcode}\n`;
+  text += `X: ${data.x}\n`;
+  text += `Website: ${data.website}\n\n`;
 
   text += `============================================================\n`;
   text += `EDUCATION\n`;
   text += `============================================================\n`;
   data.education.forEach((edu) => {
-    text += `${edu.degree}\n`;
-    text += `${edu.institution} | ${edu.period} (${edu.status})\n\n`;
+    text += `${edu.institution}\n`;
+    text += `${edu.degree} (${edu.status})\n`;
+    edu.details.forEach((d) => {
+      text += `  • ${d}\n`;
+    });
+    text += `\n`;
   });
+
+  text += `============================================================\n`;
+  text += `ORGANISATIONS\n`;
+  text += `============================================================\n`;
+  data.organisations.forEach((org) => {
+    text += `• ${org.name}, ${org.institution} — ${org.role}\n`;
+  });
+  text += `\n`;
+
+  text += `============================================================\n`;
+  text += `LEADERSHIP & MANAGEMENT EXPERIENCE\n`;
+  text += `============================================================\n`;
+  data.leadership.forEach((lead) => {
+    text += `• ${lead.event}\n`;
+    text += `  Role: ${lead.role}\n`;
+    text += `  Type: ${lead.type}\n`;
+    text += `  Organiser: ${lead.organisation}\n\n`;
+  });
+
+  text += `============================================================\n`;
+  text += `VOLUNTEERING & CONTRIBUTION\n`;
+  text += `============================================================\n`;
+  data.volunteering.forEach((vol) => {
+    text += `• ${vol.event}\n`;
+    text += `  Role: ${vol.role}\n`;
+    text += `  Type: ${vol.type}\n`;
+    text += `  Organiser: ${vol.organisation}\n\n`;
+  });
+
+  text += `============================================================\n`;
+  text += `HACKATHON ACHIEVEMENTS & RECORD\n`;
+  text += `============================================================\n`;
+  data.hackathons.forEach((hack) => {
+    if (hack.status) {
+      text += `• ${hack.status}: ${hack.title} (${hack.organisation})\n`;
+    } else {
+      text += `• ${hack.title} (${hack.organisation})\n`;
+    }
+  });
+  text += `\n`;
 
   text += `============================================================\n`;
   text += `TECHNICAL SKILLS\n`;
@@ -180,37 +359,6 @@ export function generateAtsPlainText(): string {
     text += `\n`;
   });
 
-  text += `============================================================\n`;
-  text += `EXPERIENCE & LEADERSHIP\n`;
-  text += `============================================================\n`;
-  data.experience.forEach((exp) => {
-    text += `${exp.role.toUpperCase()} — ${exp.organization} (${exp.period})\n`;
-    text += `Scope: ${exp.scope}\n`;
-    exp.bullets.forEach((b) => {
-      text += `  - ${b}\n`;
-    });
-    text += `Skills Applied: ${exp.skillsApplied.join(", ")}\n\n`;
-  });
-
-  text += `============================================================\n`;
-  text += `RESEARCH & PUBLICATIONS\n`;
-  text += `============================================================\n`;
-  data.research.forEach((res) => {
-    text += `${res.title}\n`;
-    text += `Domain: ${res.domain} | Status: ${res.status}\n`;
-    res.findings.forEach((f) => {
-      text += `  - ${f}\n`;
-    });
-    text += `\n`;
-  });
-
-  text += `============================================================\n`;
-  text += `HONORS & ACHIEVEMENTS\n`;
-  text += `============================================================\n`;
-  data.achievements.forEach((ach) => {
-    text += `• ${ach.title} — ${ach.organization} (${ach.date})\n`;
-    text += `  ${ach.description}\n`;
-  });
-
   return text;
 }
+

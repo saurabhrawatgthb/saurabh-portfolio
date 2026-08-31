@@ -17,6 +17,9 @@ export interface ProfileData {
     institution: string;
     period: string;
     status: string;
+    cgpaRecord: string;
+    highSchool: string;
+    intermediate: string;
   };
   focusAreas: string[];
   specs: {
@@ -41,33 +44,36 @@ export const profileData: ProfileData = {
   status: "ACTIVE",
   clearanceLevel: "LEVEL-5 ROOT",
   systemNode: "DEHRADUN_NODE_IN",
-  title: "COMPUTER SCIENCE ENGINEER & SYSTEMS BUILDER",
-  tagline: "Building intelligent systems that turn ideas into working reality.",
+  title: "COMPUTER SCIENCE & ENGINEERING STUDENT",
+  tagline: "Building systems, exploring AI, and turning ideas into working projects.",
   location: "Dehradun, Uttarakhand, India",
-  phone: "+91 98765 43210",
+  phone: "+91 6395982464",
   address: "Dehradun, Uttarakhand, India",
-  quote: "Engineering at the intersection of AI, robust software architectures, IoT hardware, and real-world utility.",
+  quote: "Building systems, exploring AI, and turning ideas into working projects.",
   education: {
-    degree: "Bachelor of Technology (B.Tech)",
+    degree: "B.Tech",
     field: "Computer Science & Engineering",
-    institution: "Graphic Era University / GEHU",
-    period: "Aug 2022 – Jun 2026",
-    status: "In Progress (Senior Year)",
+    institution: "Graphic Era Hill University",
+    period: "Aug 2022 – Present",
+    status: "Currently Pursuing",
+    cgpaRecord: "9+ CGPA in 1st Year and 2nd Year",
+    highSchool: "94% — ICSE High School",
+    intermediate: "89% — ISC Intermediate",
   },
   focusAreas: [
     "ARTIFICIAL INTELLIGENCE & LLMS",
-    "DISTRIBUTED SOFTWARE ARCHITECTURES",
     "COMPUTER VISION & GEO-SPATIAL SYSTEMS",
-    "INTERNET OF THINGS (IOT) & EMBEDDED HARDWARE",
+    "DISTRIBUTED SOFTWARE ARCHITECTURES",
     "HIGH-CONCURRENCY BACKEND APIS",
+    "INTERNET OF THINGS (IOT) & EMBEDDED HARDWARE",
   ],
   specs: [
-    { label: "PRIMARY ROLE", value: "FULL-STACK & AI SYSTEMS BUILDER" },
-    { label: "CORE FOCUS", value: "CV, APIS, IOT, DISTRIBUTED PIPELINES" },
-    { label: "SYSTEM KERNEL", value: "PYTHON // TYPESCRIPT // JAVA // C++" },
-    { label: "ARCHIVE NODE", value: "NODE_SR_001 [SECURE]" },
-    { label: "SECURITY STATUS", value: "VERIFIED IDENTITY // ZERO LOG COMPROMISE" },
-    { label: "MISSION OBJECTIVE", value: "DEPLOY RESILIENT PRODUCTION SOLUTIONS" },
+    { label: "PRIMARY ROLE", value: "B.TECH CSE STUDENT & BUILDER" },
+    { label: "ACADEMIC RECORD", value: "9+ CGPA (1ST & 2ND YEAR)" },
+    { label: "INSTITUTION", value: "GRAPHIC ERA HILL UNIVERSITY" },
+    { label: "CURRENT STATUS", value: "UNDERGRADUATE (CURRENTLY PURSUING)" },
+    { label: "CORE FOCUS", value: "AI, SYSTEMS, CV, IOT & BACKEND" },
+    { label: "COMMUNITY & ORGS", value: "IEEE SB GEHU // TBI // TDH" },
   ],
   socials: {
     github: "https://github.com/saurabhrawatgthb",
@@ -76,6 +82,7 @@ export const profileData: ProfileData = {
     x: "https://x.com/SaurabhRawattt",
     email: "saurabhrawat1405@gmail.com",
     website: "https://saurabhrawat.dev",
-    phone: "+91 98765 43210",
+    phone: "+91 6395982464",
   },
 };
+

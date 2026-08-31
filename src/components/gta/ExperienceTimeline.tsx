@@ -12,11 +12,14 @@ export function ExperienceTimeline() {
         <div className="flex flex-wrap items-end justify-between gap-4 border-b-4 border-white pb-4 mb-10">
           <div>
             <div className="font-pricedown text-gta-pink text-xl tracking-widest uppercase">
-              OPERATIONAL TIMELINE // MISSIONS SERVED
+              COMMUNITY &amp; EVENT MILESTONES // CAMPUS LEADERSHIP
             </div>
             <h2 className="font-pricedown text-5xl sm:text-7xl md:text-8xl tracking-tight uppercase leading-none gta-text-outline">
               EXPERIENCE
             </h2>
+            <div className="font-pricedown text-sm text-gta-cyan tracking-widest mt-1 uppercase">
+              CAMPUS &amp; COMMUNITY EXPERIENCE TIMELINE
+            </div>
           </div>
           <div className="bg-gta-pink px-4 py-2 rounded-2xl text-white font-pricedown text-lg tracking-widest shadow-hard">
             {experienceLog.length} CHAPTERS LOGGED

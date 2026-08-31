@@ -27,7 +27,7 @@ export function SkillsSection() {
             </h2>
           </div>
           <div className="bg-gta-cyan px-4 py-2 rounded-2xl text-black font-pricedown text-lg tracking-widest shadow-hard">
-            5 ARSENAL MODULES LOADED
+            {skillModules.length} ARSENAL MODULES LOADED
           </div>
         </div>
 

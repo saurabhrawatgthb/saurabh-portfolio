@@ -2,34 +2,36 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SAURABH",
+  title: "SAURABH RAWAT",
   description:
-    "Saurabh Rawat — Computer Science student, builder, and software engineer working across AI, software systems, IoT and intelligent applications.",
+    "Saurabh Rawat — Computer Science & Engineering Student at Graphic Era Hill University. Building systems, exploring AI, and turning ideas into working projects.",
   keywords: [
     "Saurabh Rawat",
     "Saurabh",
-    "Computer Science Engineer",
-    "AI Developer",
+    "Computer Science & Engineering Student",
+    "B.Tech CSE",
+    "Graphic Era Hill University",
+    "AI",
     "Computer Vision",
     "FastAPI",
     "Next.js",
     "IoT",
-    "Graphic Era University",
+    "IEEE Student Branch GEHU",
   ],
   authors: [{ name: "Saurabh Rawat", url: "https://github.com/saurabhrawatgthb" }],
   openGraph: {
-    title: "SAURABH",
+    title: "SAURABH RAWAT",
     description:
-      "Cinematic personal portfolio, mission case files, and engineering projects of Saurabh Rawat.",
+      "Cinematic personal portfolio, mission case files, and engineering projects of Saurabh Rawat — Computer Science & Engineering Student at Graphic Era Hill University.",
     type: "website",
     locale: "en_US",
-    siteName: "SAURABH",
+    siteName: "SAURABH RAWAT",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SAURABH",
+    title: "SAURABH RAWAT",
     description:
-      "Saurabh Rawat — Computer Science student, builder, and software engineer working across AI, software systems, IoT and intelligent applications.",
+      "Saurabh Rawat — Computer Science & Engineering Student at Graphic Era Hill University. Building systems, exploring AI, and turning ideas into working projects.",
     creator: "@SaurabhRawattt",
   },
   robots: {

@@ -123,6 +123,17 @@ export function ContactSection() {
 
               <div className="space-y-3">
                 <a
+                  href="tel:+916395982464"
+                  className="flex items-center justify-between bg-black/50 rounded-2xl border border-emerald-400/60 p-4 font-pricedown text-base tracking-wider text-emerald-400 hover:bg-emerald-400 hover:text-black transition-all shadow-hard"
+                >
+                  <div className="flex items-center gap-3">
+                    <Radio className="h-5 w-5 text-emerald-400 group-hover:text-black" />
+                    <span>PHONE // +91 6395982464</span>
+                  </div>
+                  <span className="text-xs font-mono font-bold">CALL ↗</span>
+                </a>
+
+                <a
                   href={profileData.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"

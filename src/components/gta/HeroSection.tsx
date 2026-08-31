@@ -33,13 +33,16 @@ export function HeroSection() {
 
           <div className="relative z-10">
             <div className="font-pricedown text-xl sm:text-2xl text-gta-cyan tracking-wider">
-              COMPUTER SCIENCE • BUILDER • ENGINEER
+              COMPUTER SCIENCE &amp; ENGINEERING STUDENT
+            </div>
+            <div className="font-pricedown text-base sm:text-lg text-gta-pink tracking-wider mt-0.5">
+              GRAPHIC ERA HILL UNIVERSITY
             </div>
             <p className="mt-2 text-sm sm:text-base text-white/95 font-sans leading-relaxed font-semibold">
               &ldquo;{profileData.tagline}&rdquo;
             </p>
             <div className="mt-3 text-xs sm:text-sm text-gta-yellow font-mono">
-              ★ B.Tech CSE @ Graphic Era University // AI, Computer Vision, Systems & IoT
+              ★ B.Tech CSE (Currently Pursuing) // 9+ CGPA • IEEE SB GEHU • TBI • TDH
             </div>
           </div>
         </div>

@@ -2,12 +2,12 @@ export interface SkillModule {
   id: string;
   code: string;
   name: string;
-  category: "LANGUAGES" | "WEB & FRAMEWORKS" | "DATABASE & STORAGE" | "AI / ML & CV" | "TOOLS & INFRASTRUCTURE";
+  category: "PROGRAMMING" | "WEB" | "BACKEND" | "DATABASE" | "AI / ML" | "TOOLS";
   status: "ONLINE" | "OPTIMIZED" | "CALIBRATED";
   description: string;
   skills: {
     name: string;
-    level: string; // e.g. "PRIMARY", "ADVANCED", "PROFICIENT"
+    level: string;
     tag: string;
   }[];
 }
@@ -16,81 +16,84 @@ export const skillModules: SkillModule[] = [
   {
     id: "MOD_01",
     code: "LANG_CORE",
-    name: "LANGUAGES & COMPILER RUNTIMES",
-    category: "LANGUAGES",
+    name: "PROGRAMMING LANGUAGES",
+    category: "PROGRAMMING",
     status: "ONLINE",
-    description: "Multi-paradigm programming capabilities spanning systems programming, type-safe web engines, and data pipelines.",
+    description: "Core multi-paradigm programming languages spanning systems, object-oriented, and web runtimes.",
     skills: [
-      { name: "Python", level: "PRIMARY", tag: "AI / BACKEND" },
+      { name: "C", level: "PROFICIENT", tag: "SYSTEMS PROGRAMMING" },
       { name: "C++", level: "ADVANCED", tag: "ALGORITHMS & DSA" },
-      { name: "Java", level: "ADVANCED", tag: "ENTERPRISE SYSTEMS" },
-      { name: "C", level: "PROFICIENT", tag: "LOW-LEVEL SYSTEMS" },
-      { name: "JavaScript / ESNext", level: "PRIMARY", tag: "WEB ENGINE" },
-      { name: "TypeScript", level: "PRIMARY", tag: "TYPE INTEGRITY" },
-      { name: "HTML5 / CSS3", level: "PROFICIENT", tag: "INTERFACE ARCHITECTURE" },
+      { name: "Java", level: "ADVANCED", tag: "ENTERPRISE CORE" },
+      { name: "Python", level: "PRIMARY", tag: "AI / SYSTEMS" },
+      { name: "JavaScript", level: "PRIMARY", tag: "WEB ENGINE" },
     ],
   },
   {
     id: "MOD_02",
     code: "WEB_STACK",
-    name: "WEB & DISTRIBUTED FRAMEWORKS",
-    category: "WEB & FRAMEWORKS",
+    name: "WEB TECHNOLOGIES & FRAMEWORKS",
+    category: "WEB",
     status: "ONLINE",
-    description: "Modern, reactive web applications and scalable REST / asynchronous API backends.",
+    description: "Frontend interface and modern web development stack.",
     skills: [
-      { name: "React 19", level: "PRIMARY", tag: "COMPONENT ARCHITECTURE" },
-      { name: "Next.js (App Router)", level: "PRIMARY", tag: "SSR / SSG ENGINE" },
-      { name: "Node.js", level: "ADVANCED", tag: "EVENT LOOP RUNTIME" },
-      { name: "FastAPI", level: "PRIMARY", tag: "HIGH-THROUGHPUT REST" },
-      { name: "Tailwind CSS", level: "PRIMARY", tag: "DESIGN SYSTEMS" },
-      { name: "REST APIs", level: "ADVANCED", tag: "CONTRACT DESIGN" },
-      { name: "WebSockets", level: "PROFICIENT", tag: "REAL-TIME STREAMS" },
+      { name: "HTML", level: "PRIMARY", tag: "MARKUP ARCHITECTURE" },
+      { name: "CSS", level: "PRIMARY", tag: "STYLING & DESIGN" },
+      { name: "React", level: "PRIMARY", tag: "COMPONENT UI" },
+      { name: "Next.js", level: "PRIMARY", tag: "FULL-STACK APP ROUTER" },
     ],
   },
   {
     id: "MOD_03",
-    code: "DB_PERSIST",
-    name: "DATABASE & PERSISTENCE SYSTEMS",
-    category: "DATABASE & STORAGE",
+    code: "BACKEND_CORE",
+    name: "BACKEND FRAMEWORKS & RUNTIMES",
+    category: "BACKEND",
     status: "ONLINE",
-    description: "Relational modeling, query optimization, spatial indexes, and lightweight embedded persistence.",
+    description: "Scalable backend web APIs and server-side runtimes.",
     skills: [
-      { name: "PostgreSQL", level: "PRIMARY", tag: "ENTERPRISE RDBMS" },
-      { name: "SQLite", level: "ADVANCED", tag: "EMBEDDED STORAGE" },
-      { name: "SQL Schema Design", level: "ADVANCED", tag: "NORMALIZATION / DDL" },
-      { name: "Vector Indexing", level: "PROFICIENT", tag: "EMBEDDING SIMILARITY" },
+      { name: "Node.js", level: "ADVANCED", tag: "ASYNC EVENT RUNTIME" },
+      { name: "FastAPI", level: "PRIMARY", tag: "HIGH-SPEED PYTHON API" },
     ],
   },
   {
     id: "MOD_04",
-    code: "AI_CV_NET",
-    name: "AI / ML, VISION & INTELLIGENT SYSTEMS",
-    category: "AI / ML & CV",
-    status: "OPTIMIZED",
-    description: "Computer vision pipelines, facial feature vector extraction, OCR text parsing, and LLM prompt engineering.",
+    code: "DB_PERSIST",
+    name: "DATABASE SYSTEMS",
+    category: "DATABASE",
+    status: "ONLINE",
+    description: "Relational modeling, querying, and embedded data persistence.",
     skills: [
-      { name: "Computer Vision (OpenCV)", level: "PRIMARY", tag: "SPATIAL ANALYSIS" },
-      { name: "Machine Learning", level: "ADVANCED", tag: "PREDICTIVE MODELING" },
-      { name: "Face Recognition", level: "PRIMARY", tag: "VECTOR ENCODINGS" },
-      { name: "OCR Pipelines", level: "ADVANCED", tag: "TEXT EXTRACTION" },
-      { name: "Embeddings & RAG", level: "PROFICIENT", tag: "SEMANTIC RETRIEVAL" },
-      { name: "Graph Path Algorithms", level: "ADVANCED", tag: "TRAJECTORY PREDICTION" },
+      { name: "PostgreSQL", level: "PRIMARY", tag: "ENTERPRISE RDBMS" },
+      { name: "SQLite", level: "ADVANCED", tag: "EMBEDDED STORAGE" },
+      { name: "SQL", level: "ADVANCED", tag: "QUERIES & NORMALIZATION" },
     ],
   },
   {
     id: "MOD_05",
-    code: "DEVOPS_TOOL",
-    name: "DEVOPS, TOOLS & HARDWARE IOT",
-    category: "TOOLS & INFRASTRUCTURE",
-    status: "ONLINE",
-    description: "Version control workflows, containerization, microcontrollers, and modern CI/CD deployment pipelines.",
+    code: "AI_ML_NET",
+    name: "AI & INTELLIGENT SYSTEMS",
+    category: "AI / ML",
+    status: "OPTIMIZED",
+    description: "Applied artificial intelligence, computer vision pipelines, and language model integrations.",
     skills: [
-      { name: "Git & GitHub", level: "PRIMARY", tag: "VERSION INTEGRITY" },
+      { name: "Machine Learning", level: "ADVANCED", tag: "INTELLIGENT MODELS" },
+      { name: "Computer Vision", level: "PRIMARY", tag: "OPENCV & SPATIAL" },
+      { name: "LLMs", level: "ADVANCED", tag: "GENERATIVE AI" },
+      { name: "Embeddings", level: "PROFICIENT", tag: "VECTOR REPRESENTATIONS" },
+    ],
+  },
+  {
+    id: "MOD_06",
+    code: "DEVOPS_TOOL",
+    name: "DEVELOPER TOOLS & DEPLOYMENT",
+    category: "TOOLS",
+    status: "ONLINE",
+    description: "Version control, containerization, and modern deployment infrastructure.",
+    skills: [
+      { name: "Git", level: "PRIMARY", tag: "VERSION CONTROL" },
+      { name: "GitHub", level: "PRIMARY", tag: "CODE HOSTING & CI" },
       { name: "Docker", level: "ADVANCED", tag: "CONTAINERIZATION" },
-      { name: "VS Code / IDE Workflows", level: "PRIMARY", tag: "DEV ENVIRONMENT" },
-      { name: "Vercel", level: "PRIMARY", tag: "EDGE DEPLOYMENT" },
-      { name: "IoT & Microcontrollers", level: "ADVANCED", tag: "EMBEDDED SENSORS" },
-      { name: "Postman / Thunder Client", level: "PROFICIENT", tag: "API AUDITING" },
+      { name: "Vercel", level: "PRIMARY", tag: "CLOUD DEPLOYMENT" },
     ],
   },
 ];
+

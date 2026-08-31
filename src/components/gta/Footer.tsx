@@ -92,7 +92,7 @@ export function Footer({ onReplay }: FooterProps) {
         </div>
 
         <div className="pt-8 text-xs font-mono text-white/50">
-          ENGINEERED BY SAURABH RAWAT AT PLATYPUS// 2026
+          SAURABH RAWAT • COMPUTER SCIENCE &amp; ENGINEERING STUDENT • GRAPHIC ERA HILL UNIVERSITY
         </div>
       </div>
     </footer>

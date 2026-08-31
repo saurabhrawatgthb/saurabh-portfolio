@@ -16,32 +16,32 @@ export function FAQSection() {
     {
       question: "Who is Saurabh Rawat?",
       answer:
-        "Saurabh is a Computer Science Engineer and software builder pursuing his B.Tech at Graphic Era University. He specializes in designing robust, scalable systems spanning artificial intelligence, computer vision pipelines, IoT embedded hardware, and high-concurrency backend architectures.",
+        "Saurabh Rawat is a Computer Science & Engineering student at Graphic Era Hill University currently pursuing his B.Tech. He maintains a 9+ CGPA across his 1st and 2nd years and is an active builder, hackathon finalist, and technical community member.",
     },
     {
-      question: "What technologies does Saurabh work with?",
+      question: "What is his academic background?",
       answer:
-        "His core stack includes Python, C++, Java, JavaScript, TypeScript, Next.js (App Router), React 19, FastAPI, Node.js, PostgreSQL, SQLite, OpenCV, Face Recognition, Docker, Git/GitHub, and IoT microcontrollers.",
+        "He is currently pursuing B.Tech in Computer Science & Engineering at Graphic Era Hill University (9+ CGPA in both 1st and 2nd Year). He previously secured 94% in ICSE High School and 89% in ISC Intermediate.",
+    },
+    {
+      question: "What technical organisations and events is he involved with?",
+      answer:
+        "Saurabh is a Member of IEEE Student Branch (GEHU), TBI (Technology Business Incubator, GEU), and TDH (The Designnovation Hub, GEU). He served on the Organising & Management Committee for SAARTHI'25 (24-hr national hackathon), the Management Committee for GRAPH-E-THON 2.0 & 3.0, and as an Active Contributor & Volunteer for TechnIEEEks'25, TechnIEEEks'26, and the CISCT International Conference.",
+    },
+    {
+      question: "What are his hackathon achievements?",
+      answer:
+        "He is a Finalist in PRAXIS 2.0 (Google Developer Groups), Semifinalist in Economic Times X GenAI Hackathon, Finalist in Neural Nexus AI/ML Challenge (Grafest 2026), and selected participant in Hack for Green Bharat, Innovate by NSUT'26, Hack The Winter, and Innovate4FinLit.",
     },
     {
       question: "What projects has he built?",
       answer:
-        "Major projects include RAKSHAK (an AI-powered camera network and trajectory prediction system for missing child alerts), UNICARD (a universal smart identity & payment hardware card concept), Pothole Detection & Road Telemetry (edge computer vision system), University Lending Platform (Java backend asset request workflow), and a Real-Time Assessment Quiz Platform (concurrent WebSocket architecture).",
-    },
-    {
-      question: "What areas does he work in?",
-      answer:
-        "His primary focus areas are Artificial Intelligence & LLMs, Computer Vision & Geo-Spatial Mapping, High-Concurrency APIs, Distributed Software Pipelines, and Internet of Things (IoT) hardware prototyping.",
-    },
-    {
-      question: "Is Saurabh available for collaboration?",
-      answer:
-        "Yes! Saurabh is actively open to impactful software engineering roles, systems building opportunities, open-source initiatives, and research collaborations.",
+        "Key projects include RAKSHAK (distributed computer-vision and trajectory prediction for missing child alerts), UNICARD (universal smart identity & financial transaction card architecture), Pothole Detection & Road Telemetry (edge computer vision system), University Lending Platform (Java backend asset request engine), and a Real-Time Assessment Quiz Platform (concurrent WebSocket architecture).",
     },
     {
       question: "How can I contact him?",
       answer:
-        "You can reach out directly using the transmission form in the Contact section, or connect via GitHub (saurabhrawatgthb), LinkedIn, LeetCode (dugganboss), or X (@SaurabhRawattt).",
+        "You can call directly at +91 6395982464, transmit a message via the Contact section, or connect on GitHub (saurabhrawatgthb), LinkedIn (Saurabh Rawat), LeetCode (dugganboss), or X (@SaurabhRawattt).",
     },
   ];
 

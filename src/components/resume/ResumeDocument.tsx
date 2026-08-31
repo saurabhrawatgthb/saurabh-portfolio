@@ -2,8 +2,8 @@
 
 import React from "react";
 import { getResumeData } from "@/data/resumeConfig";
-import { Mail, MapPin, Phone, Globe, Code, ExternalLink } from "lucide-react";
-import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "@/components/icons/SocialIcons";
+import { Mail, MapPin, Phone, Globe } from "lucide-react";
+import { GithubIcon, LinkedinIcon, LeetCodeIcon, XIcon } from "@/components/icons/SocialIcons";
 
 interface ResumeDocumentProps {
   className?: string;
@@ -45,43 +45,34 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
       `}</style>
 
       {/* HEADER & CONTACT INFORMATION (ATS VALIDATED) */}
-      <header className="border-b-2 border-slate-900 pb-5 mb-6">
+      <header className="border-b-2 border-slate-900 pb-5 mb-5">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 uppercase font-sans">
               {data.name}
             </h1>
             <p className="text-sm sm:text-base font-semibold text-slate-700 mt-1 tracking-wide">
-              {data.title}
+              {data.title} • {data.institution}
             </p>
           </div>
           <div className="text-xs sm:text-sm text-slate-600 space-y-1 sm:text-right font-medium">
+            <div className="flex items-center sm:justify-end gap-1.5">
+              <Phone className="w-3.5 h-3.5 text-slate-700 shrink-0" />
+              <a href={`tel:${data.phone.replace(/\s+/g, "")}`} className="hover:underline text-slate-900 font-mono">
+                {data.phone}
+              </a>
+            </div>
             <div className="flex items-center sm:justify-end gap-1.5">
               <Mail className="w-3.5 h-3.5 text-slate-700 shrink-0" />
               <a href={`mailto:${data.email}`} className="hover:underline text-slate-900 font-mono">
                 {data.email}
               </a>
             </div>
-            {data.phone && (
-              <div className="flex items-center sm:justify-end gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-slate-700 shrink-0" />
-                <span className="font-mono text-slate-900">{data.phone}</span>
-              </div>
-            )}
             <div className="flex items-center sm:justify-end gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-slate-700 shrink-0" />
               <span>{data.location}</span>
             </div>
-            <div className="flex items-center sm:justify-end gap-2.5 pt-1 text-slate-700 font-mono text-xs flex-wrap">
-              <a
-                href={data.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-black flex items-center gap-1 hover:underline"
-              >
-                <LinkedinIcon className="w-3.5 h-3.5" /> LinkedIn
-              </a>
-              <span>•</span>
+            <div className="flex items-center sm:justify-end gap-2 pt-1 text-slate-700 font-mono text-xs flex-wrap">
               <a
                 href={data.github}
                 target="_blank"
@@ -92,12 +83,12 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
               </a>
               <span>•</span>
               <a
-                href={data.website}
+                href={data.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-black flex items-center gap-1 hover:underline"
               >
-                <Globe className="w-3.5 h-3.5" /> Portfolio
+                <LinkedinIcon className="w-3.5 h-3.5" /> LinkedIn
               </a>
               <span>•</span>
               <a
@@ -108,23 +99,124 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
               >
                 <LeetCodeIcon className="w-3.5 h-3.5" /> LeetCode
               </a>
+              <span>•</span>
+              <a
+                href={data.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-black flex items-center gap-1 hover:underline"
+              >
+                <XIcon className="w-3 h-3" /> X
+              </a>
             </div>
           </div>
         </div>
       </header>
 
-      {/* SUMMARY */}
-      <section className="mb-6 page-break-inside-avoid">
+      {/* EDUCATION */}
+      <section className="mb-5 page-break-inside-avoid">
         <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2">
-          Professional Summary
+          Education
         </h2>
-        <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed text-justify">
-          {data.summary}
-        </p>
+        <div className="space-y-2 text-xs sm:text-[13px]">
+          {data.education.map((edu, idx) => (
+            <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline justify-between">
+              <div>
+                <span className="font-bold text-slate-950">{edu.institution}</span>
+                <span className="text-slate-700"> — {edu.degree}</span>
+                <div className="text-slate-600 text-xs">
+                  {edu.details.join(" • ")}
+                </div>
+              </div>
+              <div className="text-slate-600 font-mono text-xs shrink-0">
+                {edu.status}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* TECHNICAL SKILLS */}
-      <section className="mb-6 page-break-inside-avoid">
+      {/* ORGANISATIONS */}
+      <section className="mb-5 page-break-inside-avoid">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2">
+          Organisations
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs sm:text-[13px]">
+          {data.organisations.map((org, idx) => (
+            <div key={idx} className="p-2 bg-slate-50 border border-slate-200 rounded">
+              <div className="font-bold text-slate-950">{org.name}</div>
+              <div className="text-slate-600 text-xs">{org.institution}</div>
+              <div className="text-xs font-semibold text-slate-800 mt-0.5">Role: {org.role}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* LEADERSHIP & MANAGEMENT EXPERIENCE */}
+      <section className="mb-5 page-break-inside-avoid">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2.5">
+          Leadership & Management Experience
+        </h2>
+        <div className="space-y-2 text-xs sm:text-[13px]">
+          {data.leadership.map((lead, idx) => (
+            <div key={idx} className="border-l-2 border-slate-800 pl-3">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between">
+                <span className="font-bold text-slate-950">{lead.event}</span>
+                <span className="text-xs font-mono font-semibold text-slate-700">{lead.role}</span>
+              </div>
+              <div className="text-slate-600 text-xs">
+                {lead.type} • {lead.organisation}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* VOLUNTEERING & CONTRIBUTION */}
+      <section className="mb-5 page-break-inside-avoid">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2.5">
+          Volunteering & Contribution
+        </h2>
+        <div className="space-y-2 text-xs sm:text-[13px]">
+          {data.volunteering.map((vol, idx) => (
+            <div key={idx} className="border-l-2 border-slate-400 pl-3">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between">
+                <span className="font-bold text-slate-950">{vol.event}</span>
+                <span className="text-xs font-mono text-slate-700">{vol.role}</span>
+              </div>
+              <div className="text-slate-600 text-xs">
+                {vol.type} • {vol.organisation}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* HACKATHON ACHIEVEMENTS */}
+      <section className="mb-5 page-break-inside-avoid">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2.5">
+          Hackathon Achievements
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs sm:text-[13px]">
+          {data.hackathons.map((hack, idx) => (
+            <div key={idx} className="flex items-start gap-1.5">
+              <span className="text-slate-900 font-bold">•</span>
+              <div>
+                {hack.status ? (
+                  <span className="font-bold text-slate-950 bg-slate-100 px-1 py-0.2 rounded mr-1">
+                    {hack.status}
+                  </span>
+                ) : null}
+                <span className="font-semibold text-slate-900">{hack.title}</span>
+                <span className="text-slate-600 text-xs"> — {hack.organisation}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TECHNICAL COMPETENCIES */}
+      <section className="mb-5 page-break-inside-avoid">
         <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2.5">
           Technical Competencies
         </h2>
@@ -143,11 +235,11 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
       </section>
 
       {/* KEY PROJECTS */}
-      <section className="mb-6">
+      <section className="mb-4">
         <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-3">
           Key Engineering Projects
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3.5">
           {data.featuredProjects.slice(0, 4).map((proj, idx) => (
             <div key={idx} className="page-break-inside-avoid">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
@@ -165,10 +257,10 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
                   </span>
                 )}
               </div>
-              <div className="text-[11px] font-mono text-slate-600 mt-0.5 mb-1.5">
+              <div className="text-[11px] font-mono text-slate-600 mt-0.5 mb-1">
                 Tech Stack: {proj.technologies.join(" • ")}
               </div>
-              <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-slate-700 leading-relaxed">
+              <ul className="list-disc list-outside ml-4 space-y-0.5 text-xs text-slate-700 leading-relaxed">
                 {proj.bullets.map((bullet, bIdx) => (
                   <li key={bIdx}>{bullet}</li>
                 ))}
@@ -177,84 +269,7 @@ export function ResumeDocument({ className = "" }: ResumeDocumentProps) {
           ))}
         </div>
       </section>
-
-      {/* EXPERIENCE & LEADERSHIP */}
-      <section className="mb-6">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-3">
-          Experience & Technical Leadership
-        </h2>
-        <div className="space-y-4">
-          {data.experience.map((exp, idx) => (
-            <div key={idx} className="page-break-inside-avoid">
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between">
-                <span className="font-bold text-slate-950 text-sm">
-                  {exp.role} <span className="text-slate-600 font-normal">| {exp.organization}</span>
-                </span>
-                <span className="text-xs font-mono font-medium text-slate-600">
-                  {exp.period}
-                </span>
-              </div>
-              <p className="text-xs text-slate-600 italic mt-0.5 mb-1.5">
-                {exp.scope}
-              </p>
-              <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-slate-700 leading-relaxed">
-                {exp.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx}>{bullet}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* EDUCATION */}
-      <section className="mb-6 page-break-inside-avoid">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2.5">
-          Education
-        </h2>
-        {data.education.map((edu, idx) => (
-          <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px]">
-            <div>
-              <span className="font-bold text-slate-950">{edu.degree}</span>
-              <span className="text-slate-700"> — {edu.institution}</span>
-            </div>
-            <div className="text-slate-600 font-mono text-xs">
-              {edu.period} ({edu.status})
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* RESEARCH & ACHIEVEMENTS */}
-      <section className="page-break-inside-avoid">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 pb-1 mb-2.5">
-          Research & Honors
-        </h2>
-        <div className="space-y-2 text-xs text-slate-700">
-          {data.research.map((res, idx) => (
-            <div key={idx}>
-              <div className="font-bold text-slate-900">
-                {res.title}
-              </div>
-              <div className="text-[11px] text-slate-600 font-mono">
-                Domain: {res.domain} • Status: {res.status}
-              </div>
-            </div>
-          ))}
-          <div className="pt-1.5 space-y-1.5">
-            {data.achievements.slice(0, 3).map((ach, idx) => (
-              <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline justify-between">
-                <span className="text-slate-800">
-                  <strong className="text-slate-950 font-semibold">• {ach.title}</strong> — {ach.organization}
-                </span>
-                <span className="text-slate-500 font-mono text-[11px] shrink-0">
-                  {ach.date}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
+
