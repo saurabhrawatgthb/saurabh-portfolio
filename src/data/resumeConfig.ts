@@ -89,37 +89,38 @@ export interface ResumeData {
 
 /**
  * Dynamically constructs the single-source-of-truth Resume data
- * derived directly from verified codebase implementations and portfolio metrics.
+ * targeted for Entry-Level Software Development Engineer (SDE) / Software Engineer roles (Visa Campus Placements).
  */
 export function getResumeData(): ResumeData {
   const technicalProjects: TechnicalProject[] = [
     {
       title: "Kaarobarie POS Billing Software",
-      tagline: "Multi-Tenant Restaurant POS & Management SaaS",
-      technologies: ["React 19", "TypeScript", "Node.js", "Express", "Prisma ORM", "PostgreSQL", "Socket.IO", "Vite", "Tailwind CSS"],
+      tagline: "Full-Stack Restaurant Management & POS SaaS Platform",
+      technologies: ["React", "TypeScript", "Node.js", "Express", "Prisma ORM", "PostgreSQL (Supabase)", "Socket.IO", "Vite"],
       bullets: [
-        "Architected a multi-tenant restaurant management SaaS with multi-franchise tenancy, visual table occupancy management, automated billing, and live kitchen order ticket (KOT) workflows using React, TypeScript, Node.js, Express, Prisma ORM, and PostgreSQL (Supabase), achieving sub-15ms p95 API response times and zero-leakage tenant isolation.",
-        "Engineered 7-tier hierarchical Role-Based Access Control (RBAC) and real-time Socket.IO bi-directional event routing for kitchen display synchronization, automated payroll calculations, and ESC/POS thermal receipt printing (58mm/80mm), eliminating order coordination latency between floor staff and kitchen stations.",
+        "Architected a multi-tenant restaurant billing and inventory SaaS supporting multi-franchise tenancy, real-time table occupancy tracking, and kitchen order ticket (KOT) workflows using React, TypeScript, Node.js, Express, Prisma ORM, and PostgreSQL.",
+        "Implemented 7-tier hierarchical Role-Based Access Control (RBAC), secure JWT authentication, and transactional order settlement logic, ensuring complete multi-tenant database isolation and robust API error handling.",
+        "Integrated real-time bi-directional Socket.IO event synchronization for live kitchen displays and developed an ESC/POS thermal printing spooler (58mm/80mm), eliminating order coordination delays between dining terminals and kitchen stations.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "Railway Gangmen Safety System",
-      tagline: "Safety-Focused Embedded Railway Monitoring & Early Warning System",
-      technologies: ["Embedded C++", "IoT Microcontrollers (Arduino Uno)", "Sensors & Telemetry", "RF Transceivers", "Python"],
+      tagline: "Embedded Safety Architecture & Hazard Telemetry Pipeline",
+      technologies: ["C++", "Arduino Uno", "IoT Sensors", "RF Transceivers", "Python"],
       bullets: [
-        "Developed an embedded safety-monitoring and early warning system to protect railway track maintenance personnel (gangmen) from oncoming train collision hazards using C++, Arduino Uno, proximity/vibration sensors, and RF transceivers, achieving real-time approach detection and instantaneous local audio-visual buzzer alarms.",
-        "Implemented a low-latency multi-node telemetry pipeline with threshold-based sensor calibration and fail-safe signal broadcasting via C++ and Python serial communication listeners, significantly improving track-worker situational awareness across hazardous blind-curve operational zones.",
+        "Developed a safety-focused embedded monitoring and alerting system to safeguard track maintenance crews from oncoming train collision hazards using C++, Arduino Uno, proximity/vibration sensors, and RF transceivers.",
+        "Implemented a low-latency multi-node telemetry pipeline with threshold-based sensor calibration and fail-safe signal broadcasting via C++ and Python serial communication listeners, enabling reliable real-time approach warning.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "AI-Powered Missing Children Finder",
-      tagline: "Distributed Computer Vision & Trajectory Analysis Search Grid",
-      technologies: ["Python", "FastAPI", "YOLOv8", "InsightFace", "DeepSORT", "PaddleOCR", "OpenCV", "Docker", "Next.js"],
+      tagline: "Distributed Surveillance Video Processing & Trajectory Graph Grid",
+      technologies: ["Python", "FastAPI", "YOLOv8", "InsightFace", "DeepSORT", "PaddleOCR", "OpenCV", "Docker"],
       bullets: [
-        "Engineered an AI-powered surveillance search pipeline for identifying and tracking missing children across asynchronous CCTV footage streams using Python, FastAPI, Ultralytics YOLOv8, InsightFace (ArcFace embeddings), DeepSORT, and OpenCV, extracting 512-dimensional facial vector embeddings for high-accuracy identity re-identification.",
-        "Integrated automated vehicle number-plate recognition (ANPR) using PaddleOCR alongside camera-network trajectory graph traversal within a Dockerized microservice and Next.js Leaflet map HUD, automating multi-camera movement forecasting and reducing manual surveillance auditing times during critical emergency response windows.",
+        "Engineered a distributed video-processing and surveillance search pipeline for identifying missing individuals across CCTV camera feeds using Python, FastAPI, Ultralytics YOLOv8, InsightFace embeddings, and DeepSORT tracking.",
+        "Implemented automated vehicle license-plate recognition using PaddleOCR alongside a graph traversal algorithm across camera-network junctions, forecasting probable movement trajectories and expediting search operations.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
@@ -128,18 +129,18 @@ export function getResumeData(): ResumeData {
       tagline: "Geological Instability Monitoring & Early Warning Network",
       technologies: ["Embedded C++", "Microcontroller Hardware", "MPU-6050 Accelerometer/Gyro", "Soil Moisture Sensors", "Python", "REST APIs"],
       bullets: [
-        "Developed an IoT geological monitoring and early warning system to detect slope displacement and imminent landslides in vulnerable terrains using Embedded C++, MPU-6050 accelerometer/gyroscope sensors, soil moisture probes, and ADC modules, sampling angle tilt and soil saturation deltas with continuous anomaly threshold filtering.",
-        "Implemented edge-to-cloud serial data transmission and automated emergency alerting logic using C++, Python, and REST endpoints, delivering instant multi-level hazard alerts (Advisory, Warning, Critical) to downstream monitoring consoles upon breach of geological slope stability thresholds.",
+        "Developed an IoT geological monitoring system to detect slope displacement and imminent landslides using Embedded C++, MPU-6050 accelerometer/gyroscope sensors, soil moisture probes, and continuous anomaly threshold filtering.",
+        "Implemented edge data transmission and automated multi-level alert dispatch (Advisory, Warning, Critical) via C++, Python, and REST endpoints to notify downstream monitoring interfaces upon threshold breaches.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "AI-Based Pothole Detection System",
-      tagline: "Edge Computer Vision & Geo-Spatial Road Defect Alert Platform",
-      technologies: ["TensorFlow.js", "Custom CNN Model", "JavaScript", "HTML5 Canvas", "Firebase Realtime DB", "Geolocation API"],
+      tagline: "Edge Computer Vision & Geo-Spatial Road Defect Platform",
+      technologies: ["TensorFlow.js", "CNN Model", "JavaScript", "HTML5 Canvas", "Firebase Realtime DB", "Geolocation API"],
       bullets: [
-        "Engineered a real-time road surface defect and pothole detection system utilizing client-side edge computer vision on live video streams with TensorFlow.js, a custom in-browser CNN model (`tfjs_model`), HTML5 Canvas, and Web APIs, classifying road surface damage directly on the client without cloud compute costs.",
-        "Integrated automated GPS geolocation coordinate stamping and real-time cloud dispatch into Firebase Realtime Database with transactional deduplication, logging sub-meter geographical coordinates and hazard severity indices to prioritize municipal road repair workflows.",
+        "Developed a road surface defect and pothole detection solution utilizing client-side edge computer vision with TensorFlow.js, a lightweight CNN model, HTML5 Canvas, and Web APIs, classifying surface anomalies directly on device.",
+        "Integrated automated GPS geolocation stamping and real-time cloud dispatch into Firebase Realtime Database with transactional deduplication, logging coordinate data to assist preventative infrastructure maintenance.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
@@ -149,9 +150,9 @@ export function getResumeData(): ResumeData {
     {
       organization: "IEEE Student Branch, GEHU",
       role: "Member & Organising Committee",
-      events: "TechnIEEEks 2025, SAARTHI 2025, TechnIEEEks 2026",
+      events: "TechnIEEEks '25, SAARTHI '25, TechnIEEEks '26",
       bullets: [
-        "Coordinated technical operations, workshop logistics, and participant onboarding for flagship initiatives including TechnIEEEks 2025, SAARTHI 2025 (24-hour national hackathon), and TechnIEEEks 2026.",
+        "Coordinated technical operations, workshop logistics, and participant onboarding for flagship initiatives including TechnIEEEks '25, SAARTHI '25 (24-hour national hackathon), and TechnIEEEks '26.",
         "Demonstrated structured event coordination and cross-functional teamwork, facilitating transparent communication between faculty advisors, external technical mentors, and student attendees across multi-day sessions.",
       ],
     },
@@ -206,7 +207,7 @@ export function getResumeData(): ResumeData {
     x: profileData.socials.x,
     website: profileData.socials.website || "https://saurabhrawat.dev",
     summary:
-      "Computer Science & Engineering undergraduate at Graphic Era Hill University with strong software engineering fundamentals (9+ CGPA). Hands-on experience developing multi-tenant SaaS platforms, computer vision pipelines, IoT embedded systems, and REST APIs. Demonstrated leadership, teamwork, and execution across national-level hackathons and technical campus communities.",
+      "Computer Science & Engineering student at Graphic Era Hill University seeking an Entry-Level Software Development Engineer (SDE) role. Strong foundation in Data Structures & Algorithms, Object-Oriented Programming, and Relational Database Systems. Proven experience building full-stack web applications, backend REST APIs, and embedded systems with Java, C++, Python, TypeScript, and SQL.",
     education: [
       {
         institution: "Graphic Era Hill University",
@@ -231,32 +232,28 @@ export function getResumeData(): ResumeData {
     ],
     skillsByCategory: [
       {
-        category: "Programming Languages",
-        skills: ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "SQL"],
+        category: "Languages",
+        skills: ["Java", "C++", "C", "Python", "JavaScript", "TypeScript", "SQL"],
       },
       {
-        category: "Web Development",
-        skills: ["React.js", "Next.js", "Node.js", "Express.js", "HTML5", "CSS3", "REST APIs", "Tailwind CSS", "Socket.IO", "Vite"],
+        category: "Core CS",
+        skills: ["Data Structures & Algorithms (DSA)", "Object-Oriented Programming (OOP)", "DBMS", "Operating Systems", "Computer Networks"],
       },
       {
-        category: "Databases & ORM",
-        skills: ["PostgreSQL", "SQLite", "Supabase", "Neon", "Prisma ORM", "Firebase Realtime DB"],
+        category: "Web & Backend",
+        skills: ["HTML5", "CSS3", "React", "Next.js", "Node.js", "TypeScript", "REST APIs"],
       },
       {
-        category: "AI/ML & Computer Vision",
-        skills: ["Machine Learning", "Computer Vision", "YOLOv8", "InsightFace", "DeepSORT", "OpenCV", "PaddleOCR", "TensorFlow.js", "FastAPI"],
+        category: "Databases",
+        skills: ["PostgreSQL", "SQLite", "Prisma", "Supabase/Neon"],
       },
       {
-        category: "IoT & Systems",
-        skills: ["Sensor Integration", "Embedded C++", "IoT Prototyping (Arduino Uno)", "Serial Telemetry", "Geospatial Systems"],
+        category: "Tools",
+        skills: ["Git", "GitHub", "VS Code", "Vercel"],
       },
       {
-        category: "Developer Tools & DevOps",
-        skills: ["Git", "GitHub", "VS Code", "Vercel", "Docker", "Docker Compose", "Postman"],
-      },
-      {
-        category: "CS Fundamentals & Quality",
-        skills: ["Data Structures & Algorithms", "Object-Oriented Programming (OOP)", "DBMS", "Operating Systems", "Computer Networks", "API & Unit Testing", "Debugging"],
+        category: "Additional",
+        skills: ["Machine Learning", "Computer Vision", "YOLOv8", "FastAPI", "IoT"],
       },
     ],
     technicalProjects,
@@ -289,13 +286,13 @@ export function getResumeData(): ResumeData {
     ],
     volunteering: [
       {
-        event: "TechnIEEEks 2025",
+        event: "TechnIEEEks '25",
         role: "Organising Committee Member & Volunteer",
         type: "Annual Research Paper Writing Workshop",
         organisation: "IEEE Student Branch, GEHU",
       },
       {
-        event: "TechnIEEEks 2026",
+        event: "TechnIEEEks '26",
         role: "Organising Committee Member & Volunteer",
         type: "Annual Research Paper Writing Workshop",
         organisation: "IEEE Student Branch, GEHU",
@@ -334,9 +331,10 @@ export function generateAtsPlainText(): string {
   const data = getResumeData();
 
   let text = `${data.name.toUpperCase()}\n`;
-  text += `${data.title} | ${data.institution}\n`;
+  text += `Computer Science and Engineering Student | Aspiring Software Development Engineer (SDE)\n`;
+  text += `${data.institution}\n`;
   text += `Email: ${data.email} | Phone: ${data.phone} | Location: ${data.location}\n`;
-  text += `GitHub: ${data.github} | LinkedIn: ${data.linkedin} | LeetCode: ${data.leetcode}\n\n`;
+  text += `GitHub: ${data.github} | LinkedIn: ${data.linkedin} | LeetCode: ${data.leetcode} | Portfolio: ${data.website}\n\n`;
 
   text += `============================================================\n`;
   text += `EDUCATION\n`;
@@ -358,10 +356,10 @@ export function generateAtsPlainText(): string {
   text += `\n`;
 
   text += `============================================================\n`;
-  text += `TECHNICAL EXPERIENCE & PROJECTS\n`;
+  text += `SOFTWARE ENGINEERING PROJECTS\n`;
   text += `============================================================\n`;
   data.technicalProjects.forEach((proj) => {
-    text += `${proj.title.toUpperCase()} — ${proj.tagline}\n`;
+    text += `${proj.title.toUpperCase()} | ${proj.tagline}\n`;
     if (proj.technologies && proj.technologies.length > 0) {
       text += `Technologies: ${proj.technologies.join(", ")}\n`;
     }
@@ -372,20 +370,17 @@ export function generateAtsPlainText(): string {
   });
 
   text += `============================================================\n`;
-  text += `MANAGEMENT & LEADERSHIP EXPERIENCE\n`;
+  text += `LEADERSHIP & ACHIEVEMENTS\n`;
   text += `============================================================\n`;
+  text += `LEADERSHIP:\n`;
   data.leadership.forEach((lead) => {
-    text += `${lead.organization.toUpperCase()} — ${lead.role}\n`;
-    text += `Initiatives: ${lead.events}\n`;
+    text += `• ${lead.organization} — ${lead.role}\n`;
+    text += `  Initiatives: ${lead.events}\n`;
     lead.bullets.forEach((b) => {
-      text += `  • ${b}\n`;
+      text += `    - ${b}\n`;
     });
-    text += `\n`;
   });
-
-  text += `============================================================\n`;
-  text += `HACKATHON ACHIEVEMENTS\n`;
-  text += `============================================================\n`;
+  text += `\nHACKATHON ACHIEVEMENTS:\n`;
   data.hackathons.forEach((hack) => {
     const statusTag = hack.status ? `[${hack.status}] ` : "";
     text += `• ${statusTag}${hack.title} (${hack.organisation})\n`;
