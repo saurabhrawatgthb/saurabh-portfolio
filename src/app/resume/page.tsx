@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ResumeDocument } from "@/components/resume/ResumeDocument";
 import { generateAtsPlainText } from "@/data/resumeConfig";
-import { Printer, ArrowLeft, Copy, Check, FileText, Download } from "lucide-react";
+import { Printer, ArrowLeft, Copy, Check, Download } from "lucide-react";
 
 export default function ResumePage() {
   const [copied, setCopied] = useState(false);
@@ -22,6 +22,15 @@ export default function ResumePage() {
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
+  };
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Saurabh_Rawat_Resume.pdf";
+    link.download = "Saurabh_Rawat_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -43,6 +52,15 @@ export default function ResumePage() {
           >
             {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
             <span>{copied ? "Copied ATS Text!" : "Copy Plain Text"}</span>
+          </button>
+
+          <button
+            onClick={handleDownload}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all shadow-md active:scale-95"
+            title="Download PDF file"
+          >
+            <Download className="w-4 h-4" />
+            <span>Download PDF</span>
           </button>
 
           <button

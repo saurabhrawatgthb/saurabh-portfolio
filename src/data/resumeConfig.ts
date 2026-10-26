@@ -5,6 +5,28 @@ import { projectsData } from "./projects";
 import { achievementsData } from "./achievements";
 import { researchData } from "./research";
 
+export interface TechnicalProject {
+  title: string;
+  tagline: string;
+  technologies?: string[];
+  bullets: string[];
+  github?: string;
+}
+
+export interface LeadershipEntry {
+  organization: string;
+  role: string;
+  events: string;
+  bullets: string[];
+}
+
+export interface HackathonEntry {
+  title: string;
+  status?: string;
+  organisation: string;
+  description?: string;
+}
+
 export interface ResumeData {
   name: string;
   title: string;
@@ -24,32 +46,14 @@ export interface ResumeData {
     status: string;
     details: string[];
   }[];
-  organisations: {
-    name: string;
-    institution: string;
-    role: string;
-  }[];
-  leadership: {
-    event: string;
-    role: string;
-    type: string;
-    organisation: string;
-  }[];
-  volunteering: {
-    event: string;
-    role: string;
-    type: string;
-    organisation: string;
-  }[];
-  hackathons: {
-    title: string;
-    status?: string;
-    organisation: string;
-  }[];
   skillsByCategory: {
     category: string;
     skills: string[];
   }[];
+  technicalProjects: TechnicalProject[];
+  leadership: LeadershipEntry[];
+  hackathons: HackathonEntry[];
+  // Backwards compatibility properties for portfolio components
   featuredProjects: {
     title: string;
     tagline: string;
@@ -58,6 +62,17 @@ export interface ResumeData {
     bullets: string[];
     github?: string;
     demo?: string;
+  }[];
+  organisations: {
+    name: string;
+    institution: string;
+    role: string;
+  }[];
+  volunteering: {
+    event: string;
+    role: string;
+    type: string;
+    organisation: string;
   }[];
   experience: {
     organization: string;
@@ -77,9 +92,112 @@ export interface ResumeData {
 
 /**
  * Dynamically constructs the single-source-of-truth Resume data
- * derived directly from the portfolio's data files.
+ * derived directly from the portfolio's verified data files.
  */
 export function getResumeData(): ResumeData {
+  const technicalProjects: TechnicalProject[] = [
+    {
+      title: "Kaarobarie POS Billing Software",
+      tagline: "Restaurant Billing & Management Platform",
+      technologies: ["Full-Stack", "Transaction Management", "Database Systems"],
+      bullets: [
+        "Architected and developed a full-featured restaurant billing and management platform to streamline dining operations.",
+        "Engineered transactional workflows, automated order tracking, and dynamic receipt generation to eliminate billing latency.",
+      ],
+      github: "https://github.com/saurabhrawatgthb",
+    },
+    {
+      title: "Railway Gangmen Safety System",
+      tagline: "Safety-Focused Railway Monitoring & Warning System",
+      technologies: ["Embedded Systems", "Hazard Detection", "Real-Time Alerts"],
+      bullets: [
+        "Developed a safety-focused railway alerting system designed to protect track maintenance personnel (gangmen) from oncoming train hazards.",
+        "Implemented real-time hazard detection and automated warning mechanisms to enhance track-worker situational awareness.",
+      ],
+      github: "https://github.com/saurabhrawatgthb",
+    },
+    {
+      title: "AI-Powered Missing Children Finder",
+      tagline: "AI-Based Identification & Tracking Solution",
+      technologies: ["Artificial Intelligence", "Computer Vision", "Facial Vector Matching"],
+      bullets: [
+        "Built an AI-based computer vision solution to assist in identifying and tracking missing children across surveillance camera feeds.",
+        "Implemented facial vector matching and trajectory estimation to accelerate critical search operations during response windows.",
+      ],
+      github: "https://github.com/saurabhrawatgthb",
+    },
+    {
+      title: "IoT-Based Landslide Detection System",
+      tagline: "IoT-Based Geological Monitoring & Early Detection System",
+      technologies: ["IoT Sensors", "Telemetry", "Early Warning Alerting"],
+      bullets: [
+        "Developed an IoT-based environmental monitoring and early detection system for landslide-prone terrains.",
+        "Integrated multi-sensor telemetry to track geological displacement and soil moisture variations to trigger proactive hazard alerts.",
+      ],
+      github: "https://github.com/saurabhrawatgthb",
+    },
+    {
+      title: "AI-Based Pothole Detection System",
+      tagline: "Computer Vision Road Surface Defect Detection Solution",
+      technologies: ["Computer Vision", "Surface Analysis", "Geo-Spatial Tagging"],
+      bullets: [
+        "Developed an AI-based road pothole detection solution leveraging computer vision algorithms for automated surface damage inspection.",
+        "Automated road defect classification and coordinate logging to assist municipal teams with preventative infrastructure maintenance.",
+      ],
+      github: "https://github.com/saurabhrawatgthb",
+    },
+  ];
+
+  const leadership: LeadershipEntry[] = [
+    {
+      organization: "IEEE Student Branch, GEHU",
+      role: "Member & Organising Committee Member",
+      events: "TechnIEEEks 2025, SAARTHI 2025, TechnIEEEks 2026",
+      bullets: [
+        "Served as an Organising Committee member for flagship initiatives including TechnIEEEks 2025, SAARTHI 2025 (24-hour national hackathon), and TechnIEEEks 2026.",
+        "Demonstrated strong event coordination, teamwork, and logistics management across participant registration, scheduling, and workshop execution.",
+        "Facilitated transparent team communication between faculty advisors, external mentors, and student participants throughout technical sessions.",
+      ],
+    },
+    {
+      organization: "Technology Business Incubator (TBI), GEU",
+      role: "Member & Organising Committee Member",
+      events: "Graphethon 2.0, Graphethon 3.0",
+      bullets: [
+        "Served as an Organising Committee member for Graphethon 2.0 (48-hour national hackathon) and Graphethon 3.0 (72-hour national hackathon).",
+        "Managed high-pressure event logistics, venue coordination, and participant intake workflows across multi-day national hackathon sprints.",
+        "Applied organizational and communication skills to coordinate cross-functional teams, ensuring uninterrupted operations and resource availability.",
+      ],
+    },
+  ];
+
+  const hackathons: HackathonEntry[] = [
+    {
+      title: "National-Level Hackathons",
+      status: "SELECTED",
+      organisation: "National Competitive Circuit",
+      description: "Team selected for national-level hackathons across competitive multi-round development sprints.",
+    },
+    {
+      title: "PRAXIS 2.0",
+      status: "FINALIST",
+      organisation: "Google Developer Groups",
+      description: "Finalist in national technical hackathon solving real-world domain challenges.",
+    },
+    {
+      title: "Economic Times X GenAI Hackathon",
+      status: "SEMIFINALIST",
+      organisation: "Economic Times",
+      description: "Semifinalist in nationwide generative AI engineering competition.",
+    },
+    {
+      title: "Neural Nexus AI/ML Challenge",
+      status: "FINALIST",
+      organisation: "Grafest 2026",
+      description: "Finalist in competitive machine learning and computer vision challenge.",
+    },
+  ];
+
   return {
     name: profileData.name,
     title: "Computer Science & Engineering Student",
@@ -93,29 +211,62 @@ export function getResumeData(): ResumeData {
     x: profileData.socials.x,
     website: profileData.socials.website || "https://saurabhrawat.dev",
     summary:
-      "Undergraduate Computer Science & Engineering student at Graphic Era Hill University. Builder exploring AI, computer vision systems, backend APIs, and IoT hardware with strong academic performance (9+ CGPA) and active hackathon and technical community involvement.",
+      "Computer Science & Engineering student at Graphic Era Hill University with strong problem-solving fundamentals (9+ CGPA). Active builder with hands-on technical experience developing AI/ML solutions, IoT embedded systems, and enterprise platforms. Proven leadership and teamwork in national-level hackathons and campus engineering communities.",
     education: [
       {
         institution: "Graphic Era Hill University",
         degree: "B.Tech — Computer Science & Engineering",
-        status: "Currently Pursuing",
+        status: "Currently Pursuing (Aug 2022 – Present)",
         details: [
-          "Academic Record: 9+ CGPA in 1st Year & 9+ CGPA in 2nd Year",
+          "Academic Achievement: 9+ CGPA in 1st Year & 9+ CGPA in 2nd Year",
         ],
       },
       {
-        institution: "ICSE Board",
-        degree: "High School (Class X)",
-        status: "Completed",
-        details: ["Academic Achievement: 94%"],
-      },
-      {
-        institution: "ISC Board",
-        degree: "Intermediate (Class XII)",
+        institution: "ISC Board (Class XII)",
+        degree: "Intermediate",
         status: "Completed",
         details: ["Academic Achievement: 89%"],
       },
+      {
+        institution: "ICSE Board (Class X)",
+        degree: "High School",
+        status: "Completed",
+        details: ["Academic Achievement: 94%"],
+      },
     ],
+    skillsByCategory: [
+      {
+        category: "Programming Languages",
+        skills: ["C", "C++", "Java", "Python", "JavaScript"],
+      },
+      {
+        category: "Web & Backend",
+        skills: ["React", "Next.js", "Node.js", "FastAPI", "HTML5", "CSS3", "REST APIs"],
+      },
+      {
+        category: "Databases & Storage",
+        skills: ["PostgreSQL", "SQLite", "SQL"],
+      },
+      {
+        category: "AI / ML & IoT",
+        skills: ["Machine Learning", "Computer Vision", "Facial Vector Matching", "IoT Sensors", "Microcontroller Telemetry"],
+      },
+      {
+        category: "Developer Tools",
+        skills: ["Git", "GitHub", "Docker", "Vercel", "VS Code"],
+      },
+    ],
+    technicalProjects,
+    leadership,
+    hackathons,
+    // Preserved for portfolio compatibility
+    featuredProjects: technicalProjects.map((p) => ({
+      title: p.title,
+      tagline: p.tagline,
+      technologies: p.technologies || [],
+      bullets: p.bullets,
+      github: p.github,
+    })),
     organisations: [
       {
         name: "IEEE Student Branch",
@@ -123,48 +274,28 @@ export function getResumeData(): ResumeData {
         role: "Member",
       },
       {
-        name: "TBI (Technology Business Incubator)",
+        name: "Technology Business Incubator (TBI)",
         institution: "Graphic Era University",
         role: "Member",
       },
       {
-        name: "TDH (The Designnovation Hub)",
+        name: "The Designnovation Hub (TDH)",
         institution: "Graphic Era University",
         role: "Member",
-      },
-    ],
-    leadership: [
-      {
-        event: "SAARTHI'25",
-        role: "Organising & Management Committee",
-        type: "National-Level 24-Hour Hackathon",
-        organisation: "IEEE Student Branch, Graphic Era Hill University",
-      },
-      {
-        event: "GRAPH-E-THON 2.0",
-        role: "Management Committee",
-        type: "48-Hour National-Level Hackathon",
-        organisation: "Technology Business Incubator, Graphic Era University",
-      },
-      {
-        event: "GRAPH-E-THON 3.0",
-        role: "Management Committee",
-        type: "72-Hour National-Level Hackathon",
-        organisation: "Technology Business Incubator, Graphic Era University",
       },
     ],
     volunteering: [
       {
-        event: "TECHNIEEEKS'25",
-        role: "Active Contributor & Volunteer",
+        event: "TechnIEEEks 2025",
+        role: "Organising Committee Member & Volunteer",
         type: "Annual Research Paper Writing Workshop",
-        organisation: "IEEE Student Branch, Graphic Era Hill University",
+        organisation: "IEEE Student Branch, GEHU",
       },
       {
-        event: "TECHNIEEEKS'26",
-        role: "Active Contributor & Volunteer",
+        event: "TechnIEEEks 2026",
+        role: "Organising Committee Member & Volunteer",
         type: "Annual Research Paper Writing Workshop",
-        organisation: "IEEE Student Branch, Graphic Era Hill University",
+        organisation: "IEEE Student Branch, GEHU",
       },
       {
         event: "CISCT International Conference",
@@ -173,78 +304,6 @@ export function getResumeData(): ResumeData {
         organisation: "IEEE",
       },
     ],
-    hackathons: [
-      {
-        title: "PRAXIS 2.0",
-        status: "FINALIST",
-        organisation: "Google Developer Groups",
-      },
-      {
-        title: "Economic Times X GenAI Hackathon",
-        status: "SEMIFINALIST",
-        organisation: "Economic Times",
-      },
-      {
-        title: "Neural Nexus AI/ML Challenge",
-        status: "FINALIST",
-        organisation: "Grafest 2026",
-      },
-      {
-        title: "Hack for Green Bharat Hackathon",
-        organisation: "National Initiative",
-      },
-      {
-        title: "Innovate by NSUT'26",
-        organisation: "NSUT",
-      },
-      {
-        title: "Hack The Winter — The Second Wave",
-        organisation: "Graphic Era University",
-      },
-      {
-        title: "Innovate4FinLit Hackathon",
-        organisation: "Fintech Initiative",
-      },
-    ],
-    skillsByCategory: [
-      {
-        category: "PROGRAMMING",
-        skills: ["C", "C++", "Java", "Python", "JavaScript"],
-      },
-      {
-        category: "WEB",
-        skills: ["HTML", "CSS", "React", "Next.js"],
-      },
-      {
-        category: "BACKEND",
-        skills: ["Node.js", "FastAPI"],
-      },
-      {
-        category: "DATABASE",
-        skills: ["PostgreSQL", "SQLite", "SQL"],
-      },
-      {
-        category: "AI / ML",
-        skills: ["Machine Learning", "Computer Vision", "LLMs", "Embeddings"],
-      },
-      {
-        category: "TOOLS",
-        skills: ["Git", "GitHub", "Docker", "Vercel"],
-      },
-    ],
-    featuredProjects: projectsData.map((proj) => ({
-      title: proj.title,
-      tagline: proj.tagline,
-      technologies: proj.technologies,
-      metrics: proj.highlightMetric ? `${proj.highlightMetric.label}: ${proj.highlightMetric.value}` : undefined,
-      bullets: [
-        proj.brief,
-        `Architecture: ${proj.architecture.flowSummary}`,
-        ...proj.keyFeatures.slice(0, 3),
-      ],
-      github: proj.github,
-      demo: proj.demo,
-    })),
     experience: experienceLog.map((exp) => ({
       organization: exp.organization,
       role: exp.role,
@@ -265,76 +324,25 @@ export function getResumeData(): ResumeData {
 }
 
 /**
- * Formats the dynamic resume into clean, ATS-compliant Plain Text / Markdown
- * for instant 1-click clipboard copying.
+ * Formats the dynamic resume into clean, ATS-compliant Plain Text
+ * optimized for Visa campus placements and recruitment parsing engines.
  */
 export function generateAtsPlainText(): string {
   const data = getResumeData();
 
   let text = `${data.name.toUpperCase()}\n`;
-  text += `${data.title} — ${data.institution}\n\n`;
-
-  text += `============================================================\n`;
-  text += `CONTACT INFORMATION\n`;
-  text += `============================================================\n`;
-  text += `Phone: ${data.phone}\n`;
-  text += `Email: ${data.email}\n`;
-  text += `Location: ${data.location}\n`;
-  text += `GitHub: ${data.github}\n`;
-  text += `LinkedIn: ${data.linkedin}\n`;
-  text += `LeetCode: ${data.leetcode}\n`;
-  text += `X: ${data.x}\n`;
-  text += `Website: ${data.website}\n\n`;
+  text += `${data.title} | ${data.institution}\n`;
+  text += `Email: ${data.email} | Phone: ${data.phone} | Location: ${data.location}\n`;
+  text += `GitHub: ${data.github} | LinkedIn: ${data.linkedin} | LeetCode: ${data.leetcode}\n\n`;
 
   text += `============================================================\n`;
   text += `EDUCATION\n`;
   text += `============================================================\n`;
   data.education.forEach((edu) => {
-    text += `${edu.institution}\n`;
-    text += `${edu.degree} (${edu.status})\n`;
+    text += `${edu.institution} — ${edu.degree} (${edu.status})\n`;
     edu.details.forEach((d) => {
       text += `  • ${d}\n`;
     });
-    text += `\n`;
-  });
-
-  text += `============================================================\n`;
-  text += `ORGANISATIONS\n`;
-  text += `============================================================\n`;
-  data.organisations.forEach((org) => {
-    text += `• ${org.name}, ${org.institution} — ${org.role}\n`;
-  });
-  text += `\n`;
-
-  text += `============================================================\n`;
-  text += `LEADERSHIP & MANAGEMENT EXPERIENCE\n`;
-  text += `============================================================\n`;
-  data.leadership.forEach((lead) => {
-    text += `• ${lead.event}\n`;
-    text += `  Role: ${lead.role}\n`;
-    text += `  Type: ${lead.type}\n`;
-    text += `  Organiser: ${lead.organisation}\n\n`;
-  });
-
-  text += `============================================================\n`;
-  text += `VOLUNTEERING & CONTRIBUTION\n`;
-  text += `============================================================\n`;
-  data.volunteering.forEach((vol) => {
-    text += `• ${vol.event}\n`;
-    text += `  Role: ${vol.role}\n`;
-    text += `  Type: ${vol.type}\n`;
-    text += `  Organiser: ${vol.organisation}\n\n`;
-  });
-
-  text += `============================================================\n`;
-  text += `HACKATHON ACHIEVEMENTS & RECORD\n`;
-  text += `============================================================\n`;
-  data.hackathons.forEach((hack) => {
-    if (hack.status) {
-      text += `• ${hack.status}: ${hack.title} (${hack.organisation})\n`;
-    } else {
-      text += `• ${hack.title} (${hack.organisation})\n`;
-    }
   });
   text += `\n`;
 
@@ -347,18 +355,41 @@ export function generateAtsPlainText(): string {
   text += `\n`;
 
   text += `============================================================\n`;
-  text += `KEY PROJECTS\n`;
+  text += `TECHNICAL EXPERIENCE & PROJECTS\n`;
   text += `============================================================\n`;
-  data.featuredProjects.forEach((proj) => {
-    text += `${proj.title.toUpperCase()} | ${proj.tagline}\n`;
-    text += `Technologies: ${proj.technologies.join(", ")}\n`;
-    if (proj.metrics) text += `Metric: ${proj.metrics}\n`;
+  data.technicalProjects.forEach((proj) => {
+    text += `${proj.title.toUpperCase()} — ${proj.tagline}\n`;
+    if (proj.technologies && proj.technologies.length > 0) {
+      text += `Technologies: ${proj.technologies.join(", ")}\n`;
+    }
     proj.bullets.forEach((b) => {
-      text += `  - ${b}\n`;
+      text += `  • ${b}\n`;
     });
     text += `\n`;
   });
 
+  text += `============================================================\n`;
+  text += `MANAGEMENT & LEADERSHIP EXPERIENCE\n`;
+  text += `============================================================\n`;
+  data.leadership.forEach((lead) => {
+    text += `${lead.organization.toUpperCase()} — ${lead.role}\n`;
+    text += `Initiatives: ${lead.events}\n`;
+    lead.bullets.forEach((b) => {
+      text += `  • ${b}\n`;
+    });
+    text += `\n`;
+  });
+
+  text += `============================================================\n`;
+  text += `HACKATHON ACHIEVEMENTS\n`;
+  text += `============================================================\n`;
+  data.hackathons.forEach((hack) => {
+    const statusTag = hack.status ? `[${hack.status}] ` : "";
+    text += `• ${statusTag}${hack.title} (${hack.organisation})\n`;
+    if (hack.description) {
+      text += `  ${hack.description}\n`;
+    }
+  });
+
   return text;
 }
-

@@ -16,6 +16,7 @@ import {
   Briefcase,
   Zap,
   Printer,
+  Code2,
 } from "lucide-react";
 import { ResumeDocument } from "@/components/resume/ResumeDocument";
 import { generateAtsPlainText, getResumeData } from "@/data/resumeConfig";
@@ -41,8 +42,13 @@ export function ResumeSection() {
 
   const handleDownloadTrigger = () => {
     sounds.playFileOpen();
-    // Open printable /resume page or trigger print
-    window.open("/resume", "_blank");
+    // Programmatically trigger direct download of the generated PDF
+    const link = document.createElement("a");
+    link.href = "/Saurabh_Rawat_Resume.pdf";
+    link.download = "Saurabh_Rawat_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -55,7 +61,7 @@ export function ResumeSection() {
         <div className="flex flex-wrap items-end justify-between gap-4 border-b-4 border-white pb-4 mb-12">
           <div>
             <div className="font-pricedown text-gta-hotPink text-xl tracking-widest uppercase">
-              CONFIDENTIAL OPERATIVE DOSSIER // REAL-TIME REPO SYNC
+              CONFIDENTIAL OPERATIVE DOSSIER // RECRUITER &amp; ATS SPEC
             </div>
             <h2 className="font-pricedown text-5xl sm:text-7xl md:text-8xl tracking-tight uppercase leading-none gta-text-outline">
               RESUME
@@ -64,9 +70,9 @@ export function ResumeSection() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 bg-gta-pink/20 border border-gta-pink text-gta-pink px-4 py-2 rounded-xl font-pricedown text-sm tracking-widest uppercase">
               <span className="w-2.5 h-2.5 rounded-full bg-gta-pink animate-ping" />
-              LIVE DATA LINKED
+              VISA PLACEMENT READY
             </div>
-            <div className="bg-gta-yellow px-4 py-2 text-black font-pricedown text-lg tracking-widest shadow-hard rounded-xl">
+            <div className="bg-gta-yellow px-4 py-2 text-black font-pricedown text-lg tracking-widest shadow-hard rounded-xl font-bold">
               ATS SCORE: 99 / 100
             </div>
           </div>
@@ -77,10 +83,10 @@ export function ResumeSection() {
           <div className="lg:col-span-8 rounded-3xl ios-crystal-glass p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 className="font-pricedown text-2xl sm:text-3xl text-white tracking-wider">
-                CURRICULUM VITAE & TECHNICAL SPECIFICATION
+                CURRICULUM VITAE &amp; TECHNICAL SPECIFICATION
               </h3>
               <p className="text-xs sm:text-sm text-white/80 mt-1 font-medium font-sans">
-                Automatically assembled from verified codebase metrics, projects, and mission logs.
+                Optimised for software engineering roles, technical interviews, and automated ATS screening.
               </p>
             </div>
 
@@ -105,10 +111,21 @@ export function ResumeSection() {
               <button
                 onClick={handleDownloadTrigger}
                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-pricedown text-base tracking-wider bg-gta-yellow hover:bg-yellow-300 text-black shadow-hard hover:scale-105 active:scale-95 transition-all font-bold"
+                title="Download Saurabh Rawat Resume PDF"
               >
                 <Download className="w-4 h-4" />
-                <span>DOWNLOAD / PRINT PDF</span>
+                <span>DOWNLOAD RESUME PDF</span>
               </button>
+
+              <Link
+                href="/resume"
+                target="_blank"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-pricedown text-sm tracking-wider border border-white/30 bg-white/10 hover:bg-white hover:text-black transition-all"
+                title="Open standalone printable A4 view"
+              >
+                <Printer className="w-4 h-4" />
+                <span>PRINT / A4 VIEW</span>
+              </Link>
             </div>
           </div>
 
@@ -118,9 +135,9 @@ export function ResumeSection() {
                 SYSTEM REPOSITORY STATUS
               </div>
               <div className="font-mono text-xs text-white/90">
-                • {data.featuredProjects.length} Projects Synchronized<br />
-                • {data.experience.length} Experience Logs<br />
-                • {data.skillsByCategory.reduce((acc, c) => acc + c.skills.length, 0)} Skills Verified
+                • {data.technicalProjects.length} Technical Projects Synchronized<br />
+                • {data.leadership.length} Leadership Bodies Registered<br />
+                • {data.skillsByCategory.reduce((acc, c) => acc + c.skills.length, 0)} Skills Verified (9+ CGPA)
               </div>
             </div>
             <Link
@@ -170,18 +187,18 @@ export function ResumeSection() {
               </div>
 
               <div className="text-[11px] font-mono text-white/60 hidden sm:block">
-                CLICK ACTIONS TO EXPORT OR PRINT
+                ONE-PAGE RECRUITER &amp; ATS COMPLIANT
               </div>
             </div>
 
             {/* Document Window Container */}
             <div className="rounded-3xl ios-crystal-glass p-3 sm:p-6 border border-white/20 shadow-2xl relative overflow-hidden">
               {activeTab === "preview" ? (
-                <div className="max-h-[750px] overflow-y-auto rounded-2xl p-2 sm:p-4 bg-slate-900/60 custom-scrollbar border border-white/10">
+                <div className="max-h-[800px] overflow-y-auto rounded-2xl p-2 sm:p-4 bg-slate-900/60 custom-scrollbar border border-white/10">
                   <ResumeDocument className="shadow-2xl scale-[0.98] sm:scale-100 transform origin-top" />
                 </div>
               ) : (
-                <div className="max-h-[750px] overflow-y-auto rounded-2xl p-6 bg-black/90 font-mono text-xs text-emerald-400 custom-scrollbar border border-emerald-500/20 leading-relaxed whitespace-pre-wrap select-text">
+                <div className="max-h-[800px] overflow-y-auto rounded-2xl p-6 bg-black/90 font-mono text-xs text-emerald-400 custom-scrollbar border border-emerald-500/20 leading-relaxed whitespace-pre-wrap select-text">
                   {atsText}
                 </div>
               )}
@@ -209,25 +226,47 @@ export function ResumeSection() {
               </div>
             </div>
 
-            {/* Experience Highlights */}
+            {/* Technical Experience Highlights */}
+            <div className="rounded-3xl ios-crystal-glass p-6">
+              <div className="flex items-center gap-3 mb-3 text-gta-cyan">
+                <Code2 className="w-5 h-5" />
+                <span className="font-pricedown text-lg tracking-wider text-white">
+                  TECHNICAL PROJECTS
+                </span>
+              </div>
+              <div className="space-y-2.5 divide-y divide-white/10">
+                {data.technicalProjects.slice(0, 3).map((proj, idx) => (
+                  <div key={idx} className={idx > 0 ? "pt-2" : ""}>
+                    <div className="text-xs font-bold text-white">
+                      {proj.title}
+                    </div>
+                    <div className="text-[11px] text-gta-yellow font-sans">
+                      {proj.tagline}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Leadership & Management Highlights */}
             <div className="rounded-3xl ios-crystal-glass p-6">
               <div className="flex items-center gap-3 mb-3 text-gta-pink">
                 <Briefcase className="w-5 h-5" />
                 <span className="font-pricedown text-lg tracking-wider text-white">
-                  KEY POSITIONS OF IMPACT
+                  LEADERSHIP &amp; MANAGEMENT
                 </span>
               </div>
               <div className="space-y-3 divide-y divide-white/10">
-                {data.experience.slice(0, 3).map((exp, idx) => (
+                {data.leadership.map((lead, idx) => (
                   <div key={idx} className={idx > 0 ? "pt-2.5" : ""}>
                     <div className="text-xs font-bold text-white">
-                      {exp.role}
+                      {lead.organization}
                     </div>
                     <div className="text-xs text-gta-yellow font-pricedown tracking-wider">
-                      {exp.organization}
+                      {lead.role}
                     </div>
                     <div className="text-[11px] font-mono text-white/60">
-                      {exp.period}
+                      {lead.events}
                     </div>
                   </div>
                 ))}
@@ -239,25 +278,25 @@ export function ResumeSection() {
               <div className="flex items-center gap-3 text-gta-cyan">
                 <ShieldCheck className="w-5 h-5" />
                 <span className="font-pricedown text-lg tracking-wider text-white">
-                  ATS OPTIMIZATION SPECS
+                  ATS &amp; PLACEMENT SPECS
                 </span>
               </div>
               <ul className="space-y-2 text-xs text-white/85 font-mono">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Standard Semantic Hierarchy</span>
+                  <span>Optimised for Visa Campus Placements</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Vector High-DPI Print Ready</span>
+                  <span>Standard Semantic ATS Heading Hierarchy</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>No Multi-Column Parser Traps</span>
+                  <span>One-Page Recruiter Readable Format</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Direct Clipboard Plain Text Engine</span>
+                  <span>Instant PDF &amp; Plain-Text Engine</span>
                 </li>
               </ul>
             </div>

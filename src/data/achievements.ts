@@ -64,6 +64,18 @@ export const achievementsData: AchievementItem[] = [
 
   // 02. HACKATHONS
   {
+    id: "ACH_HACK_00",
+    code: "HACK_NATIONAL_SELECTION",
+    category: "HACKATHONS",
+    title: "National-Level Hackathons Selection",
+    metric: "SELECTED",
+    organization: "National Competitive Circuit",
+    date: "National Level",
+    badge: "NATIONAL SELECTION",
+    description: "Team selected for national-level hackathons across competitive software development and engineering sprints.",
+    classification: "CLASSIFIED // VERIFIED",
+  },
+  {
     id: "ACH_HACK_01",
     code: "HACK_PRAXIS",
     category: "HACKATHONS",
@@ -157,8 +169,8 @@ export const achievementsData: AchievementItem[] = [
     metric: "MANAGEMENT",
     organization: "IEEE Student Branch, Graphic Era Hill University",
     date: "2025",
-    badge: "MANAGEMENT COMMITTEE",
-    description: "Served on the Organising & Management Committee for SAARTHI'25 24-hour national hackathon.",
+    badge: "ORGANISING COMMITTEE",
+    description: "Served on the Organising Committee for SAARTHI'25 24-hour national hackathon.",
     classification: "CLASSIFIED // VERIFIED",
   },
   {
@@ -169,8 +181,8 @@ export const achievementsData: AchievementItem[] = [
     metric: "MANAGEMENT",
     organization: "Technology Business Incubator, Graphic Era University",
     date: "2024",
-    badge: "MANAGEMENT COMMITTEE",
-    description: "Member of the Management Committee for GRAPH-E-THON 2.0 48-hour national hackathon.",
+    badge: "ORGANISING COMMITTEE",
+    description: "Member of the Organising Committee for GRAPH-E-THON 2.0 48-hour national hackathon.",
     classification: "CLASSIFIED // VERIFIED",
   },
   {
@@ -181,8 +193,8 @@ export const achievementsData: AchievementItem[] = [
     metric: "MANAGEMENT",
     organization: "Technology Business Incubator, Graphic Era University",
     date: "2025",
-    badge: "MANAGEMENT COMMITTEE",
-    description: "Member of the Management Committee for GRAPH-E-THON 3.0 72-hour national hackathon.",
+    badge: "ORGANISING COMMITTEE",
+    description: "Member of the Organising Committee for GRAPH-E-THON 3.0 72-hour national hackathon.",
     classification: "CLASSIFIED // VERIFIED",
   },
 
@@ -228,11 +240,11 @@ export const achievementsData: AchievementItem[] = [
     code: "COMM_TECHNIEEEKS_25",
     category: "TECHNICAL COMMUNITY",
     title: "TECHNIEEEKS'25 — Annual Research Paper Writing Workshop",
-    metric: "VOLUNTEER",
+    metric: "ORGANISING",
     organization: "IEEE Student Branch, Graphic Era Hill University",
     date: "2024 – 2025",
-    badge: "CONTRIBUTOR & VOLUNTEER",
-    description: "Active contributor and volunteer in the successful conduction of TECHNIEEEKS'25.",
+    badge: "ORGANISING COMMITTEE & VOLUNTEER",
+    description: "Organising committee member and volunteer in the successful conduction of TECHNIEEEKS'25.",
     classification: "CLASSIFIED // VERIFIED",
   },
   {
@@ -240,11 +252,11 @@ export const achievementsData: AchievementItem[] = [
     code: "COMM_TECHNIEEEKS_26",
     category: "TECHNICAL COMMUNITY",
     title: "TECHNIEEEKS'26 — Annual Research Paper Writing Workshop",
-    metric: "VOLUNTEER",
+    metric: "ORGANISING",
     organization: "IEEE Student Branch, Graphic Era Hill University",
     date: "2025 – 2026",
-    badge: "CONTRIBUTOR & VOLUNTEER",
-    description: "Active contributor and volunteer in the successful conduction of TECHNIEEEKS'26.",
+    badge: "ORGANISING COMMITTEE & VOLUNTEER",
+    description: "Organising committee member and volunteer in the successful conduction of TECHNIEEEKS'26.",
     classification: "CLASSIFIED // VERIFIED",
   },
   {
@@ -260,4 +272,3 @@ export const achievementsData: AchievementItem[] = [
     classification: "CLASSIFIED // VERIFIED",
   },
 ];
-
