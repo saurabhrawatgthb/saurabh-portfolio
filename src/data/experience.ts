@@ -111,7 +111,7 @@ export const experienceLog: ExperienceEntry[] = [
     badge: "48-HR NATIONAL HACKATHON",
     scope: "48-hour national-level hackathon organised under Technology Business Incubator, Graphic Era University.",
     impact: [
-      "Served on the Organising Committee managing 48-hour national hackathon registration, verification, and on-ground logistics.",
+      "Served on the Organising Committee managing 48-hour national hackathon participant registration and on-ground logistics for 500+ attendees.",
       "Maintained proactive communication channels and team coordination throughout the high-intensity sprint.",
     ],
     skillsApplied: ["Event Coordination", "Teamwork", "Logistics", "Communication", "Organisational Skills"],

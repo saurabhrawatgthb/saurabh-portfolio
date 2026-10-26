@@ -72,7 +72,7 @@ export const achievementsData: AchievementItem[] = [
     organization: "National Competitive Circuit",
     date: "National Level",
     badge: "NATIONAL SELECTION",
-    description: "Team selected for national-level hackathons across competitive software development and engineering sprints.",
+    description: "Team selected for national-level hackathons across competitive software development and engineering sprints, including MINDCRAFT 2K26 (Top-40 Selection).",
     classification: "CLASSIFIED // VERIFIED",
   },
   {

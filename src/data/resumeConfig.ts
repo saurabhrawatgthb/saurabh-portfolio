@@ -1,14 +1,11 @@
 import { profileData } from "./profile";
-import { skillModules } from "./skills";
 import { experienceLog } from "./experience";
-import { projectsData } from "./projects";
-import { achievementsData } from "./achievements";
 import { researchData } from "./research";
 
 export interface TechnicalProject {
   title: string;
   tagline: string;
-  technologies?: string[];
+  technologies: string[];
   bullets: string[];
   github?: string;
 }
@@ -92,57 +89,57 @@ export interface ResumeData {
 
 /**
  * Dynamically constructs the single-source-of-truth Resume data
- * derived directly from the portfolio's verified data files.
+ * derived directly from verified codebase implementations and portfolio metrics.
  */
 export function getResumeData(): ResumeData {
   const technicalProjects: TechnicalProject[] = [
     {
       title: "Kaarobarie POS Billing Software",
-      tagline: "Restaurant Billing & Management Platform",
-      technologies: ["Full-Stack", "Transaction Management", "Database Systems"],
+      tagline: "Multi-Tenant Restaurant POS & Management SaaS",
+      technologies: ["React 19", "TypeScript", "Node.js", "Express", "Prisma ORM", "PostgreSQL", "Socket.IO", "Vite", "Tailwind CSS"],
       bullets: [
-        "Architected and developed a full-featured restaurant billing and management platform to streamline dining operations.",
-        "Engineered transactional workflows, automated order tracking, and dynamic receipt generation to eliminate billing latency.",
+        "Architected a multi-tenant restaurant management SaaS with multi-franchise tenancy, visual table occupancy management, automated billing, and live kitchen order ticket (KOT) workflows using React, TypeScript, Node.js, Express, Prisma ORM, and PostgreSQL (Supabase), achieving sub-15ms p95 API response times and zero-leakage tenant isolation.",
+        "Engineered 7-tier hierarchical Role-Based Access Control (RBAC) and real-time Socket.IO bi-directional event routing for kitchen display synchronization, automated payroll calculations, and ESC/POS thermal receipt printing (58mm/80mm), eliminating order coordination latency between floor staff and kitchen stations.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "Railway Gangmen Safety System",
-      tagline: "Safety-Focused Railway Monitoring & Warning System",
-      technologies: ["Embedded Systems", "Hazard Detection", "Real-Time Alerts"],
+      tagline: "Safety-Focused Embedded Railway Monitoring & Early Warning System",
+      technologies: ["Embedded C++", "IoT Microcontrollers (Arduino Uno)", "Sensors & Telemetry", "RF Transceivers", "Python"],
       bullets: [
-        "Developed a safety-focused railway alerting system designed to protect track maintenance personnel (gangmen) from oncoming train hazards.",
-        "Implemented real-time hazard detection and automated warning mechanisms to enhance track-worker situational awareness.",
+        "Developed an embedded safety-monitoring and early warning system to protect railway track maintenance personnel (gangmen) from oncoming train collision hazards using C++, Arduino Uno, proximity/vibration sensors, and RF transceivers, achieving real-time approach detection and instantaneous local audio-visual buzzer alarms.",
+        "Implemented a low-latency multi-node telemetry pipeline with threshold-based sensor calibration and fail-safe signal broadcasting via C++ and Python serial communication listeners, significantly improving track-worker situational awareness across hazardous blind-curve operational zones.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "AI-Powered Missing Children Finder",
-      tagline: "AI-Based Identification & Tracking Solution",
-      technologies: ["Artificial Intelligence", "Computer Vision", "Facial Vector Matching"],
+      tagline: "Distributed Computer Vision & Trajectory Analysis Search Grid",
+      technologies: ["Python", "FastAPI", "YOLOv8", "InsightFace", "DeepSORT", "PaddleOCR", "OpenCV", "Docker", "Next.js"],
       bullets: [
-        "Built an AI-based computer vision solution to assist in identifying and tracking missing children across surveillance camera feeds.",
-        "Implemented facial vector matching and trajectory estimation to accelerate critical search operations during response windows.",
+        "Engineered an AI-powered surveillance search pipeline for identifying and tracking missing children across asynchronous CCTV footage streams using Python, FastAPI, Ultralytics YOLOv8, InsightFace (ArcFace embeddings), DeepSORT, and OpenCV, extracting 512-dimensional facial vector embeddings for high-accuracy identity re-identification.",
+        "Integrated automated vehicle number-plate recognition (ANPR) using PaddleOCR alongside camera-network trajectory graph traversal within a Dockerized microservice and Next.js Leaflet map HUD, automating multi-camera movement forecasting and reducing manual surveillance auditing times during critical emergency response windows.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "IoT-Based Landslide Detection System",
-      tagline: "IoT-Based Geological Monitoring & Early Detection System",
-      technologies: ["IoT Sensors", "Telemetry", "Early Warning Alerting"],
+      tagline: "Geological Instability Monitoring & Early Warning Network",
+      technologies: ["Embedded C++", "Microcontroller Hardware", "MPU-6050 Accelerometer/Gyro", "Soil Moisture Sensors", "Python", "REST APIs"],
       bullets: [
-        "Developed an IoT-based environmental monitoring and early detection system for landslide-prone terrains.",
-        "Integrated multi-sensor telemetry to track geological displacement and soil moisture variations to trigger proactive hazard alerts.",
+        "Developed an IoT geological monitoring and early warning system to detect slope displacement and imminent landslides in vulnerable terrains using Embedded C++, MPU-6050 accelerometer/gyroscope sensors, soil moisture probes, and ADC modules, sampling angle tilt and soil saturation deltas with continuous anomaly threshold filtering.",
+        "Implemented edge-to-cloud serial data transmission and automated emergency alerting logic using C++, Python, and REST endpoints, delivering instant multi-level hazard alerts (Advisory, Warning, Critical) to downstream monitoring consoles upon breach of geological slope stability thresholds.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
     {
       title: "AI-Based Pothole Detection System",
-      tagline: "Computer Vision Road Surface Defect Detection Solution",
-      technologies: ["Computer Vision", "Surface Analysis", "Geo-Spatial Tagging"],
+      tagline: "Edge Computer Vision & Geo-Spatial Road Defect Alert Platform",
+      technologies: ["TensorFlow.js", "Custom CNN Model", "JavaScript", "HTML5 Canvas", "Firebase Realtime DB", "Geolocation API"],
       bullets: [
-        "Developed an AI-based road pothole detection solution leveraging computer vision algorithms for automated surface damage inspection.",
-        "Automated road defect classification and coordinate logging to assist municipal teams with preventative infrastructure maintenance.",
+        "Engineered a real-time road surface defect and pothole detection system utilizing client-side edge computer vision on live video streams with TensorFlow.js, a custom in-browser CNN model (`tfjs_model`), HTML5 Canvas, and Web APIs, classifying road surface damage directly on the client without cloud compute costs.",
+        "Integrated automated GPS geolocation coordinate stamping and real-time cloud dispatch into Firebase Realtime Database with transactional deduplication, logging sub-meter geographical coordinates and hazard severity indices to prioritize municipal road repair workflows.",
       ],
       github: "https://github.com/saurabhrawatgthb",
     },
@@ -151,50 +148,48 @@ export function getResumeData(): ResumeData {
   const leadership: LeadershipEntry[] = [
     {
       organization: "IEEE Student Branch, GEHU",
-      role: "Member & Organising Committee Member",
+      role: "Member & Organising Committee",
       events: "TechnIEEEks 2025, SAARTHI 2025, TechnIEEEks 2026",
       bullets: [
-        "Served as an Organising Committee member for flagship initiatives including TechnIEEEks 2025, SAARTHI 2025 (24-hour national hackathon), and TechnIEEEks 2026.",
-        "Demonstrated strong event coordination, teamwork, and logistics management across participant registration, scheduling, and workshop execution.",
-        "Facilitated transparent team communication between faculty advisors, external mentors, and student participants throughout technical sessions.",
+        "Coordinated technical operations, workshop logistics, and participant onboarding for flagship initiatives including TechnIEEEks 2025, SAARTHI 2025 (24-hour national hackathon), and TechnIEEEks 2026.",
+        "Demonstrated structured event coordination and cross-functional teamwork, facilitating transparent communication between faculty advisors, external technical mentors, and student attendees across multi-day sessions.",
       ],
     },
     {
       organization: "Technology Business Incubator (TBI), GEU",
-      role: "Member & Organising Committee Member",
-      events: "Graphethon 2.0, Graphethon 3.0",
+      role: "Member & Organising Committee",
+      events: "Graphethon 2.0 (48-Hr), Graphethon 3.0 (72-Hr)",
       bullets: [
-        "Served as an Organising Committee member for Graphethon 2.0 (48-hour national hackathon) and Graphethon 3.0 (72-hour national hackathon).",
-        "Managed high-pressure event logistics, venue coordination, and participant intake workflows across multi-day national hackathon sprints.",
-        "Applied organizational and communication skills to coordinate cross-functional teams, ensuring uninterrupted operations and resource availability.",
+        "Managed on-ground event operations and participant registration workflows for 500+ attendees during the 48-hour Graphethon 2.0 and 72-hour Graphethon 3.0 flagship national hackathons.",
+        "Applied proactive team leadership and operational problem-solving to coordinate venue logistics, mentor schedules, and crisis communications, ensuring uninterrupted 24/7 hackathon sprint execution.",
       ],
     },
   ];
 
   const hackathons: HackathonEntry[] = [
     {
-      title: "National-Level Hackathons",
+      title: "National-Level Hackathons Selection",
       status: "SELECTED",
       organisation: "National Competitive Circuit",
-      description: "Team selected for national-level hackathons across competitive multi-round development sprints.",
+      description: "Team selected for national-level hackathons across competitive development sprints, including MINDCRAFT 2K26 (Top-40 Selection).",
     },
     {
       title: "PRAXIS 2.0",
       status: "FINALIST",
       organisation: "Google Developer Groups",
-      description: "Finalist in national technical hackathon solving real-world domain challenges.",
+      description: "Finalist in national technical hackathon building scalable software solutions for real-world domain challenges.",
     },
     {
       title: "Economic Times X GenAI Hackathon",
       status: "SEMIFINALIST",
       organisation: "Economic Times",
-      description: "Semifinalist in nationwide generative AI engineering competition.",
+      description: "Semifinalist in nationwide generative AI engineering and systems architecture competition.",
     },
     {
       title: "Neural Nexus AI/ML Challenge",
       status: "FINALIST",
       organisation: "Grafest 2026",
-      description: "Finalist in competitive machine learning and computer vision challenge.",
+      description: "Finalist in competitive machine learning, deep learning, and computer vision challenge.",
     },
   ];
 
@@ -211,7 +206,7 @@ export function getResumeData(): ResumeData {
     x: profileData.socials.x,
     website: profileData.socials.website || "https://saurabhrawat.dev",
     summary:
-      "Computer Science & Engineering student at Graphic Era Hill University with strong problem-solving fundamentals (9+ CGPA). Active builder with hands-on technical experience developing AI/ML solutions, IoT embedded systems, and enterprise platforms. Proven leadership and teamwork in national-level hackathons and campus engineering communities.",
+      "Computer Science & Engineering undergraduate at Graphic Era Hill University with strong software engineering fundamentals (9+ CGPA). Hands-on experience developing multi-tenant SaaS platforms, computer vision pipelines, IoT embedded systems, and REST APIs. Demonstrated leadership, teamwork, and execution across national-level hackathons and technical campus communities.",
     education: [
       {
         institution: "Graphic Era Hill University",
@@ -237,23 +232,31 @@ export function getResumeData(): ResumeData {
     skillsByCategory: [
       {
         category: "Programming Languages",
-        skills: ["C", "C++", "Java", "Python", "JavaScript"],
+        skills: ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "SQL"],
       },
       {
-        category: "Web & Backend",
-        skills: ["React", "Next.js", "Node.js", "FastAPI", "HTML5", "CSS3", "REST APIs"],
+        category: "Web Development",
+        skills: ["React.js", "Next.js", "Node.js", "Express.js", "HTML5", "CSS3", "REST APIs", "Tailwind CSS", "Socket.IO", "Vite"],
       },
       {
-        category: "Databases & Storage",
-        skills: ["PostgreSQL", "SQLite", "SQL"],
+        category: "Databases & ORM",
+        skills: ["PostgreSQL", "SQLite", "Supabase", "Neon", "Prisma ORM", "Firebase Realtime DB"],
       },
       {
-        category: "AI / ML & IoT",
-        skills: ["Machine Learning", "Computer Vision", "Facial Vector Matching", "IoT Sensors", "Microcontroller Telemetry"],
+        category: "AI/ML & Computer Vision",
+        skills: ["Machine Learning", "Computer Vision", "YOLOv8", "InsightFace", "DeepSORT", "OpenCV", "PaddleOCR", "TensorFlow.js", "FastAPI"],
       },
       {
-        category: "Developer Tools",
-        skills: ["Git", "GitHub", "Docker", "Vercel", "VS Code"],
+        category: "IoT & Systems",
+        skills: ["Sensor Integration", "Embedded C++", "IoT Prototyping (Arduino Uno)", "Serial Telemetry", "Geospatial Systems"],
+      },
+      {
+        category: "Developer Tools & DevOps",
+        skills: ["Git", "GitHub", "VS Code", "Vercel", "Docker", "Docker Compose", "Postman"],
+      },
+      {
+        category: "CS Fundamentals & Quality",
+        skills: ["Data Structures & Algorithms", "Object-Oriented Programming (OOP)", "DBMS", "Operating Systems", "Computer Networks", "API & Unit Testing", "Debugging"],
       },
     ],
     technicalProjects,
